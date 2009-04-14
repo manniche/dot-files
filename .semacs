@@ -1,0 +1,188 @@
+(add-to-list 'load-path "~/.emacs.d/elisp/")
+;; (add-to-list 'load-path "~/.emacs.d/elisp/erin.el")
+;; (add-to-list 'load-path "~/.emacs.d/elisp/delsel.el")
+;; (add-to-list 'load-path "~/.emacs.d/elisp/mutt.el")
+(add-to-list 'load-path "~/.emacs.d/elisp/jabber/")
+
+(require 'jabber)
+
+(require 'ido)
+(ido-mode t)
+
+(require 'delsel)
+(delete-selection-mode t)
+
+;;; Mutt/email (post-mode)
+(require 'mutt)
+
+(defadvice server-process-filter (after post-mode-message first activate)
+   "If the buffer is in post mode, overwrite the server-edit
+   message with a post-save-current-buffer-and-exit message."
+   (if (eq major-mode 'post-mode)
+       (message
+        (substitute-command-keys "Type \\[describe-mode] for help composing; \\[post-save-current-buffer-and-exit] when done.")))
+   (if (eq major-mode 'mail-mode)
+       (message
+        (substitute-command-keys "Type \\[describe-mode] for help composing; \\[post-save-current-buffer-and-exit] when done."))))
+; This is also needed to see the magic message.  Set to a higher
+; number if you have a faster computer or read slower than me.
+'(font-lock-verbose 1000)
+; (setq server-temp-file-regexp "mutt-")
+(add-hook 'server-switch-hook
+        (function (lambda()
+                    (cond ((string-match "Post" mode-name)
+                           (post-goto-body))))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Jabber settings
+
+(setq jabber-username "stm" )
+
+(setq jabber-server "kelut.dbc.dk" )
+
+(setq jabber-password nil )
+
+(setq jabber-xosd-display-time 5)
+(defun jabber-xosd-display-message (message)
+  "Displays MESSAGE through the xosd"
+  (let ((process-connection-type nil))
+    (start-process "jabber-xosd" nil "osd_cat" "-p" "bottom" "-A" "center" "-f" "-*-courier-*-*-*-*-30" "-d" (number-to-string jabber-xosd-display-time))
+    (process-send-string "jabber-xosd" message)
+    (process-send-eof "jabber-xosd")))
+
+(defun jabber-message-xosd (text a)
+  (jabber-xosd-display-message "New message."))
+
+(add-hook 'jabber-alert-message-hook 'jabber-message-xosd)
+
+(defun jabber-alert ()
+  (let ((process-connection-type nil))
+    (start-process "jabber-xosd" nil "osd_cat" "-p" "bottom" "-A" "center" "-f" "-*-courier-*-*-*-*-30" "-d" (number-to-string jabber-xosd-display-time))
+    (process-send-string "jabber-xosd" message)
+    (process-send-eof "jabber-xosd"))
+)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; functions 
+(defun insert-timestamp ()
+  "Inserts time-stamp in top of file, commented"
+  (interactive)
+  (goto-char (point-min))
+  (insert (concat comment-start "Time-stamp: <>\n"))
+)
+
+
+(defun iwb ()
+  "indent whole buffer"
+  (interactive)
+  (delete-trailing-whitespace)
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max)))
+
+
+(defun copy-line (&optional arg)
+      "Save current line into Kill-Ring without mark the line "
+       (interactive "P")
+       (let ((beg (line-beginning-position)) 
+     	(end (line-end-position arg)))
+         (copy-region-as-kill beg end))
+     )
+(defun indent-current-region-by (num-spaces)
+   (indent-rigidly (region-beginning) (region-end) num-spaces)
+) 
+
+(defun dedent-current-region ()
+   (interactive)
+   (indent-current-region-by (- 1))
+)
+(defun indent-current-region ()
+   (interactive)
+   (indent-current-region-by (+ 1))
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; variable settings
+
+;; reduce number of standard keypresses for Steen
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; makes the emacs frame title display the absolute path of the buffer-file-name
+(setq frame-title-format "%f")
+
+;(set-face-background 'hl-line "grey10")
+;(set-face-background 'vline "grey10")
+(setq auto-insert-directory "~/tmp/emacs/ido-insert")
+(setq ido-save-directory-list-file "~/tmp/emacs/ido.last")
+
+;; no startup screen
+(setq inhibit-startup-screen t)
+
+;; and scratch should be scratch
+(setq initial-scratch-message "" )
+(setq history-delete-duplicates t)
+(setq history-length 100)
+(setq icomplete-mode t)
+(setq ido-everywhere t)
+(setq initial-major-mode (quote text-mode))
+(setq visible-bell t)
+
+;; use spaces when indenting
+(setq-default indent-tabs-mode nil)
+; no toolbar, no scrollbar, no menubar
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; key bindings
+
+;hurtig switch mellem buffers i en frame
+(global-set-key [s-left] 'previous-buffer)
+(global-set-key [s-right] 'next-buffer)
+
+(global-set-key "\M-o" 'other-window)
+
+(global-set-key "\M-r" 'revert-buffer)
+;; mark-whole-buffer bruges tit ( brug i stedet C-x h)
+(global-set-key "\M-a" 'mark-whole-buffer)
+
+(global-set-key "\M-n" 'linum-mode)
+
+(global-set-key "\M-v" 'vline-mode)
+
+(global-set-key "\M-h" 'hl-line-mode)
+
+(global-set-key [M-left] 'dedent-current-region)
+(global-set-key [M-right] 'indent-current-region)
+
+;; undo gør jeg mig meget i
+(global-set-key [M-backspace] 'undo-only)
+
+;; inserts predefined headers based on major mode
+(global-set-key "\C-c\ h" 'insert-header)
+
+;; inserts timestamp
+(global-set-key "\C-c\ t" 'insert-timestamp)
+
+;kill-copy line
+(global-set-key "\C-c\ l" 'copy-line)
+
+;reverse of C-k
+(global-set-key "\C-l" 'backwards-kill-line) ; C-u in zsh
+
+;; un-bindings:
+;;;;;;;;;;;;;;;
+
+;; ingen godnat til emacs
+(when window-system
+    (global-unset-key (kbd "C-z")))
+
+;; insert: nej, hellere yank
+(global-unset-key [insert])
+(global-set-key [insert] 'yank)
+
+;; jeg rammer af en eller anden grund hele tiden denne tastkombo...
+(global-unset-key (kbd "C-o"))

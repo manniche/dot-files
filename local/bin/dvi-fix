@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DVI_connected=`xrandr | grep "DVI[^ ]* connected" | wc -l `
+#echo "run-dbc-stuff DVI_connected = $DVI_connected" >> /tmp/run-dbc-stuff-debug 
+
+if [ "$DVI_connected" == "1" ] ; then 
+  DVINAME=`xrandr | grep ^DVI | awk '{print $1}'`
+  xrandr --output $DVINAME --auto --output LVDS --off
+  xrandr --output PANEL --off
+fi
+
+
+sleep 1

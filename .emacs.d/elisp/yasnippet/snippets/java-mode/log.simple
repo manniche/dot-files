@@ -1,0 +1,3 @@
+#name : log4j simple log line
+# --
+log.${1:debug|info|warn|fatal}( "$0" );

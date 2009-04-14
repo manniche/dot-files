@@ -1,0 +1,26 @@
+keycode 130 = XF86WWW 
+keycode 129 = Hyper_L 
+keycode 122 = XF86Search
+!
+! Swap Caps_Lock and Control_L
+!
+!remove Lock = Caps_Lock
+!remove Control = Control_L
+!keysym Control_L = Caps_Lock
+keysym Caps_Lock = Control_L
+!add Lock = Caps_Lock
+add Control = Control_L
+!remove control = Control_R
+!remove mod1 = Alt_R
+
+!keycode 113 = Mode_switch
+keycode 108 = Mode_switch
+!keycode  22 = BackSpace
+add mod5 = Mode_switch
+keycode 47 = semicolon colon ae AE               
+keycode 48 = apostrophe quotedbl oslash Ooblique 
+keycode 34 = bracketleft braceleft aring Aring   
+keycode 32 = o O Odiaeresis                      
+keycode 30 = u U Udiaeresis                       
+keycode 38 = a A Adiaeresis                       
+keycode 39 = s S ssharp                           
