@@ -240,7 +240,7 @@ alias ll='ls -la --color=auto'
 alias l='ls -l --color=auto'
 alias gtd='emacs -f gtd'
 alias lesshtml='/usr/bin/w3m -dump -T text/html'
-alias mplayer='mplayer -vo x11'
+
 alias pm-suspend='pm-suspend'
 alias suspend='sudo pm-suspend'
 alias winxp='kvm -hda ~/virtualization/winxp.img -m 750 -usb -net nic -net user'

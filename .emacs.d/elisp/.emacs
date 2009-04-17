@@ -1,4 +1,4 @@
-;Time-stamp: <2009-04-14 06:06:04 stm>
+;Time-stamp: <2009-04-17 10:44:57 stm>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; initialize load-paths
@@ -85,7 +85,8 @@
 ;(color-theme-high-contrast) ;; nemlig det.
 ;(setq stm-color-theme 'color-theme-comidia)
 (setq stm-print-theme 'color-theme-high-contrast)
-(setq stm-color-theme 'color-theme-colorful-obsolescence) ;;farver og striber!
+;(setq stm-color-theme 'color-theme-colorful-obsolescence) ;;farver og striber!
+(setq stm-color-theme 'color-theme-subtle-hacker)
 
 (funcall stm-color-theme)
 
@@ -93,12 +94,12 @@
 ;; (highlight-current-line-set-bg-color stm-highlight)
 
 (show-paren-mode t)
-
+;(set-frame-font "-unknown-DejaVu Sans Mono-bold-normal-normal-*-16-*-*-*-m-0-*-*")
+(set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
 ;(set-face-font 'default "-bitstream-bitstream vera sans mono-medium-r-*-*-*-80-*-*-*-*-*-*")
 ;(set-face-font 'default "-adobe-courier-medium-r-normal--0-0-100-100-m-0-iso10646-1")
 ;(set-face-font 'default "-b&h-lucidatypewriter-medium-r-normal-sans-0-0-100-100-m-0-iso10646-1")
-;(set-face-font 'default "-dejavu-dejavu sans mono-medium-r-normal-*-17-120-100-100-c-0-iso10646-*")
-;(set-face-font 'default "-unknown-DejaVu Sans Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1")
+;(set-face-font 'default "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
 ;(set-face-font 'default "-*-lucidatypewriter-medium-*-*-*-16-*-*-*-*-*-*-*")
 ;(set-face-font 'default "-adobe-courier-medium-r-normal-*-16-100-*-*-*-*-iso10646-1")
 
