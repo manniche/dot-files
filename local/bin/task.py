@@ -18,9 +18,10 @@ from logging import *
 
 # known bugs: the index for searching is never cleaned up
 
-getLogger().setLevel( ERROR )
+#getLogger().setLevel( ERROR )
 #getLogger().setLevel(WARNING)
 #getLogger().setLevel(INFO)
+getLogger().setLevel( DEBUG )
 
 class holder:
     def hold(self, stmt):
@@ -525,10 +526,42 @@ class taskmanager:
         else:
             return False
 
+
     def handle_present( self ):
         """Shows tasks in the system"""
         self.tasks.dshow()
         return True
+
+
+    def cmd_add( self ):
+        """Adds a task to the system"""
+        print "add"
+
+
+    def cmd_open( self ):
+        """Opens an existing task in the system"""
+        print "show"
+
+
+    def cmd_update( self ):
+        """Updates the cache of tasks in the system"""
+        print "update"
+
+
+    def cmd_search( self ):
+        """Searches tasks in the system"""
+        print "search"
+
+    
+    def cmd_rm( self ):
+        """Removes task based on id"""
+        print "rm"
+
+
+    def cmd_show( self ):
+        """Shows tasks in the system"""
+        print "show"
+        
         
     def execute(self, token):
         show = False # did we issue a show?
@@ -560,8 +593,11 @@ class taskcli( object ):
         self._commands = self._get_command_list()
 
     def _do_cli( self ):
-        inp = raw_input( 'tcli% ' )
-        cmd = inp.split()[0]
+        inp  = raw_input( 'tcli% ' )
+        cmd  = inp.split()[0]
+        args = ' '.join( inp.split()[1:] )
+        debug( "cmd=%s"%( cmd ) )
+        debug( "tail=%s"%( args ) )
         if( inp.strip().lower() == 'h' ):
             self._print_help( )
             
@@ -573,7 +609,7 @@ class taskcli( object ):
             method = getattr( taskmanager(), 'handle_%s'%( cmd ), None )
             if method is None:
                 raise ValueError( 'Command "%s" not found.' % cmd)
-            return method()
+            return method( args )
         
         else:
             print 'Error: %s not in command list'%( cmd )
