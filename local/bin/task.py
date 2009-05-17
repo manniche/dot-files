@@ -48,6 +48,42 @@ def sanity_check():
     assert( past < now )
     assert( future > now )
 
+def setup( config ):
+    """Tries to setup a working environment based on the configuration
+    values, if environment does not seem to exist already"""
+
+    #getting the basics first
+    top_dir =  config.get( 'default', 'top_dir' )
+    sane_env = _ask_create_dir( top_dir, 0744 )
+
+    if sane_env:
+        config.remove_option( 'default', 'top_dir' )
+        for directory in config.options( 'default' ):
+            if directory.endswith( '_dir' ):
+                _ask_create_dir( config.get( 'default', directory ) )
+    
+def _ask_create_dir( name, mode=0740 ):
+    """Runs an interactive session with the user for each folder that
+    is passed in, trying to construct it, if it doesn't exist
+    """
+
+    if not os.path.exists( name ):
+        try:
+            inp = raw_input( "%s does not exist, should I create it? ( y/n )\n> "\
+              % ( name ) )
+            if( inp.lower() == 'y' ):
+                os.mkdir( name )
+                os.chmod( name, mode )
+                return True
+            else:
+                print "as requested, I did nothing on %s"%( name )
+                return False
+        except IOError, ioe:
+            "Could not create %s. Please create it manually before running task.py"\
+            % ( name )
+            return False
+    
+
 # priorities
 
 # there are 3 kinds of priorities
@@ -91,14 +127,10 @@ config.set( 'default', 'task_dir', os.path.join( config.get( 'default', 'top_dir
 config.set( 'default', 'thrash_dir', os.path.join( config.get( 'default', 'top_dir' ), 'thrash' ) )
 config.set( 'default', 'closed_dir', os.path.join( config.get( 'default', 'top_dir' ), 'closed' ) )
 config.set( 'default', 'task_no_file', os.path.join( config.get( 'default', 'top_dir' ), '+taskno' ) )
-config.set( 'default', 'editor', os.getenv( 'EDITOR' ) )
+config.set( 'default', 'editor', os.getenv( 'TASKEDITOR', 'emacs -nw -q' ) )
 
-for directory in config.options( 'default' ):
-    if directory.endswith( '_dir' ):
-        if not os.path.exists( config.get( 'default', directory ) ):
-            raise IOError, "%s does not exist, please create it before running task.py"%( config.get( 'default', directory ) )
+setup( config )
 
-    
 class task:
     """task represents a task
 
@@ -132,7 +164,8 @@ class task:
 # 6 /home/pink/task-projekt/tasks/02ad: [9] tegnekursus til efteråret -- check AOF etc.[2009-08-08]9014464 AOF foto -- tegnekursus til efteråret etc. check
     def string_debug(self):
         s = str()
-        s+= self.filename + ": [" + str(self.prio) + "] " + self.subj + "[" + str(self.date) + "]" + str(self.realprio)
+        s += self.filename + ": [" + str(self.prio) + "] "\
+             + self.subj + "[" + str(self.date) + "]" + str(self.realprio)
         return s
 
 # [s] =tag backup af cbo til koncept [6-3-2009]
@@ -181,7 +214,7 @@ class task:
             self.prio = int(prio_m.group(0))
         else:
             warning( "not a valid prio: %s", s)
-        debug("prio is %s", self.prio)
+        debug("prio is %s"% self.prio)
                 
     def init_realprio(self):
         # set real priority for sorting
@@ -194,12 +227,12 @@ class task:
                 reprio = 1 + self.prio / 10.0
                 debug("reprio: %s", reprio)
                 base = min(self.prio, reprio)
-        debug("day: %s", day)
-        debug("base:", base)
+        debug("day: %s"% day)
+        debug("base: %s"% base)
         self.realprio = int((1000000 * (base + 1) ) + day);
         if not self.open:
             self.realprio = self.realprio * 10
-        debug("realprio: %s", self.realprio)
+        debug("realprio: %s"% self.realprio)
 
     def add_tags(self, s):
         """read s as string with tags sep. by space, add tags to tags dict"""
@@ -218,7 +251,7 @@ class task:
         empty_line = re.compile(r'^\s+$')
         header_line = re.compile(r'^(\w+):\s*(.*)\s*$')
         for line in f:
-            debug("matching: %s", line)
+            debug("matching: %s"% line)
             h = holder()
             if empty_line.search(line):
                 debug("empty line, break")
@@ -226,7 +259,7 @@ class task:
             elif h.hold(header_line.search(line)):
                 # hvad hvis content er tomt??
                 (name, content) = h.var.groups()
-                debug("name: >%s< content: >%s<", name, content)
+                debug("name: >%s< content: >%s<"%( name, content ) )
                 if name == "date": self.init_date(content)
                 elif name == "prio": self.init_prio(content)
                 elif name == "stat": self.init_stat(content)
@@ -234,7 +267,7 @@ class task:
                 elif name == "tags": self.add_tags(content)
             else:
                 warning("no match")
-import bisect
+
 class sorted_dict:
     """sorted collection with insert and remove
 
@@ -379,7 +412,7 @@ class task_cache:
         if filename in self.cache:
             t = self.cache[filename]
             if t.mtime() == t.rtime:
-                debug("using cache for: %s", filename)
+                debug("using cache for: %s"% filename)
                 return t
         return self.insert(filename)
 
@@ -451,7 +484,11 @@ def random_new_filename( length = 6 ):
 
 seconds_on_day = 60*60*24
 seconds_on_29_days = seconds_on_day * 29
-def create_new_task( path ):
+
+
+def create_new_task( path=None, task_args=None ):
+    #TODO: If all values are given in args, an editor should not be opened
+
     filename = str()
     while 1:
         filename = path + "/" + random_new_filename()
@@ -462,106 +499,92 @@ def create_new_task( path ):
     year = lt[0]
     month = lt[1]
     day = lt[2]
-    taskfile.write("subj: \n")
-    taskfile.write("prio: \n")
+    task_list = [ 'subj', 'prio', 'stat', 'tags', 'body' ]
+    #ok, this is a piss-poor shot at parsing unknown and probably
+    #non-conforming textual input
+    split_me_args = re.compile( r'(\w+) (\d+) (\w+) \"((?:\w+\s?)+)\" \"((?:\w+\s?)+)\"' )
+    debug( "task_args=%s"%( task_args ) )
+    re_args = split_me_args.search( task_args )
+    if( re_args ):
+        args = dict(zip( task_list, list( re_args.groups() ) ) )
+    else:
+        args = dict() #useless, anyway
+
+    taskfile.write("subj: %s\n"%( args.get( "subj", "" ) ) )
+    taskfile.write("prio: %s\n"%( args.get( "prio", "" ) ) )
     taskfile.write('date: %d-%d-%d\n' % (day, month, year))
-    taskfile.write("stat: \n")
-    taskfile.write("tags: \n")
-    taskfile.write("\n")
+    taskfile.write("stat: %s\n"%( args.get( "stat", "" ) ) )
+    taskfile.write("tags: %s\n"%( args.get( "tags", "" ) ) )
+    taskfile.write("%s\n"%( args.get( "body", "" ) ) )
     return filename
 
 def edit_task( filename ):
     cmd = config.get( 'default', 'editor' ) + " " + filename
     os.system(cmd)
     
-class taskmanager:
+class Taskmanager:
 
-    def __init__(self):
+    def __init__( self, action="help" ):
         self.tasks = task_cache()
         self.tasks.update()
+        self._action = action
+        # TODO: der er noget redundans imellem _commands og _aliases
+        self._commands = self._get_command_list()
+        self._aliases = { re.compile( r'^n' ): [ 'new' ],
+                          re.compile( r'^/(.*)' ): [ 'search' ],
+                          re.compile( r'^\s*(\d+)' ): [ 'open' ],
+                          re.compile( r'^\s*u' ): [ 'update' ],
+                          re.compile( r'^\s*\?' ): [ 'help' ],
+                          re.compile( r'^\s*q' ): [ 'quit' ] }
+        
+
+    def handle_new( self, token ):
+        """(or n) Adds a new task to the system
+        use new with arguments to quickly create a new task:
+
+        (new | n) {subject} {priority} {status} {tags} {body}
+        """
+        filename = create_new_task( config.get( 'default', 'task_dir' ), token )
+        edit_task( filename )
 
 
-    def handle_new(self, str):
-        """Adds a new task to the system"""
-        fun_re = re.compile(r'^n')
-        fun_m = fun_re.search(str)
-        if ( fun_m ):
-            filename = create_new_task( config.get( 'default', 'task_dir' ) )
-            edit_task( filename )
-            return True
-        else:
-            return False
-
-
-    def handle_open(self, str):
-        """Opens an existing task in the system"""
-        fun_re = re.compile(r'^\s*(\d+)')
-        fun_m = fun_re.search(str)
-        if ( fun_m ):
-            edit_task( self.tasks.toc[ int( fun_m.group(1) ) ])
-            return True
-        else:
-            return False
+    def handle_open( self, token ):
+        """(using open or 'taskname' )Opens an existing task in the system"""
+        self.tasks.dshow()
+        debug( "Trying to open task %s"%( token ) )
+        debug( "From list=%s"%( self.tasks.toc ) )
+        edit_task( self.tasks.toc[ int( token ) ])
 
 
     def handle_update(self, str):
         """Updates the cache of tasks in the system"""
-        fun_re = re.compile(r'^\s*u')
-        fun_m = fun_re.search(str)
-        if ( fun_m ):
-            self.tasks.update()
-            return True
-        else:
-            return False
+        self.tasks.update()
 
 
-    def handle_search(self, str):
+    def handle_search( self, token ):
         """Searches tasks in the system"""
-        fun_re = re.compile(r'^/(.*)')
-        fun_m = fun_re.search(str)
-        if ( fun_m ):
-            self.tasks.filter = fun_m.group(1)
-            self.tasks.dshow()
-            return True
-        else:
-            return False
+        #task_cache.filter only heeds the first item, so no use in
+        #splitting the list here, sans avoiding TypeErrors from the re
+        #module
+        self.tasks.filter = ' '.join( token )
+        self.tasks.dshow()
+        
 
-
-    def handle_present( self ):
+    def handle_present( self, token=None ):
         """Shows tasks in the system"""
         self.tasks.dshow()
         return True
 
 
-    def cmd_add( self ):
-        """Adds a task to the system"""
-        print "add"
+    def handle_quit( self, token ):
+        """(q) Quits the program"""
+        sys.exit()
 
 
-    def cmd_open( self ):
-        """Opens an existing task in the system"""
-        print "show"
+    def handle_help( self, token ):
+        """Prints help text"""
+        self._print_help()
 
-
-    def cmd_update( self ):
-        """Updates the cache of tasks in the system"""
-        print "update"
-
-
-    def cmd_search( self ):
-        """Searches tasks in the system"""
-        print "search"
-
-    
-    def cmd_rm( self ):
-        """Removes task based on id"""
-        print "rm"
-
-
-    def cmd_show( self ):
-        """Shows tasks in the system"""
-        print "show"
-        
         
     def execute(self, token):
         show = False # did we issue a show?
@@ -577,84 +600,82 @@ class taskmanager:
             pass
         if not show:
             self.handle_present()
-
-
-class taskcli( object ):
-    """ Class representing the task command line interface
-    """
-
-    def __init__( self, action='help' ):
-        """ 
+        do_cli( show )
         
-        Arguments:
-        - `action`:
-        """
-        self._action = action
-        self._commands = self._get_command_list()
 
-    def _do_cli( self ):
-        inp  = raw_input( 'tcli% ' )
-        cmd  = inp.split()[0]
-        args = ' '.join( inp.split()[1:] )
-        debug( "cmd=%s"%( cmd ) )
-        debug( "tail=%s"%( args ) )
-        if( inp.strip().lower() == 'h' ):
+
+    def do_cli( self, cmd, args ):
+
+        if( cmd.lower() in self._commands[0] and cmd.lower() == 'help' ):
             self._print_help( )
+        elif( cmd in self._commands[ 0 ] ):
             
-        elif( inp.strip().lower() == 'q' ):
-            return 'q'
-
-        elif( cmd in self._commands[0] ):
-            #transitional wrapping of the taskmanager
-            method = getattr( taskmanager(), 'handle_%s'%( cmd ), None )
+            method = getattr( Taskmanager(), 'handle_%s'%( cmd ), None )
             if method is None:
                 raise ValueError( 'Command "%s" not found.' % cmd)
-            return method( args )
-        
-        else:
-            print 'Error: %s not in command list'%( cmd )
-            self._print_help()
+            method( args )
+            return
 
+        for match in self._aliases.keys():
+            here = match.search( cmd )
+            if( here ):
+                new_args = list()
+                if( here.groups() != () ):
+                    debug( "args: %s %s"%( here.group( 1 ), args ) )
+                    new_args.append( here.group( 1 ) )
+                    for i in args:
+                        new_args.append( i )
+                cmd = self._aliases.get( match )[0]
+                info( "METHOD: %s( %s )"%( cmd, new_args ) )
+                method = getattr( Taskmanager(), 'handle_%s'%( cmd ), None )
+                if method is None:
+                    raise ValueError( 'Command "%s" not found.' % cmd )
+                if len( new_args ) == 0:
+                    new_args = ''
+                method( new_args )
+                return
+        self.handle_present()
         return
-
-    def run( self ):
-        try:
-            while True:
-                resp = self._do_cli()
-                if resp == 'q':
-                    break
-        except KeyboardInterrupt:
-            sys.exit()
 
 
     def _get_command_list( self ):
         command_list = list()
         command_help = dict()
         
-        for key in dir( taskmanager ):
-            if key.startswith( 'handle' ):
+        for key in dir( Taskmanager ):
+            if key.startswith( 'handle_' ):
                 pname = key.split('_', 1)[-1]
                 command_list.append( pname )
-                command_help[ pname ] = getattr( taskmanager, key ).__doc__
+                command_help[ pname ] = getattr( Taskmanager, key ).__doc__
 
         return command_list, command_help
 
     def _print_help( self ):
-        print "\nAvailable commands:\n"
+        print "\nAvailable commands:\n(The command alias is shown in paratheses)\n"
         for command in self._commands[0]:
             print """%s:%s%s"""%( command, " "*( 10-len( command ) ), self._commands[1].get( command ) )
-        return
 
 
 if __name__ == "__main__":
     sanity_check()
     
 
-    tm = taskmanager()
+    tm = Taskmanager()
     tm.handle_present()
-    tc = taskcli()
-    tc.run()
-#     while 1:
+#     tc = taskcli()
+#     tc.run()
+    try:
+        while True:
+            inp  = raw_input( 'tcli% ' )
+            cmd  = inp.split()[0]
+            #args = ' '.join( inp.split()[1:] )
+            args = inp.split()[1:]
+            debug( "cmd=%s"%( cmd ) )
+            debug( "args=%s"%( args ) )
+            tm.do_cli( cmd, args )
+    except KeyboardInterrupt:
+        sys.exit()
+
 #         data = raw_input("> ")
 #         tm.execute( data )
 
