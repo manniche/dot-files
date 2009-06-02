@@ -12,10 +12,10 @@ import os.path
 sys.path.append( os.path.join( os.getenv( 'HOME' ), 'local', 'lib', 'python' ) )
 import finder
 import sys
-import logging
 from ConfigParser import ConfigParser
-from logging import *
 
+from logging import *
+import logging
 # known bugs: the index for searching is never cleaned up
 
 #getLogger().setLevel( ERROR )
@@ -268,6 +268,7 @@ class task:
             else:
                 warning("no match")
 
+
 class sorted_dict:
     """sorted collection with insert and remove
 
@@ -504,11 +505,13 @@ def create_new_task( path=None, task_args=None ):
     #non-conforming textual input
     split_me_args = re.compile( r'(\w+) (\d+) (\w+) \"((?:\w+\s?)+)\" \"((?:\w+\s?)+)\"' )
     debug( "task_args=%s"%( task_args ) )
-    re_args = split_me_args.search( task_args )
+    re_args = None
+    if isinstance( task_args, str ):
+        re_args = split_me_args.search( task_args )
     if( re_args ):
-        args = dict(zip( task_list, list( re_args.groups() ) ) )
-    else:
-        args = dict() #useless, anyway
+        args = dict( zip( task_list, list( re_args.groups() ) ) )
+    elif isinstance( task_args, list ) and len( task_args ) == 5:
+        args = dict( zip( task_list, task_args ) )
 
     taskfile.write("subj: %s\n"%( args.get( "subj", "" ) ) )
     taskfile.write("prio: %s\n"%( args.get( "prio", "" ) ) )
@@ -521,6 +524,7 @@ def create_new_task( path=None, task_args=None ):
 def edit_task( filename ):
     cmd = config.get( 'default', 'editor' ) + " " + filename
     os.system(cmd)
+
     
 class Taskmanager:
 
@@ -533,6 +537,7 @@ class Taskmanager:
         self._aliases = { re.compile( r'^n' ): [ 'new' ],
                           re.compile( r'^/(.*)' ): [ 'search' ],
                           re.compile( r'^\s*(\d+)' ): [ 'open' ],
+                          re.compile( r'^(c)' ): [ 'close' ],
                           re.compile( r'^\s*u' ): [ 'update' ],
                           re.compile( r'^\s*\?' ): [ 'help' ],
                           re.compile( r'^\s*q' ): [ 'quit' ] }
@@ -544,16 +549,54 @@ class Taskmanager:
 
         (new | n) {subject} {priority} {status} {tags} {body}
         """
+        debug( "got input token=%s"%( token ) )
         filename = create_new_task( config.get( 'default', 'task_dir' ), token )
         edit_task( filename )
 
 
     def handle_open( self, token ):
-        """(using open or 'taskname' )Opens an existing task in the system"""
+        """(using open or 'taskname' ) Opens an existing task in the system"""
         self.tasks.dshow()
+        if isinstance( token, list ) and len( token ) > 0:
+            token = token[0]
+        else:
+            token = int( raw_input( 'Please enter no of task to open: ' ) )
         debug( "Trying to open task %s"%( token ) )
         debug( "From list=%s"%( self.tasks.toc ) )
         edit_task( self.tasks.toc[ int( token ) ])
+
+
+    def handle_close( self, token ):
+        """(using 'close' or 'close tasknumber' ) Closes an existing task in the system"""
+        self.tasks.dshow()
+        if isinstance( token, list ) and len( token ) > 0:
+            token = token[0]
+        else:
+            token = int( raw_input( 'Please enter no of task to close: ' ) )
+        debug( "Trying to close task %s"%( token ) )
+        debug( "From list=%s"%( self.tasks.toc ) )
+        filename = self.tasks.toc[ int( token ) ]
+        debug( "closing task in %s"%( filename ) )
+        f = open( filename )
+        header_line = re.compile(r'^(stat):\s*(.*)\s*$')
+        _output = list()
+        for line in f:
+            debug("matching: %s"% line)
+            h = holder()
+            if h.hold( header_line.search( line ) ):
+                (name, content) = h.var.groups()
+                debug("name: >%s< content: >%s<"%( name, content ) )
+                if name == "stat":
+                    line = "stat: closed"
+            else:
+                warning("no match")
+            _output.append( line )
+        f.close()
+        f = open( filename, 'w' )
+        f.writelines( _output )
+        f.close()
+        debug( 'closed task in file %s'%( filename ) )
+        self.tasks.dshow()
 
 
     def handle_update(self, str):
@@ -601,18 +644,38 @@ class Taskmanager:
         if not show:
             self.handle_present()
         do_cli( show )
-        
+
+
+    def run_once( self, args ):
+        '''If the arguments were given directly to the program, it is
+        run in non-interactive mode and exits thereafter'''
+        filename = create_new_task( config.get( 'default', 'task_dir' ), args )
+        info( 'created task with filename \'%s\''%( filename ) )
 
 
     def do_cli( self, cmd, args ):
 
-        if( cmd.lower() in self._commands[0] and cmd.lower() == 'help' ):
+        try:
+            cmd = int( cmd )
+        except ValueError:
+            debug( "%s is not a task number"%( cmd ) )
+
+        if( isinstance( cmd, int ) ):
+            method = getattr( Taskmanager(), 'handle_open' )
+            args = list( str( cmd ) )
+            debug( "calling %s( args=%s )"%( method, args ) )
+            method( args )
+            return
+            
+        elif( cmd.lower() in self._commands[0] and cmd.lower() == 'help' ):
             self._print_help( )
+            
         elif( cmd in self._commands[ 0 ] ):
             
             method = getattr( Taskmanager(), 'handle_%s'%( cmd ), None )
             if method is None:
                 raise ValueError( 'Command "%s" not found.' % cmd)
+            debug( "calling %s( args=%s )"%( method, args ) )
             method( args )
             return
 
@@ -620,9 +683,9 @@ class Taskmanager:
             here = match.search( cmd )
             if( here ):
                 new_args = list()
-                if( here.groups() != () ):
-                    debug( "args: %s %s"%( here.group( 1 ), args ) )
-                    new_args.append( here.group( 1 ) )
+                info( "groups="+str( here.groups() )+", args="+str( args ) )
+                if( len( args ) > 0 ):
+                    debug( "args: %s "%( args ) )
                     for i in args:
                         new_args.append( i )
                 cmd = self._aliases.get( match )[0]
@@ -659,8 +722,39 @@ class Taskmanager:
 if __name__ == "__main__":
     sanity_check()
     
+    from optparse import OptionParser
+    usage_text = '''%prog [options] subject priority {open|closed} "tags" "description"
 
+If all arguments are given, task.py simply creates a task and exits.
+If more or less than the specified arguments are given, task.py exists
+with an error code.
+
+Currently, no checks are made on the order of the arguments, so if
+priority are given as the argument in position one, and the number of
+arguments is correct, a task will be created with "priority" as
+subject.
+    '''
+    parser = OptionParser( usage=usage_text )
+    
+    parser.add_option( "-t", dest="test", 
+                       action="store", help="Runs testsuite on task.py" )
+    
+    (options, args) = parser.parse_args()
+    status = [ 'open', 'closed' ]
     tm = Taskmanager()
+
+    if options.test:
+        import doctest
+        doctest.testmod()
+    if len( args ) == 5 and args[2] in status:
+        inp = args
+        tm.run_once( args )
+    elif len( args ) > 0 and args[2] not in status:
+        sys.exit( 'status must be one of: %s'%( ', '.join( status ) ) )
+    elif len( args ) > 0:
+        print "length of arguments = %s"%( len( args ) )
+        sys.exit( 'if any arguments are given, please specify all five' )
+
     tm.handle_present()
 #     tc = taskcli()
 #     tc.run()
@@ -675,8 +769,3 @@ if __name__ == "__main__":
             tm.do_cli( cmd, args )
     except KeyboardInterrupt:
         sys.exit()
-
-#         data = raw_input("> ")
-#         tm.execute( data )
-
-
