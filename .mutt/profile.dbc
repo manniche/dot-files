@@ -1,0 +1,20 @@
+# -*-mode: conf-*-
+# Time-stamp: <2009-06-03 10:41:54 stm>
+
+set alias_file=~/.abook/addressbook
+
+macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
+set query_command = "abook --mutt-query '%s'"
+
+set from = 'stm@dbc.dk'
+
+set mbox_type = 'Maildir' # default: 'mbox'
+set folder = ~/Mail-plan
+set spoolfile = ~/Mail-plan/INBOX
+
+save-hook '~C tika-dev' =/INBOX.lists.apache.tika
+save-hook '~h tika-user@lucene.apache.org' =/INBOX.lists.apache.tika
+save-hook '~e bugzilla-daemon@dbc.dk' =/INBOX.OLS.OpenSearch.bugs
+
+
+source ~/.muttrc
