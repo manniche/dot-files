@@ -1,4 +1,4 @@
-;Time-stamp: <2009-06-04 14:03:14 stm>
+;Time-stamp: <2009-07-09 09:54:47 stm>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; initialize load-paths
@@ -38,7 +38,7 @@
 
 (require 'erin)
 
-;(require 'java-mode-indent-annotations)
+(require 'java-mode-indent-annotations)
 (load-library "java-add-on")
 (require 'psvn)
 
@@ -118,7 +118,7 @@
 ;; hooks and functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; This will be fun...
-(global-auto-revert-mode 1)
+;(global-auto-revert-mode 1)
 
 ;;;;;;;;
 ;; hooks
@@ -304,7 +304,7 @@
 ;; key bindings for java-add-on
 (defun java-add-on-keymap ()
   "key bindings for java-add-on"
-  ;;(define-key java-mode-map (kbd "RET") 'c-newline-and-perhaps-comment)
+  (define-key java-mode-map (kbd "RET") 'c-newline-and-perhaps-comment)
   ;;(define-key java-mode-map [(meta f7)]                   'narrow-to-my-firms-license)
   (define-key java-mode-map [(control c) (i)]                   'java-add-on-do-import)
   (define-key java-mode-map [(control c) (o)]                   'java-add-on-find-src-file)
@@ -315,11 +315,11 @@
   (define-key java-mode-map [(control c) (control r) (t)]       'java-add-on-alphabetize-throws)
   (define-key java-mode-map [(control c) (control r) (p)]       'java-add-on-astyle-buffer)
   (define-key java-mode-map [(control c) (r)]                   'java-add-on-normalize-buffer)
-  (define-key java-mode-map [(control tab)] (make-hippie-expand-function
-                                             '(java-add-on-hippie-expand-find-classname) t)))
+;;  (define-key java-mode-map [(control tab)] (make-hippie-expand-function
+;;                                             '(java-add-on-hippie-expand-find-classname) t))
+)
 
 (defun java-mode-common-setup ()
-  ;(define-key java-mode-map (kbd "RET") 'c-newline-and-perhaps-comment)
   (setq comment-line-break-function 'c-newline-and-perhaps-comment)
 ) 
 (autoload 'test-case-mode "test-case-mode" nil t)
@@ -338,11 +338,51 @@
 
 (add-hook 'java-mode-hook 'java-add-on-keymap)
 
+(add-hook 'java-mode-hook
+  (lambda()
+    (local-set-key (kbd "C-c <right>") 'hs-show-block)
+    (local-set-key (kbd "C-c <left>")  'hs-hide-block)
+    (local-set-key (kbd "C-c <up>")    'hs-hide-all)
+    (local-set-key (kbd "C-c <down>")  'hs-show-all)
+    (hs-minor-mode t) ) )
+
 ;; add java-add-on keywords
 (font-lock-add-keywords 'java-mode
                         java-add-on-highlight
                         "'")
 
+
+;; jde
+(add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/cedet-common/")
+(add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/cedet-contrib/")
+;;for jde
+(require 'cedet)
+
+(add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/elib/")
+
+(add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/jde/")
+
+(require 'jde)
+
+(defclass jde-compile-javac-16 (jde-compile-javac-15)
+  ()
+  "Class of J2SDK 1.6 javac compilers.")
+ 
+(defmethod initialize-instance ((this
+ jde-compile-javac-16) &rest fields)
+  ;; Call parent initializer.
+ 
+   (call-next-method)
+ 
+   ;; Set compiler version.
+   (oset this version "1.6"))
+ 
+(add-to-list 'jde-compile-javac-compilers
+             (jde-compile-javac-16 "javac 1.6.x") t)
+
+(setq jde-web-browser "conkeror")
+(setq jde-doc-dir "/usr/share/doc/jde")
+ 
 ;; ----------------------------------
 ;; wikimarkup
 
@@ -415,6 +455,18 @@
 ;  (highlight-current-line-set-bg-color shm-highlight)
   )
 
+(defun print-to-hp ()
+  (interactive)
+
+  (setq ps-paper-type 'a4)
+  (setq ps-font-size '(9 . 10.5))
+  (setq ps-n-up-printing 1)
+  (setq printer-name "hp-LaserJet-1010")
+  (funcall stm-print-theme)
+
+  (ps-print-buffer-with-faces)
+  (funcall stm-color-theme)
+)
 ;make all emacs backupfiles go into ~/tmp/emacs
 (setq backup-directory-alist
       '(("." . "~/tmp/emacs")))
@@ -438,14 +490,14 @@
 (if (file-exists-p "~/.org/org.emacs")
     (load-file "~/.org/org.emacs"))
 ;; org-mode keybindings
-(add-hook 'org-load-hook
-          (lambda ()
+;; (add-hook 'org-load-hook
+;;           (lambda ()
             
-            (define-key 'outline-mode-map "\C-cl" 'org-store-link)
-            (define-key 'outline-mode-map "\C-ca" 'org-agenda)
-            (define-key 'outline-mode-map "\C-cb" 'org-iswitchb)
-            (define-key 'outline-mode-map "\C-cr" 'org-remember)
-            ))
+;;             (define-key 'org-mode-map "\C-cl" 'org-store-link)
+;;             (define-key 'org-mode-map "\C-ca" 'org-agenda)
+;;             (define-key 'org-mode-map "\C-cb" 'org-iswitchb)
+;;             (define-key 'org-mode-map "\C-cr" 'org-remember)
+;;             ))
 (setq org-CUA-compatible t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -584,6 +636,7 @@
 
 ;; see printer variables for more info
 (global-set-key "\C-cp" 'print-to-pdf)
+;(global-set-key "\C-cp" 'print-to-minolta)
 
 
 ;; does a search at point

@@ -243,11 +243,12 @@ alias lesshtml='/usr/bin/w3m -dump -T text/html'
 
 alias pm-suspend='pm-suspend'
 alias suspend='sudo pm-suspend'
-alias winxp='kvm -hda ~/virtualization/winxp.img -m 750 -usb -net nic -net user'
+alias winxp='kvm -hda ~/virtualization/winxp.img -m 750 -usb -net nic,vlan=1 -net user,vlan=1'
 
 export EMAIL="steen@manniche.net"
 export EDITOR=emacs
 export VISUAL=$EDITOR
+export SVN_EDITOR=semacs
 export BROWSER=firefox
 #export XTERM=urxvt
 export XTERM=xterm
@@ -261,6 +262,7 @@ export CVSROOT=:pserver:stm@cvs.dbc.dk:/export/CVS
 export CLASSPATH=/usr/local/lib/java:/usr/local/java/lib/junit4.jar
 
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export PLUGIN_HOME=/usr/lib/mozilla/plugins
 
 export PERL5LIB=/home/stm/local/bin:/home/stm/local/tidsreg:/home/stm/local/lib
 

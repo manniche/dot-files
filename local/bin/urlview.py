@@ -4,17 +4,23 @@
 # from http://www.haller.ws/logs/view.cgi/UrlViewWithPython
 import sys, re, email, email.Iterators, email.Parser, curses, os, traceback, base64, xml.sax.saxutils, time, sets
 re_url  = re.compile( r'((?:f|ht)tps?://[^\t\n\'\"\<\> ]+)', re.I)
+
+browser = ( '/usr/bin/conkeror', 'conkeror' )
+browser_args = '' #'-new-tab'
+
 controls = ({
 	( ord("Q"), ord("q") ) : 'cleanup()',
 	( ord("B"), ord("b"), 10, curses.KEY_ENTER ) : 'browse(urls[selected], True)',
 	(curses.KEY_UP,   curses.KEY_LEFT, ord("k"))  : 'selected = (selected - 1) % len(urls)',
 	(curses.KEY_DOWN, curses.KEY_RIGHT, ord("j")) : 'selected = (selected + 1) % len(urls)',
 })
+
 def cleanup(kill=True):
 	curses.nocbreak(); stdscr.keypad(0); curses.echo(); curses.endwin()
 	if kill: os._exit(0)
+
 def browse(url, kill=False):
-	os.execvp("/usr/bin/firefox", ('firefox', '-new-tab', url))
+	os.execvp( browser[0], ( browser[1], browser_args, url ) )
 
 re_youtube = re.compile('http://www.youtube.com/watch\?v=([a-zA-Z0-9]+)')
 def present_better(url):
