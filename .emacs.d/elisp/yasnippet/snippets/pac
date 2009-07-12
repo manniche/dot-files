@@ -1,5 +1,0 @@
-#name : package declaration
-# --
-package ${1:`(concat (replace-regexp-in-string "/" "." (substring (nth 1 (split-string  (substring (pwd) 10 ) "src" ) ) 1 -1) ) ";" )`}
-
-$0

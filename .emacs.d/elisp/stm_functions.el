@@ -73,6 +73,10 @@
   (interactive)
   (shell-command-on-region startPos endPos script nil t nil t) )
 
+(defun nuke-all-buffers ()
+"Kill all buffers, leaving *scratch* only."
+(interactive)
+(mapcar (lambda (x) (kill-buffer x)) (buffer-list)) (delete-other-windows))
 
 (defun c-newline-and-perhaps-comment (&optional soft)
   "Insert a newline and continue commenting if inside a C style comment.

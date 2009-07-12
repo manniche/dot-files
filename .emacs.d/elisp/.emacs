@@ -1,4 +1,4 @@
-;Time-stamp: <2009-04-17 10:44:57 stm>
+;Time-stamp: <2009-04-28 09:43:19 stm>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; initialize load-paths
@@ -109,6 +109,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; hooks and functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; This will be fun...
+(global-auto-revert-mode 1)
 
 ;;;;;;;;
 ;; hooks
@@ -440,6 +443,9 @@
 (global-set-key [S-C-f8] 'bm-previous)
 (global-set-key [M-f8] 'bm-all) ;shows all bms in all buffers
 ; see variables for more info on the bookmarks
+
+;; bury the buffer
+(global-set-key [f9] 'bury-buffer)
 
 ;; custom functions bound here, see under functions
 (global-set-key [C-prior] 'shrink-window-1)

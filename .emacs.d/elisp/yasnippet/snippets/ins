@@ -1,3 +1,0 @@
-#name : Instance variable
-# --
-private ${1:Type} ${2:variable};

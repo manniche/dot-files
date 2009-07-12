@@ -1,3 +1,0 @@
-#name : format println (out)
-# --
-System.out.println( String.format( "%s", $0 ) );

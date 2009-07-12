@@ -1,6 +1,0 @@
-#name : junit method exception
-# --
-    @Test(expected = ${1:ExceptionType}.class)
-    public void test${1:method_name}(){
-        $0
-    }
