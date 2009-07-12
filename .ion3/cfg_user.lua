@@ -18,6 +18,7 @@ defwinprop{
 exec( 'kdeinit' )
 exec( 'local/bin/ssh-add.sh' )
 exec( 'knetworkmanager' )
+exec( 'emacs --daemon' )
 exec( 'ivman -d /etc/ivman/' ) 
 exec( 'syndaemon -d -t' )
 exec( 'xmodmap /home/stm/.xmodmap' )

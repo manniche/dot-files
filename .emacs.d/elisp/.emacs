@@ -1,4 +1,4 @@
-;Time-stamp: <2009-04-28 09:43:19 stm>
+;Time-stamp: <2009-06-04 14:03:14 stm>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; initialize load-paths
@@ -23,9 +23,11 @@
 (require 'stm_functions)
 
 (require 'ido)
+;(autoload 'ido "ido" "Interactive do mode" t)
 (ido-mode t)
 
-(require 'rst)  ;; or (load "rst")
+(require 'rst)
+;(autoload 'rst "rst" "ReSTructured text mode" t)  ;; or (load "rst")
 
 (require 'yasnippet)
 (yas/initialize)
@@ -36,13 +38,12 @@
 
 (require 'erin)
 
-;(require 'java-complete)
-(require 'java-mode-indent-annotations)
-
+;(require 'java-mode-indent-annotations)
+(load-library "java-add-on")
 (require 'psvn)
 
-(require 'jabber)
-(require 'jabber-autoloads)
+;(require 'jabber)
+;(require 'jabber-autoloads)
 
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 
@@ -51,7 +52,7 @@
 (delete-selection-mode t)
 ;(setq delete-selection-mode 't)
 
-(require 'org-install)
+(autoload 'org-install "org-mode" "org mode" t)
 
 (require 'vline)
 (require 'hl-line)
@@ -69,6 +70,11 @@
 ; for the mode-line, enable column-numbering
 (column-number-mode t)
 
+(require 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+
+
+
 ;; mode-list
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.xml\\'" . nxml-mode))
@@ -78,6 +84,7 @@
 (add-to-list 'auto-mode-alist '("\\.ipy\\'" . python-mode))
 (add-to-list 'auto-mode-alist '("\\.py\\'"  . python-mode))
 (add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-mode))
+(add-to-list 'auto-mode-alist '(".mozilla/firefox/.*/itsalltext/wiki.dbc.dk.*\\.txt$" . erin-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ui things
@@ -95,7 +102,7 @@
 
 (show-paren-mode t)
 ;(set-frame-font "-unknown-DejaVu Sans Mono-bold-normal-normal-*-16-*-*-*-m-0-*-*")
-(set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+;(set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
 ;(set-face-font 'default "-bitstream-bitstream vera sans mono-medium-r-*-*-*-80-*-*-*-*-*-*")
 ;(set-face-font 'default "-adobe-courier-medium-r-normal--0-0-100-100-m-0-iso10646-1")
 ;(set-face-font 'default "-b&h-lucidatypewriter-medium-r-normal-sans-0-0-100-100-m-0-iso10646-1")
@@ -125,6 +132,24 @@
 (add-hook 'write-file-hooks 'time-stamp)
 ; but only within the first 10 lines
 (setq time-stamp-line-limit 10)
+
+;;bm-mode hooks
+;; Loading the repository from file when on start up.
+(add-hook' after-init-hook 'bm-repository-load)
+ 
+;; Restoring bookmarks when on file find.
+(add-hook 'find-file-hooks 'bm-buffer-restore)
+ 
+;; Saving bookmark data on killing a buffer
+(add-hook 'kill-buffer-hook 'bm-buffer-save)
+ 
+;; Saving the repository to file when on exit.
+;; kill-buffer-hook is not called when emacs is killed, so we
+;; must save all bookmarks first.
+(add-hook 'kill-emacs-hook '(lambda nil
+                              (bm-buffer-save-all)
+                              (bm-repository-save)))
+
 
 ;;;;;;;;;;;
 ;;functions
@@ -274,6 +299,25 @@
 ;;--------------------------------------------------
 ;; Java
 ;;--------------------------------------------------
+
+
+;; key bindings for java-add-on
+(defun java-add-on-keymap ()
+  "key bindings for java-add-on"
+  ;;(define-key java-mode-map (kbd "RET") 'c-newline-and-perhaps-comment)
+  ;;(define-key java-mode-map [(meta f7)]                   'narrow-to-my-firms-license)
+  (define-key java-mode-map [(control c) (i)]                   'java-add-on-do-import)
+  (define-key java-mode-map [(control c) (o)]                   'java-add-on-find-src-file)
+  (define-key java-mode-map [(control c) (u)]                   'java-add-on-update-src-table)
+  (define-key java-mode-map [(control c) (shift u)]             'java-add-on-update-src-table-i)
+  (define-key java-mode-map [(control c) (meta u)]              'java-add-on-update-table)
+  (define-key java-mode-map [(control c) (control r) (i)]       'java-add-on-alphabetize-imports)
+  (define-key java-mode-map [(control c) (control r) (t)]       'java-add-on-alphabetize-throws)
+  (define-key java-mode-map [(control c) (control r) (p)]       'java-add-on-astyle-buffer)
+  (define-key java-mode-map [(control c) (r)]                   'java-add-on-normalize-buffer)
+  (define-key java-mode-map [(control tab)] (make-hippie-expand-function
+                                             '(java-add-on-hippie-expand-find-classname) t)))
+
 (defun java-mode-common-setup ()
   ;(define-key java-mode-map (kbd "RET") 'c-newline-and-perhaps-comment)
   (setq comment-line-break-function 'c-newline-and-perhaps-comment)
@@ -292,6 +336,19 @@
 
 (add-hook 'java-mode-hook 'doxymacs-mode)
 
+(add-hook 'java-mode-hook 'java-add-on-keymap)
+
+;; add java-add-on keywords
+(font-lock-add-keywords 'java-mode
+                        java-add-on-highlight
+                        "'")
+
+;; ----------------------------------
+;; wikimarkup
+
+
+
+
 ;; -------------------------------------------------
 ;; ReST 
 ;; -------------------------------------------------
@@ -305,6 +362,11 @@
 
 ;; makes the emacs frame title display the absolute path of the buffer-file-name
 (setq frame-title-format "%f")
+
+; improving ido-mode
+(setq ido-enable-flex-matching t)
+(setq ido-create-new-buffer 'always)
+
 
 ;the color-theme my screen likes, is not a printer favorite.
 (defun print-to-pdf ()
@@ -360,7 +422,8 @@
 ;;always follow symlinks
 (setq vc-follow-symlinks t)
 
-; orgmode variables
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; orgmode variables
 
 ;;I use org-mode from the git repos. Currently installed is: do eval-last-sexp on next line
 ;; (org-version)
@@ -374,6 +437,16 @@
 ;; org-mode customizations
 (if (file-exists-p "~/.org/org.emacs")
     (load-file "~/.org/org.emacs"))
+;; org-mode keybindings
+(add-hook 'org-load-hook
+          (lambda ()
+            
+            (define-key 'outline-mode-map "\C-cl" 'org-store-link)
+            (define-key 'outline-mode-map "\C-ca" 'org-agenda)
+            (define-key 'outline-mode-map "\C-cb" 'org-iswitchb)
+            (define-key 'outline-mode-map "\C-cr" 'org-remember)
+            ))
+(setq org-CUA-compatible t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; programming language specifics
@@ -447,6 +520,10 @@
 ;; bury the buffer
 (global-set-key [f9] 'bury-buffer)
 
+;; kill the buffer
+(global-set-key [C-f9] 'kill-buffer)
+
+
 ;; custom functions bound here, see under functions
 (global-set-key [C-prior] 'shrink-window-1)
 (global-set-key [C-next]  'grow-window-1)
@@ -469,7 +546,8 @@
 
 (global-set-key "\M-r" 'revert-buffer)
 
-(global-set-key "\C-g" 'keyboard-quit)
+;; jump to line no.
+(global-set-key "\M-g" 'goto-line)
 
 ;; mark-whole-buffer bruges tit ( brug i stedet C-x h)
 ;;(global-set-key "\M-a" 'mark-whole-buffer)
@@ -507,17 +585,12 @@
 ;; see printer variables for more info
 (global-set-key "\C-cp" 'print-to-pdf)
 
-;; org-mode keybindings
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(global-set-key "\C-cr" 'org-remember)
-;; jump to line no.
-(global-set-key "\M-g" 'goto-line)
 
 ;; does a search at point
 (global-set-key "\C-c\ s" 'search-expr-at-point)
 
+;; ibuffer er bare bedre
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; un-bindings:
 ;;;;;;;;;;;;;;;
@@ -543,6 +616,9 @@
 
 ;;bookmarks only places mark at the left
 (setq bm-highlight-style (quote bm-highlight-only-fringe))
+;; make bookmarks persistent as default
+(setq-default bm-buffer-persistence t)
+ 
 
 (setq auto-insert-directory "~/tmp/emacs/ido-insert")
 (setq ido-save-directory-list-file "~/tmp/emacs/ido.last")

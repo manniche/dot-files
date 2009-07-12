@@ -18,10 +18,10 @@ from logging import *
 import logging
 # known bugs: the index for searching is never cleaned up
 
-#getLogger().setLevel( ERROR )
+getLogger().setLevel( ERROR )
 #getLogger().setLevel(WARNING)
 #getLogger().setLevel(INFO)
-getLogger().setLevel( DEBUG )
+#getLogger().setLevel( DEBUG )
 
 class holder:
     def hold(self, stmt):
@@ -512,7 +512,8 @@ def create_new_task( path=None, task_args=None ):
         args = dict( zip( task_list, list( re_args.groups() ) ) )
     elif isinstance( task_args, list ) and len( task_args ) == 5:
         args = dict( zip( task_list, task_args ) )
-
+    else:
+        args = dict()
     taskfile.write("subj: %s\n"%( args.get( "subj", "" ) ) )
     taskfile.write("prio: %s\n"%( args.get( "prio", "" ) ) )
     taskfile.write('date: %d-%d-%d\n' % (day, month, year))

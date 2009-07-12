@@ -104,7 +104,8 @@ local function get_thermal()
 
   if pcall(function ()
        local status
-       local file=try_open(statusd_laptopstatus.temp_info, "r")
+              local file = io.open( "/proc/acpi/thermal_zone/THM0/temperature", "r" )
+       --local file=try_open(statusd_laptopstatus.temp_info, "r")
        status, _, temp = string.find(file:read("*all"),
                                      "temperature:%s+(%d+).*")
        if not status then error("could not get temperature") end
