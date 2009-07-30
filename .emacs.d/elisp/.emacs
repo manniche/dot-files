@@ -1,4 +1,4 @@
-;Time-stamp: <2009-07-09 09:54:47 stm>
+;Time-stamp: <2009-07-17 12:35:37 stm>
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; initialize load-paths
@@ -38,12 +38,8 @@
 
 (require 'erin)
 
-(require 'java-mode-indent-annotations)
-(load-library "java-add-on")
-(require 'psvn)
-
-;(require 'jabber)
-;(require 'jabber-autoloads)
+;(require 'java-mode-indent-annotations)
+;(load-library "java-add-on")
 
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 
@@ -347,41 +343,41 @@
     (hs-minor-mode t) ) )
 
 ;; add java-add-on keywords
-(font-lock-add-keywords 'java-mode
-                        java-add-on-highlight
-                        "'")
+;; (font-lock-add-keywords 'java-mode
+;;                         java-add-on-highlight
+;;                         "'")
 
 
 ;; jde
-(add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/cedet-common/")
-(add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/cedet-contrib/")
-;;for jde
-(require 'cedet)
+;; (add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/cedet-common/")
+;; (add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/cedet-contrib/")
+;; ;;for jde
+;; (require 'cedet)
 
-(add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/elib/")
+;; (add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/elib/")
 
-(add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/jde/")
+;; (add-to-list 'load-path "/usr/share/emacs-snapshot/site-lisp/jde/")
 
-(require 'jde)
+;; (require 'jde)
 
-(defclass jde-compile-javac-16 (jde-compile-javac-15)
-  ()
-  "Class of J2SDK 1.6 javac compilers.")
+;; (defclass jde-compile-javac-16 (jde-compile-javac-15)
+;;   ()
+;;   "Class of J2SDK 1.6 javac compilers.")
  
-(defmethod initialize-instance ((this
- jde-compile-javac-16) &rest fields)
-  ;; Call parent initializer.
+;; (defmethod initialize-instance ((this
+;;  jde-compile-javac-16) &rest fields)
+;;   ;; Call parent initializer.
  
-   (call-next-method)
+;;    (call-next-method)
  
-   ;; Set compiler version.
-   (oset this version "1.6"))
+;;    ;; Set compiler version.
+;;    (oset this version "1.6"))
  
-(add-to-list 'jde-compile-javac-compilers
-             (jde-compile-javac-16 "javac 1.6.x") t)
+;; (add-to-list 'jde-compile-javac-compilers
+;;              (jde-compile-javac-16 "javac 1.6.x") t)
 
-(setq jde-web-browser "conkeror")
-(setq jde-doc-dir "/usr/share/doc/jde")
+;; (setq jde-web-browser "conkeror")
+;; (setq jde-doc-dir "/usr/share/doc/jde")
  
 ;; ----------------------------------
 ;; wikimarkup
