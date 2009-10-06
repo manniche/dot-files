@@ -101,7 +101,7 @@ defbindings("WScreen", {
                mpress("Button3", "mod_menu.pmenu(_, _sub, 'mainmenu')"),
 
                bdoc("Suspend system."),
-               kpress(META..'F12', 'ioncore.exec_on(_, "kdesudo -c \'pm-hibernate\'")'),
+               kpress(META..'F12', 'ioncore.exec_on(_, "kdesudo -c \'pm-suspend\'")'),
 
                bdoc("Shutdown system"),
                kpress('Mod1+Shift+F12', 'ioncore.exec_on(_, "kdesudo -c \'shutdown -h now\'")'),
@@ -201,7 +201,7 @@ defbindings("WMPlex.toplevel", {
                kpress(META.."F4", "mod_query.query_ssh(_, ':ssh')"),
 
                bdoc("Query for host to connect to with SSH."),
-               kpress( "XF86Launch1", "app.byclass( 'firefox', 'Firefox' )" ),
+               kpress( "XF86Launch1", "app.byclass( 'conkeror', 'conkeror' )" ),
 
                bdoc("Query for file to edit."),
                kpress(META.."F5", "app.query_editfile(_)"),
