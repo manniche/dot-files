@@ -57,7 +57,8 @@ URxvt.scrollBar:false
 
 ! experimental:
 
-URxvt*font:         xft:Monospace:pixelsize=14:autohint=true
+URxvt*font:         xft:Inconsolata:pixelsize=15:autohint=true
+!URxvt*font:         xft:Monospace:pixelsize=14:autohint=true
 !URxvt*font:          xft:DejaVu Sans Mono:pixelsize=12:autohint=true
 !urxvt*font: xft:andale mono:pixelsize=14  
 !urxvt*font: -*-DejaVu Sans Mono-medium-r-normal-*-17-120-*-100-m-*-iso10646-1
