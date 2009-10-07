@@ -4,11 +4,11 @@ defwinprop{
    client_machine = "algorithm",
 }
 
---defwinprop{
---   class = "URxvt",
---   target = "terminal",
---   instance = "urxvt",
---}
+defwinprop{
+  class = "Amarokapp",
+  target = "multimedia",
+  instance = "amarokapp",
+}
 
 defwinprop{
    class = "Firefox",
