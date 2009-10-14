@@ -1,12 +1,15 @@
-;Time-stamp: <2009-10-07 11:38:41 stm>
+;Time-stamp: <2009-10-12 22:23:04 stm>
 
 ;;--------------------------------------------------
 ;;  Load Paths
 ;;--------------------------------------------------
 
 ( add-to-list 'load-path "~/.emacs.d/elisp" )
+( add-to-list 'load-path "~/.emacs.d/elisp/haskell-mode-2.4" )
 ( add-to-list 'load-path "~/.emacs.d/elisp/settings" )
+( add-to-list 'load-path "~/.emacs.d/elisp/doxygen" )
 ( add-to-list 'load-path "~/.emacs.d/elisp/color-theme" )
+
 
 ;; -------------------------------------------------
 ;; Variables
@@ -14,7 +17,6 @@
 (defvar my-customize-file "~/.emacs.d/settings/custom.el")
 (defvar autosave-dir (concat "~/tmp/backups/"))
 (defvar backup-dir (concat "~/tmp/backups/"))
-
 
 
 ;;--------------------
@@ -70,13 +72,6 @@
 (setq frame-title-format "%f")
 
 
-;; instead of auto-reverting - which works somewhat against
-;; expectations (which in this case would be my expectations of using
-;; a very shiny little silver spoon as sledge-hammer) - emacs comes
-;; with userlock, which does exactly what I want (making big holes in
-;; stuff)
-(load "userlock")
-
 ;;--------------------------------------------------
 ;;  Key bindings
 ;;--------------------------------------------------
@@ -91,14 +86,14 @@
 ;; -----------------------------------------------------
 
 ;; byte-compile elisp after save
-;(add-hook 'after-save-hook 'my-aftershave-function)
+(add-hook 'after-save-hook 'my-aftershave-function)
 
 ; Update time stamp hook on save
 (add-hook 'write-file-hooks 'time-stamp)
 ; ...but only within the first 10 lines
 (setq time-stamp-line-limit 10)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;
 ;; bm-mode hooks
 ;; Loading the repository from file when on start up.
 (add-hook' after-init-hook 'bm-repository-load)
@@ -115,7 +110,8 @@
 (add-hook 'kill-emacs-hook '(lambda nil
                               (bm-buffer-save-all)
                               (bm-repository-save)))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 
 ;; -----------------------------------------------------
 ;; Modes, packages and configurations relative to them
@@ -161,6 +157,22 @@
 
 ;; mutt mode, for mutt...
 (require 'mutt)
+
+(require 'rst)
+
+
+(setq auto-mode-alist
+      (append auto-mode-alist
+              '(("\\.[hg]s$"  . haskell-mode)
+                ("\\.hi$"     . haskell-mode)
+                ("\\.l[hg]s$" . literate-haskell-mode))))
+
+(autoload 'haskell-mode "haskell-mode"
+  "Major mode for editing Haskell scripts." t)
+(autoload 'literate-haskell-mode "haskell-mode"
+  "Major mode for editing literate Haskell scripts." t)
+
+(require 'doxymacs)
 
 ;; -----------------------------------------------------
 ;; Emacs behaviour
@@ -218,21 +230,30 @@
 (require 'browse-kill-ring)
 (browse-kill-ring-default-keybindings)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; instead of auto-reverting - which works somewhat against
+;; expectations (which in this case would be my expectations of using
+;; a very shiny little silver spoon as sledge-hammer) - emacs comes
+;; with userlock, which does exactly what I want (making big holes in
+;; stuff)
+(load "userlock")
+
+
+;; ---------------------------------------------------------
 ;; programming specifices
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ---------------------------------------------------------
 
 ;;;;;;;;;
 ;; Python
 
 (setq python-mode-hook
-     '(lambda () (progn
-                   (set-variable 'py-python-command "/usr/bin/ipython")
-                   (set-variable 'py-indent-offset 4)
-                   (set-variable 'py-smart-indentation nil)
-                   (set-variable 'indent-tabs-mode nil)
-                   (set-variable 'yas/minor-mode t)
-                   )))
+      '(lambda () 
+         (progn
+           (set-variable 'py-python-command "/usr/bin/ipython")
+           (set-variable 'py-indent-offset 4)
+           (set-variable 'py-smart-indentation nil)
+           (set-variable 'indent-tabs-mode nil)
+           (set-variable 'yas/minor-mode t)
+           )))
 
 ;; Formatting Python code for Transifex.
 (defun local/python-mode-options ()
@@ -254,9 +275,8 @@
 
 (add-to-list 'interpreter-mode-alist '("ipython" . python-mode))
 
-;;--------------------------------------------------
+;;;;;;;
 ;; Java
-;;--------------------------------------------------
 
 (add-to-list 'load-path "~/.emacs.d/elisp/java-add-on")
 (require 'java-add-on)
