@@ -4,7 +4,7 @@
 ;; (add-to-list 'load-path "~/.emacs.d/elisp/mutt.el")
 (add-to-list 'load-path "~/.emacs.d/elisp/jabber/")
 
-(require 'jabber)
+;(require 'jabber)
 
 (require 'ido)
 (ido-mode t)
