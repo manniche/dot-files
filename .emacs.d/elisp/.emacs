@@ -1,4 +1,4 @@
-;Time-stamp: <2009-10-12 22:23:04 stm>
+;Time-stamp: <2009-11-04 11:15:01 stm>
 
 ;;--------------------------------------------------
 ;;  Load Paths
@@ -173,6 +173,10 @@
   "Major mode for editing literate Haskell scripts." t)
 
 (require 'doxymacs)
+
+; wiki-twiki markup mode
+(require 'erin)
+
 
 ;; -----------------------------------------------------
 ;; Emacs behaviour
