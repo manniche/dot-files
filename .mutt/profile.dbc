@@ -1,5 +1,5 @@
 # -*-mode: conf-*-
-# Time-stamp: <2009-06-03 13:13:17 stm>
+# Time-stamp: <2009-10-28 16:30:12 stm>
 
 set alias_file=~/.abook/addressbook
 
@@ -12,10 +12,13 @@ set mbox_type = 'Maildir' # default: 'mbox'
 set folder = ~/Mail-plan
 set spoolfile = ~/Mail-plan/INBOX
 
+# save-hooks
+
 save-hook '~C tika-dev' =/INBOX.lists.apache.tika
 save-hook '~h tika-user@lucene.apache.org' =/INBOX.lists.apache.tika
 save-hook '~h bugzilla-daemon@dbc.dk' =/INBOX.OLS.OpenSearch.bugs
 save-hook '~h [Fredag]' =/INBOX.bteam.fredag
+save-hook '~h Python-mode' =/INBOX.lists.python-mode
 
 
 source ~/.muttrc
