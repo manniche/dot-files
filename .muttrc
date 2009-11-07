@@ -72,9 +72,6 @@ set editor="muttedit.sh"
 ###########
 # hooks
 
-# save-hooks
-save-hook .* =/INBOX
-
 # search using namazu2 with nmzmail
 # remember to do an nmzmail -i <maildir1> <maildir2> ... after each offlineimap run
 macro generic S "<shell-escape>nmzmail<return><esc>c~/.nmzmail/result<return>" "Search via nmzmail"
