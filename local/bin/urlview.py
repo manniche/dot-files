@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 # -*- mode: python -*-
 # from http://www.haller.ws/logs/view.cgi/UrlViewWithPython
-import sys, re, email, email.Iterators, email.Parser, curses, os, traceback, base64, xml.sax.saxutils, time, sets
+import sys, re, email, email.Iterators, email.Parser, curses, os, traceback, base64, xml.sax.saxutils, time
 re_url  = re.compile( r'((?:f|ht)tps?://[^\t\n\'\"\<\> ]+)', re.I)
 
-browser = ( '/usr/bin/conkeror', 'conkeror' )
+browser = ( '/usr/bin/conkeror', '' )
 browser_args = '' #'-new-tab'
 
 controls = ({
