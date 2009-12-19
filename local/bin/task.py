@@ -6,6 +6,8 @@ import sys
 import re
 import datetime
 import time
+import random
+import string
 #import heapq
 import bisect
 import os.path
@@ -29,7 +31,7 @@ class holder:
         return self.var
 
 def this_year():
-    return 2008
+    return time.gmtime().tm_year
 
 def today_as_ordinal():
     """return this day as ordinal"""
@@ -53,14 +55,14 @@ def setup( config ):
     values, if environment does not seem to exist already"""
 
     #getting the basics first
-    top_dir =  config.get( 'default', 'top_dir' )
+    top_dir =  config.get( 'basic', 'top_dir' )
     sane_env = _ask_create_dir( top_dir, 0744 )
 
     if sane_env:
-        config.remove_option( 'default', 'top_dir' )
-        for directory in config.options( 'default' ):
+        config.remove_option( 'basic', 'top_dir' )
+        for directory in config.options( 'basic' ):
             if directory.endswith( '_dir' ):
-                _ask_create_dir( config.get( 'default', directory ) )
+                _ask_create_dir( config.get( 'basic', directory ) )
     
 def _ask_create_dir( name, mode=0740 ):
     """Runs an interactive session with the user for each folder that
@@ -120,18 +122,18 @@ def _ask_create_dir( name, mode=0740 ):
 # config["editor"] = "semacs"
 
 config = ConfigParser()
-config.add_section( 'default' )
-config.set( 'default', 'show_tasks', '20' )
-config.set( 'default', 'top_dir', os.path.join( os.getenv("HOME"), "task-projekt" ) )
-config.set( 'default', 'task_dir', os.path.join( config.get( 'default', 'top_dir' ), 'tasks' ) )
-config.set( 'default', 'thrash_dir', os.path.join( config.get( 'default', 'top_dir' ), 'thrash' ) )
-config.set( 'default', 'closed_dir', os.path.join( config.get( 'default', 'top_dir' ), 'closed' ) )
-config.set( 'default', 'task_no_file', os.path.join( config.get( 'default', 'top_dir' ), '+taskno' ) )
-config.set( 'default', 'editor', os.getenv( 'TASKEDITOR', 'emacs -nw -q' ) )
+config.add_section( 'basic' )
+config.set( 'basic', 'show_tasks', '20' )
+config.set( 'basic', 'top_dir', os.path.join( os.getenv("HOME"), "task-projekt" ) )
+config.set( 'basic', 'task_dir', os.path.join( config.get( 'basic', 'top_dir' ), 'tasks' ) )
+config.set( 'basic', 'thrash_dir', os.path.join( config.get( 'basic', 'top_dir' ), 'thrash' ) )
+config.set( 'basic', 'closed_dir', os.path.join( config.get( 'basic', 'top_dir' ), 'closed' ) )
+config.set( 'basic', 'task_no_file', os.path.join( config.get( 'basic', 'top_dir' ), '+taskno' ) )
+config.set( 'basic', 'editor', os.getenv( 'TASKEDITOR', 'emacs -nw -q' ) )
 
 setup( config )
 
-class task:
+class task( object ):
     """task represents a task
 
     it can read in a task and construct data
@@ -140,7 +142,6 @@ class task:
     def __init__(self, filename_):
         self.filename = filename_
         # defaults
-#        self.date = datetime.date(this_year(), 1, 1) #default
         self.date = None
         self.prio = 9 # prio written in task (or 9 if omitted or invalid)
         self.realprio = 90; # sortprio
@@ -161,25 +162,21 @@ class task:
         """get the files mtime"""
         return os.path.getmtime(self.filename)
         
-# 6 /home/pink/task-projekt/tasks/02ad: [9] tegnekursus til efteråret -- check AOF etc.[2009-08-08]9014464 AOF foto -- tegnekursus til efteråret etc. check
     def string_debug(self):
         s = str()
         s += self.filename + ": [" + str(self.prio) + "] "\
              + self.subj + "[" + str(self.date) + "]" + str(self.realprio)
         return s
 
-# [s] =tag backup af cbo til koncept [6-3-2009]
     def string_old(self):
         s = str()
         s+= "[" + str(self.prio) + "] " + self.subj + " [" + str(self.date) + "]"
         return s
 
     def string(self):
-        #        return "[%s] %s [%s]" % (self.prio, self.subj, self.date)
         subj = self.subj
         if not self.open:
             subj = '-' + subj
-        # return "%-40s [%s]" % (subj, self.date)
         return "%-40s [%s, %s]" % (subj, self.date, self.realprio)
     
     def init_stat(self,s):
@@ -269,30 +266,7 @@ class task:
                 warning("no match")
 
 
-class sorted_dict:
-    """sorted collection with insert and remove
-
-    exisitng entries are overwritten at insert.
-    """
-    def __init__( self ):
-        self.list = list() # sorted list
-        self.dict = dict() # key -> positions in list
-    def insert( self, obj ):
-#        info("sd:insert: " + obj )
-#        info("sd:insert:hash %s" % hash(obj) )
-        if self.dict.has_key( obj ):
-            self.remove( obj )
-        pos = bisect.bisect( self.list, obj )
-        self.list.insert( pos, obj )
-        self.dict[obj] = pos
-    def remove( self, obj ):
- #       info("sd:remove: " + obj )
-        pos = self.dict[obj]
-        self.list.pop( pos )
-        self.dict.pop( obj )
-
-
-class sorted_dict2:
+class sorted_dict( object ):
     """sorted collection with insert and remove
 
     simple: sort only when needed
@@ -301,27 +275,12 @@ class sorted_dict2:
         self.dict = dict() # key -> prio
     def insert( self, obj, prio ):
         self.dict[obj] = prio
-        #        t = type( self.dict[obj] )
-        #        info("type is %s" % t)
     def sorted(self):
-        # sorted(d.iteritems(), key=itemgetter(1), reverse=True)
         info("return sorted")
         return sorted(self.dict.keys(), key=self.dict.get)
 
-class sorted_list:
-    """sorted collection with insert
 
-    exisitng entries are overwritten at insert.
-    """
-    def __init__( self ):
-        self.list = list() # sorted list
-    def cmp(self, a, b):
-        return a.realprio.__cmp__(b.realprio)
-    def insert( self, obj ):
-        self.list.append( obj )
-        self.list.sort(self.cmp)
-
-class task_cache:
+class task_cache( object ):
     """task_cache to hold already read tasks and a toc for searching
 
     this is a simple cache:
@@ -338,8 +297,7 @@ class task_cache:
     def __init__(self):
         self.cache = dict()
         self.index = finder.rtrie() # search index
-#        self.sorted_tasks = sorted_dict() # sorted list of all tasks (filenames)
-        self.sorted_tasks = sorted_dict2() # sorted list of all tasks (filenames)
+        self.sorted_tasks = sorted_dict() # sorted list of all tasks (filenames)
         self.toc = [] # list of short task number -> filename
         self.tasks_to_show = 19
         self.last_prio_day = today_as_ordinal() 
@@ -371,38 +329,6 @@ class task_cache:
             self.sorted_tasks.insert( t.filename, t.realprio )
         return t
     
-##     def get(self, filename):
-##         """ fetch task from cache, reread if necessary
-
-##         TODO: what if the file has been removed?
-##         """
-##         debug("get: " + filename)
-##         if filename in self.cache:
-##             t = self.cache[filename]
-##             if t.mtime() == t.rtime:
-##                 debug("using cache for: %s", filename)
-##                 return t
-##         return self.insert(filename)
-
-##     def find(self, tag):
-##         """wrapper to find on index"""
-##         return self.index.find_term(tag)
-
-##     def update(self):
-##         """update cache and sorted list
-
-##         it will actually check all files in the taskdir
-##         """
-##         info("update cache")
-##         task_dir = config["task_dir"]
-##         for line in os.listdir( task_dir ):
-##             tilde_re = re.compile(r'~$')
-##             m = tilde_re.search(line)
-##             if not m:
-##                 filename = task_dir+line
-##                 t = self.get(filename)
-##         self.reprio()
-            
 
     def get(self, filename):
         """ fetch task from cache, reread if necessary
@@ -417,9 +343,11 @@ class task_cache:
                 return t
         return self.insert(filename)
 
+
     def find(self, tag):
         """wrapper to find on index"""
         return self.index.find_term(tag)
+
 
     def update(self):
         """update cache and sorted list
@@ -427,7 +355,7 @@ class task_cache:
         it will actually check all files in the taskdir
         """
         info("update cache")
-        task_dir = config.get( 'default', "task_dir" )
+        task_dir = config.get( 'basic', "task_dir" )
         for line in os.listdir( task_dir ):
             tilde_re = re.compile(r'~$')
             m = tilde_re.search(line)
@@ -435,6 +363,7 @@ class task_cache:
                 filename = os.path.join( task_dir, line )
                 t = self.get(filename)
         self.reprio()
+
 
     def dshow(self):
         """default show"""
@@ -450,14 +379,12 @@ class task_cache:
 
 
     def show(self, tasks ):
-        """show the n first tasks in tasks"""
+        """prints the n first tasks in tasks"""
         self.toc = dict()
         for n,t in enumerate(tasks):
-            #            print n,t.string() # , t.tag_str()
             nstr = "(%d)" % n
             print "%4s %s" % (nstr, t.string() )
             self.toc[n] = t.filename
-#            print "index", n, t.filename
             if n >= self.tasks_to_show:
                 break
 
@@ -473,11 +400,7 @@ class task_cache:
 # q: quit
 # default: list tasks
 
-import random
-import string
-
 def random_new_filename( length = 6 ):
-    #alphabet = '1234567890qwertyuiopasdfghjklzxcvbnm'
     alphabet = string.digits+string.ascii_lowercase
     filename_list = [ random.choice( alphabet ) for n in range( length ) ]
     filename = "".join(filename_list)
@@ -488,8 +411,6 @@ seconds_on_29_days = seconds_on_day * 29
 
 
 def create_new_task( path=None, task_args=None ):
-    #TODO: If all values are given in args, an editor should not be opened
-
     filename = str()
     while 1:
         filename = path + "/" + random_new_filename()
@@ -523,12 +444,16 @@ def create_new_task( path=None, task_args=None ):
     return filename
 
 def edit_task( filename ):
-    cmd = config.get( 'default', 'editor' ) + " " + filename
+    cmd = config.get( 'basic', 'editor' ) + " " + filename
     os.system(cmd)
 
     
-class Taskmanager:
+class Taskmanager( object ):
+    """ The ui class.
 
+    Methods that should be invokable by the user from the command line
+    or the program ui must be prefixed with 'handle_'
+    """
     def __init__( self, action="help" ):
         self.tasks = task_cache()
         self.tasks.update()
@@ -551,12 +476,13 @@ class Taskmanager:
         (new | n) {subject} {priority} {status} {tags} {body}
         """
         debug( "got input token=%s"%( token ) )
-        filename = create_new_task( config.get( 'default', 'task_dir' ), token )
+        filename = create_new_task( config.get( 'basic', 'task_dir' ), token )
         edit_task( filename )
 
 
     def handle_open( self, token ):
-        """(using open or 'taskname' ) Opens an existing task in the system"""
+        """(using open or 'taskname' ) Opens an existing task in the
+        system"""
         self.tasks.dshow()
         if isinstance( token, list ) and len( token ) > 0:
             token = token[0]
@@ -568,7 +494,8 @@ class Taskmanager:
 
 
     def handle_close( self, token ):
-        """(using 'close' or 'close tasknumber' ) Closes an existing task in the system"""
+        """(using 'close' or 'close tasknumber' ) Closes an existing
+        task in the system"""
         self.tasks.dshow()
         if isinstance( token, list ) and len( token ) > 0:
             token = token[0]
@@ -631,6 +558,8 @@ class Taskmanager:
 
         
     def execute(self, token):
+        """ Not having case/switch makes Jack a dull boy
+        """
         show = False # did we issue a show?
         if self.handle_open( token ):
             pass
@@ -648,13 +577,21 @@ class Taskmanager:
 
 
     def run_once( self, args ):
-        '''If the arguments were given directly to the program, it is
-        run in non-interactive mode and exits thereafter'''
-        filename = create_new_task( config.get( 'default', 'task_dir' ), args )
-        info( 'created task with filename \'%s\''%( filename ) )
-
+        """If the arguments were given directly to the program, it is
+        run in non-interactive mode and exits thereafter"""
+        filename = create_new_task( config.get( 'basic', 'task_dir' ), args )
+        exit( 'created task with with subject \'%s\''%( args[0] ) )
+        
 
     def do_cli( self, cmd, args ):
+        """ The logic of the user interface.
+
+        Given a command `cmd` and arguments `args` this method will
+        try to do what was requested from the user. Among other
+        things, this involves checking whether the issued command is
+        defined as a method on the TaskManager class and 'registered'
+        as an interactive method.
+        """
 
         try:
             cmd = int( cmd )
@@ -671,7 +608,7 @@ class Taskmanager:
         elif( cmd.lower() in self._commands[0] and cmd.lower() == 'help' ):
             self._print_help( )
             
-        elif( cmd in self._commands[ 0 ] ):
+        elif( cmd in self._commands[0] ):
             
             method = getattr( Taskmanager(), 'handle_%s'%( cmd ), None )
             if method is None:
@@ -757,13 +694,10 @@ subject.
         sys.exit( 'if any arguments are given, please specify all five' )
 
     tm.handle_present()
-#     tc = taskcli()
-#     tc.run()
     try:
         while True:
             inp  = raw_input( 'tcli% ' )
             cmd  = inp.split()[0]
-            #args = ' '.join( inp.split()[1:] )
             args = inp.split()[1:]
             debug( "cmd=%s"%( cmd ) )
             debug( "args=%s"%( args ) )
