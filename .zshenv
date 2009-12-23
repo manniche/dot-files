@@ -6,7 +6,9 @@ export EDITOR=emacs
 export VISUAL=$EDITOR
 export SVN_EDITOR=semacs
 export BROWSER=firefox
-export XTERM=urxvt
+
+export XTERM=xterm
+
 #setting the correct timezone
 export TZ="Europe/Copenhagen"
 
@@ -18,12 +20,13 @@ export PLUGIN_HOME=/usr/lib/mozilla/plugins
 
 export PERL5LIB=/home/stm/local/bin:/home/stm/local/tidsreg:/home/stm/local/lib
 
-export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATH:~/local/bin/:/opt/share/bin
+export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATH:~/local/bin/:/opt/share/bin:/opt/bin
 
 #this is important for mutt being able to display utf-8 correctly...
-export LC_CTYPE=
+#export LC_CTYPE=
+# well, apparently not...
 
-#setting the MAIL env for ion3 and mutt
+#setting the MAIL env for mutt
 export MAIL=~/Mail
 
 # left prompt

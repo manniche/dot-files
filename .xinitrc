@@ -1,7 +1,7 @@
 #!/bin/sh
 
 emacs --daemon &
-conkeror --daemon &
+#conkeror --daemon &
 
 ssh-agent awesome & wmpid=$!
 
@@ -10,6 +10,6 @@ xrdb -load ~/.Xdefaults &
 xset r rate 230 40 &
 
 #~/local/bin/ssh-add.sh &
-wmname LG3D
+wmname LG3D &
 
 wait $wmpid
