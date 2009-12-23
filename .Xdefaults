@@ -4,4 +4,11 @@ Xft.hintstyle:hintslight
 Xft.antialias:true
 
 Xcursor*theme: neutral
+
 emacs.font: -unknown-Inconsolata-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1
+
+!URxvt.font: xft:Bitstream Vera Sans Mono-9
+URxvt.font: xft:Inconsolata-11
+URxvt.buffered: true
+URxvt.background: black
+URxvt.foreground: white
