@@ -7,15 +7,18 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+-- custom functions
+require( "functions" )
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "xterm"
-terminal = "urxvt"
+terminal = "terminator"
 
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -73,6 +76,10 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
+
+-- Create a wifi link widget
+
+wifiwidget = widget({ type="textbox", name = "wifiwidget", align = "right" })
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -146,6 +153,7 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
+        wifiwidget,
         mytextclock,
         s == 1 and mysystray or nil,
         mytasklist[s],
@@ -209,7 +217,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "F2",     function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
