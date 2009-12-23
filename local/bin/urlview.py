@@ -5,9 +5,9 @@
 import sys, re, email, email.Iterators, email.Parser, curses, os, traceback, base64, xml.sax.saxutils, time
 re_url  = re.compile( r'((?:f|ht)tps?://[^\t\n\'\"\<\> ]+)', re.I)
 
-my_browser = ( os.getenv( 'BROWSER' ) )
-if my_browser is None:
-    my_browser = ( 'firefox' )
+browser = ( os.getenv( 'BROWSER' ) )
+if browser is None:
+    browser = ( 'firefox' )
 
 browser_args = '' #'-new-tab'
 
