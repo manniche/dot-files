@@ -1,4 +1,4 @@
-;Time-stamp: <2009-11-04 11:15:01 stm>
+;Time-stamp: <2009-11-11 18:55:52 stm>
 
 ;;--------------------------------------------------
 ;;  Load Paths
@@ -71,6 +71,7 @@
 ;; makes the emacs frame title display the absolute path of the buffer-file-name
 (setq frame-title-format "%f")
 
+(require 'notmuch)
 
 ;;--------------------------------------------------
 ;;  Key bindings
@@ -177,6 +178,7 @@
 ; wiki-twiki markup mode
 (require 'erin)
 
+(require 'lua-mode)
 
 ;; -----------------------------------------------------
 ;; Emacs behaviour
