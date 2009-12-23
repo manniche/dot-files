@@ -27,8 +27,8 @@
 (global-set-key [s-down] 'scroll-up-1)
 (global-set-key [s-up] 'scroll-down-1)
 
-(global-set-key [C-s-down] 'scroll-other-window-down-1)
-(global-set-key [C-s-up] 'scroll-other-window-up-1)
+(global-set-key [C-s-down] 'scroll-other-window-up-1)
+(global-set-key [C-s-up] 'scroll-other-window-down-1)
 
 ;med logitech keyboard
 (global-set-key [XF86AudioRaiseVolume] 'scroll-down-5)
