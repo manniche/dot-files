@@ -1,4 +1,4 @@
-;Time-stamp: <2009-11-11 18:55:52 stm>
+;Time-stamp: <2009-12-31 22:15:59 stm>
 
 ;;--------------------------------------------------
 ;;  Load Paths
@@ -9,7 +9,10 @@
 ( add-to-list 'load-path "~/.emacs.d/elisp/settings" )
 ( add-to-list 'load-path "~/.emacs.d/elisp/doxygen" )
 ( add-to-list 'load-path "~/.emacs.d/elisp/color-theme" )
+( add-to-list 'load-path "~/.emacs.d/elisp/java-add-on" )
 
+;org mode setup
+( add-to-list 'load-path "~/.org/")
 
 ;; -------------------------------------------------
 ;; Variables
@@ -72,6 +75,9 @@
 (setq frame-title-format "%f")
 
 (require 'notmuch)
+
+; org-mode setup
+( load-file ".org/org.emacs" )
 
 ;;--------------------------------------------------
 ;;  Key bindings
@@ -158,9 +164,6 @@
 
 ;; mutt mode, for mutt...
 (require 'mutt)
-
-(require 'rst)
-
 
 (setq auto-mode-alist
       (append auto-mode-alist
@@ -284,7 +287,6 @@
 ;;;;;;;
 ;; Java
 
-(add-to-list 'load-path "~/.emacs.d/elisp/java-add-on")
 (require 'java-add-on)
 
 (add-hook 'java-mode-hook 'java-add-on-keymap)
