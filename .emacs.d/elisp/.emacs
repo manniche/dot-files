@@ -1,4 +1,4 @@
-;Time-stamp: <2009-12-31 22:15:59 stm>
+;Time-stamp: <2010-02-20 20:34:51 stm>
 
 ;;--------------------------------------------------
 ;;  Load Paths
@@ -46,14 +46,14 @@
 (color-theme-initialize)
 
 ;; color-themes that are good for me:
-(setq stm-color-theme 'color-theme-clarity)
+;;(setq stm-color-theme 'color-theme-clarity)
 ;; (setq stm-color-theme 'color-theme-billw)
 ;; (setq stm-color-theme 'color-theme-emacs-nw)
 ;; (setq stm-color-theme 'color-theme-oswald)
 ;; (setq stm-color-theme 'color-theme-parus)
 ;; (setq stm-color-theme 'color-theme-pok-wob)
 ;; (setq stm-color-theme 'color-theme-taming-mr-arneson)
-;; (setq stm-color-theme 'color-theme-tty-dark)
+ (setq stm-color-theme 'color-theme-charcoal-black)
 
 ;; vertical and horisontal lines for easier navigation:
 (require 'vline)
@@ -78,6 +78,11 @@
 
 ; org-mode setup
 ( load-file ".org/org.emacs" )
+
+(setq
+   ;; no background face for rst headlines
+   rst-level-face-base-color nil
+   )
 
 ;;--------------------------------------------------
 ;;  Key bindings
@@ -183,6 +188,7 @@
 
 (require 'lua-mode)
 
+(require 'templates)
 ;; -----------------------------------------------------
 ;; Emacs behaviour
 ;; -----------------------------------------------------
@@ -267,7 +273,7 @@
 ;; Formatting Python code for Transifex.
 (defun local/python-mode-options ()
   (setq fill-column 72              ;text wrap column
-        python-indent 4             ;use 4-column indentation for Python
+        ;; python-indent 4             ;use 4-column indentation for Python
         indent-tabs-mode nil        ;use only SPC for indentation
         next-line-add-newlines nil)) ;don't add newlines at end-of-file
 

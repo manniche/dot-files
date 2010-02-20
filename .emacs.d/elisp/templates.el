@@ -59,6 +59,12 @@
     )
 )
 
+(tempo-define-template "sh-like-header"
+  '("#!/bin/sh\n"
+    "# -*- coding: utf-8 -*-\n"
+    )
+)
+
 (defun insert-function-header ()
   (interactive)
   (cond 
@@ -76,10 +82,11 @@
   (interactive)
   (goto-char (point-min))
   (cond 
-   ((eq major-mode 'csharp-mode) (tempo-template-c-like-header))
+;   ((eq major-mode 'csharp-mode) (tempo-template-c-like-header))
    ((eq major-mode 'xml-mode) (tempo-template-xml-like-header))
    ((eq major-mode 'python-mode) (tempo-template-python-header))
    ((eq major-mode 'emacs-lisp-mode) (tempo-template-svn-elisp-header))
+   ((eq major-mode 'sh-mode) ( tempo-template-sh-like-header))
 ))
 
 ;; c# shortcuts
