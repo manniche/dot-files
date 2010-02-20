@@ -1,6 +1,6 @@
 # -*-mode: conf-*-
 # for mutt-1.5.13
-# Time-stamp: <2009-06-03 10:30:30 stm>
+# Time-stamp: <2010-01-07 22:23:05 stm>
 
 source ~/.mutt/ui
 
@@ -35,6 +35,17 @@ macro pager \cb <pipe-entry>'python $HOME/local/bin/urlview.py'<enter> 'Use urlv
 # see .mailcap:
 alternative_order  text/enriched text/plain text/html
 auto_view text/html
+
+# Regexp which recognizes reply messages when replying and for threading.
+set reply_regexp="^(re|aw|sv):[ \t]*"
+
+# Do not flag unread messages as old
+unset mark_old
+
+# There wasn't a good keybinding for prev/next line of the messages, so
+# this binds left arrow to up and right arrow to down
+bind pager <left> previous-line
+bind pager <right> next-line
 
 # text/html; elinks -dump -force-html %s; needsterminal; copiousoutput;
 
