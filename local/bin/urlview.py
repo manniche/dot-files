@@ -5,11 +5,12 @@
 import sys, re, email, email.Iterators, email.Parser, curses, os, traceback, base64, xml.sax.saxutils, time
 re_url  = re.compile( r'((?:f|ht)tps?://[^\t\n\'\"\<\> ]+)', re.I)
 
-browser = ( os.getenv( 'BROWSER' ) )
-if browser is None:
-    browser = ( 'firefox' )
+browser = ( os.getenv( 'BROWSER' ), '' )
+browser_args = ''
 
-browser_args = '' #'-new-tab'
+if browser is None:
+    browser = ( 'firefox', '' )
+    browser_args = '-new-tab'
 
 controls = ({
 	( ord("Q"), ord("q") ) : 'cleanup()',
@@ -23,7 +24,7 @@ def cleanup(kill=True):
 	if kill: os._exit(0)
 
 def browse(url, kill=False):
-	os.execvp( browser[0], ( browser[1], browser_args, url ) )
+	os.execvp( browser[0], ( browser[0], browser_args, url ) )
 
 re_youtube = re.compile('http://www.youtube.com/watch\?v=([a-zA-Z0-9]+)')
 def present_better(url):
