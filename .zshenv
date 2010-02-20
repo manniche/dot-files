@@ -1,13 +1,13 @@
-export JAVA_HOME=/opt/java/
-export ANT_HOME=/usr/share/java/apache-ant/
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export ANT_HOME=/usr/share/ant/
 
 export EMAIL="steen@manniche.net"
 export EDITOR=emacs
 export VISUAL=$EDITOR
 export SVN_EDITOR=semacs
-export BROWSER=firefox
+export BROWSER=chromium-browser
 
-export XTERM=xterm
+export XTERM=urxvt
 
 #setting the correct timezone
 export TZ="Europe/Copenhagen"
