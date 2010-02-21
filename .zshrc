@@ -287,10 +287,6 @@ unset k
 [[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 
-
-
-
-
 #from http://jaderholm.com/configs/zshrc
 # Global Aliases
 alias -g L='|less'
@@ -304,7 +300,6 @@ alias -g S='|sort'
 alias -g has='ps aux | grep '
 alias -g grep='ack-grep'
 alias -g ack='ack-grep'
-
 
 # filter out */.svn* when doing find, svn status etc.
 alias -g NOSVN='| egrep -v "*\.svn"'
