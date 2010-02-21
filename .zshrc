@@ -302,6 +302,9 @@ alias -g W='|wc -l'
 alias -g S='|sort'
 
 alias -g has='ps aux | grep '
+alias -g grep='ack-grep'
+alias -g ack='ack-grep'
+
 
 # filter out */.svn* when doing find, svn status etc.
 alias -g NOSVN='| egrep -v "*\.svn"'
