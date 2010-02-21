@@ -1,6 +1,6 @@
 # -*-mode: conf-*-
 # for mutt-1.5.13
-# Time-stamp: <2010-01-07 22:23:05 stm>
+# Time-stamp: <2010-02-21 23:01:23 stm>
 
 source ~/.mutt/ui
 
@@ -15,6 +15,9 @@ set send_charset = 'utf-8:us-ascii:iso-8859-1'
 
 set attribution = 'Den %d skrev %n:'
 set beep = no
+set beep_new = yes
+set check_new = yes
+set timeout = 600
 set forward_quote = yes
 set include = yes
 
