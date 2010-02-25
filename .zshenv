@@ -26,6 +26,10 @@ export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATH:~/local/bin/:/opt/share/bin:/opt/
 #export LC_CTYPE=
 # well, apparently not...
 
+#make less read archive files:
+export LESSOPEN="| /usr/bin/lesspipe %s"
+export LESSCLOSE="/usr/bin/lesspipe %s %s"
+
 #setting the MAIL env for mutt
 export MAIL=~/Mail
 
