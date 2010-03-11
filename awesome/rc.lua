@@ -68,8 +68,7 @@ floatapps =
 apptags =
    {
    ["Firefox"] = { screen = 1, tag = 2 },
-   ["Chrome"] = { screen = 1, tag = 2 },
-   ["Chromium"] = { screen = 1, tag = 2 },
+   ["Chromium-browser"] = { screen = 1, tag = 2 },
    -- ["mocp"] = { screen = 2, tag = 4 },
 }
 
@@ -238,7 +237,7 @@ globalkeys = awful.util.table.join(
    -- Standard program
    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
    awful.key({ modkey, "Control" }, "r", awesome.restart),
-   awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+   --awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
