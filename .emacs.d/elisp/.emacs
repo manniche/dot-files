@@ -46,7 +46,7 @@
 ;; Programming modes
 ;; -------------------------------------------------
 
-(load-library "clojure-emacs")
+(load-library "emacs-clojure")
 
 ;; -------------------------------------------------
 ;; Hooks
