@@ -45,6 +45,9 @@
 ;; jump to line no.
 (global-set-key "\M-g" 'goto-line)
 
+;; I compile a lot
+(global-set-key "\C-x\ \C-k" 'compile)
+
 ;; mark-whole-buffer bruges tit ( brug i stedet C-x h)
 ;;(global-set-key "\M-a" 'mark-whole-buffer)
 
