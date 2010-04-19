@@ -48,6 +48,12 @@
 ;; I compile a lot
 (global-set-key "\C-x\ \C-k" 'compile)
 
+;; inserts predefined headers based on major mode
+(global-set-key "\C-x\ h" 'insert-header)
+
+;; see function defs
+(global-set-key "\C-x\ t" 'insert-timestamp)
+
 ;; mark-whole-buffer bruges tit ( brug i stedet C-x h)
 ;;(global-set-key "\M-a" 'mark-whole-buffer)
 
@@ -62,12 +68,6 @@
 
 ;; undo gør jeg mig meget i
 (global-set-key [M-backspace] 'undo-only)
-
-;; inserts predefined headers based on major mode
-(global-set-key "\C-c\ h" 'insert-header)
-
-;; see function defs
-(global-set-key "\C-c\ t" 'insert-timestamp)
 
 ;; split window in four
 (global-set-key "\C-x\ 4" 'split-window-in-four)
