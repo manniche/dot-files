@@ -14,11 +14,14 @@ export TZ="Europe/Copenhagen"
 
 export CVSROOT=:pserver:stm@cvs.dbc.dk:/export/CVS
 
-export CLASSPATH=/usr/local/lib/java:/usr/local/java/lib/junit4.jar:/usr/share/java/checkstyle-4.4.jar
 
 export PLUGIN_HOME=/usr/lib/mozilla/plugins
 
 export PERL5LIB=/home/stm/local/bin:/home/stm/local/tidsreg:/home/stm/local/lib
+
+export CLASSPATH=/usr/local/lib/java:/usr/local/java/lib/junit4.jar:/usr/share/java/checkstyle-4.4.jar
+
+export LD_LIBRARY_PATH=/usr/local/lib:/opt/lib
 
 export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATH:~/local/bin/:/opt/share/bin:/opt/bin
 
