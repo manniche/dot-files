@@ -1,4 +1,4 @@
-;Time-stamp: <2010-04-01 17:49:17 stm>
+;Time-stamp: <2010-04-06 21:48:10 stm>
 
 ;;--------------------------------------------------
 ;;  Load Paths
@@ -22,10 +22,7 @@
 ;; Variables
 ;; -------------------------------------------------
 
-(setq
-   ;; no background face for rst headlines
-   rst-level-face-base-color nil
-   )
+(setq *my-desktop-dir* (expand-file-name "~/.emacs.d/desktop"))
 
 (require 'environment_vars)
 ;;--------------------
@@ -46,44 +43,32 @@
 ;; Programming modes
 ;; -------------------------------------------------
 
-(load-library "emacs-clojure")
+(require 'emacs-clojure)
+(require 'emacs-java)
 
-;; -------------------------------------------------
-;; Hooks
-;; -------------------------------------------------
+;; mode for restructured text
+(require 'rst)
+(setq auto-mode-alist
+      (append auto-mode-alist
+              '(("\\.[markdown]$"  . rst-mode))
+              )
+      )
 
-;; byte-compile elisp after save
-(add-hook 'after-save-hook 'my-aftershave-function)
+(setq
+   ;; no background face for rst headlines
+   rst-level-face-base-color nil
+   )
 
-; Update time stamp hook on save
-(add-hook 'write-file-hooks 'time-stamp)
-; ...but only within the first 10 lines
-(setq time-stamp-line-limit 10)
-
-;;;;;;;;;;;;;;;;
-;; bm-mode hooks
-;; Loading the repository from file when on start up.
-(add-hook' after-init-hook 'bm-repository-load)
- 
-;; Restoring bookmarks when on file find.
-(add-hook 'find-file-hooks 'bm-buffer-restore)
- 
-;; Saving bookmark data on killing a buffer
-(add-hook 'kill-buffer-hook 'bm-buffer-save)
- 
-;; Saving the repository to file when on exit.
-;; kill-buffer-hook is not called when emacs is killed, so we
-;; must save all bookmarks first.
-(add-hook 'kill-emacs-hook '(lambda nil
-                              (bm-buffer-save-all)
-                              (bm-repository-save)))
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp//ac-dict")
+(ac-config-default)
 
 ;; -----------------------------------------------------
 ;; Modes, packages and configurations relative to them
 ;; -----------------------------------------------------
 
 ;; emacs package system
-;(require 'package)
+(require 'package)
 
 ;; bookmarks
 (require 'bm)
@@ -104,14 +89,6 @@
 (setq ido-enable-flex-matching t)
 (setq ido-create-new-buffer 'always)
 
-;; mode for restructured text
-(require 'rst)
-(setq auto-mode-alist
-      (append auto-mode-alist
-              '(("\\.[markdown]$"  . rst-mode))
-              )
-      )
-
 ;; my functions
 (require 'functions)
 
@@ -123,6 +100,12 @@
 
 ;; sanitize [x/ht]ml
 (autoload 'tidy "tidy-mode" "mode for sanitizing (x)html" t)
+
+
+;; Session persistance
+(require 'desktop)
+(setq desktop-dir "~/.emacs.d/desktop")
+(desktop-save-mode 1)
 
 ;; -----------------------------------------------------
 ;; Emacs behaviour
@@ -160,3 +143,37 @@
 ;;     (load
 ;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
 ;;   (package-initialize))
+
+;; -------------------------------------------------
+;; Hooks
+;; -------------------------------------------------
+
+;; byte-compile elisp after save
+(add-hook 'after-save-hook 'my-aftershave-function)
+
+; Update time stamp hook on save
+(add-hook 'write-file-hooks 'time-stamp)
+; ...but only within the first 10 lines
+(setq time-stamp-line-limit 10)
+
+;;;;;;;;;;;;;;;;
+;; bm-mode hooks
+;; Loading the repository from file when on start up.
+(add-hook' after-init-hook 'bm-repository-load)
+ 
+;; Restoring bookmarks when on file find.
+(add-hook 'find-file-hooks 'bm-buffer-restore)
+ 
+;; Saving bookmark data on killing a buffer
+(add-hook 'kill-buffer-hook 'bm-buffer-save)
+ 
+;; Saving the repository to file when on exit.
+;; kill-buffer-hook is not called when emacs is killed, so we
+;; must save all bookmarks first.
+(add-hook 'kill-emacs-hook '(lambda nil
+                              (bm-buffer-save-all)
+                              (bm-repository-save)))
+
+;; Desktop hook. Automatically save desktop file on C-x C-s
+(add-hook 'auto-save-hook (lambda () (desktop-save-in-desktop-dir)))
+
