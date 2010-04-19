@@ -1,5 +1,5 @@
 # -*-mode: conf-*-
-# Time-stamp: <2010-03-01 09:24:07 stm>
+# Time-stamp: <2010-03-12 09:18:38 stm>
 
 set alias_file=~/.abook/addressbook
 
@@ -18,10 +18,10 @@ set signature="python /home/stm/.gensig/gensig.py dbc|"
 save-hook '~C tika-dev' =/INBOX.lists.apache.tika
 save-hook '~h tika-user@lucene.apache.org' =/INBOX.lists.apache.tika
 save-hook '~h bugzilla-daemon@dbc.dk' =/INBOX.OLS.OpenSearch.bugs
+save-hook '~h python-mode@python.org' =/INBOX.lists.python-mode
 save-hook '~h [Fredag]' =/INBOX.bteam.fredag
-save-hook '~h Python-mode' =/INBOX.lists.python-mode
 
 # save-hooks
-save-hook .* =/INBOX.OLS.OpenSearch
+#save-hook .* =/INBOX.OLS.OpenSearch
 
 source ~/.muttrc
