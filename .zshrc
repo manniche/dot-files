@@ -248,7 +248,9 @@ alias lll='ls -ahl --color | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `ls 
 
 alias ll='ls -la --color=auto'
 alias l='ls -l --color=auto'
+
 alias gtd='emacs -f gtd'
+
 alias lesshtml='/usr/bin/w3m -dump -T text/html'
 
 alias pm-suspend='pm-suspend'
@@ -298,7 +300,7 @@ alias -g W='|wc -l'
 alias -g S='|sort'
 
 alias -g has='ps aux | grep '
-alias -g grep='ack-grep'
+alias -g agrep='ack-grep'
 alias -g ack='ack-grep'
 
 # filter out */.svn* when doing find, svn status etc.
