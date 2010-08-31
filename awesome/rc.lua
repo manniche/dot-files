@@ -11,7 +11,7 @@ require("debian.menu")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 -- The default is a dark theme
-theme_path = "/usr/share/awesome/themes/default/theme.lua"
+theme_path = "/home/stm/.config/awesome/theme.lua"
 -- Uncommment this for a lighter theme
 -- theme_path = "/usr/share/awesome/themes/sky/theme.lua"
 
@@ -25,6 +25,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 browser = os.getenv( "BROWSER" ) or "chromium-browser"
 
+awful.util.spawn_with_shell( "/home/stm/local/bin/wmname LG3D" )
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -32,6 +33,7 @@ browser = os.getenv( "BROWSER" ) or "chromium-browser"
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+modkey2 = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
@@ -202,18 +204,23 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-   awful.key({ modkey,           }, ",",   awful.tag.viewprev       ),
-   awful.key({ modkey,           }, ".",  awful.tag.viewnext       ),
+   awful.key({ modkey,        }, ",",   awful.tag.viewprev       ),
+   awful.key({ modkey,        }, ".",  awful.tag.viewnext       ),
+   awful.key({ nil,           }, "XF86AudioNext", function () awful.util.spawn( "mpc next" ) end),
+   awful.key({ nil,           }, "XF86AudioPrev", function () awful.util.spawn( "mpc prev" ) end),
+   awful.key({ nil,           }, "XF86AudioPlay", function () awful.util.spawn( "mpc play" ) end),
+   awful.key({ modkey2,       }, "XF86AudioPlay", function () awful.util.spawn( "mpc pause" ) end),
+   awful.key({ nil,           }, "XF86AudioStop", function () awful.util.spawn( "mpc stop" ) end),
    awful.key({ nil,           }, "XF86Back",   awful.tag.viewprev       ),
    awful.key({ nil,           }, "XF86Forward",  awful.tag.viewnext       ),
-   awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+   awful.key({ modkey,        }, "Escape", awful.tag.history.restore),
 
-   awful.key({ modkey,           }, "j",
+   awful.key({ modkey,        }, "j",
              function ()
                 awful.client.focus.byidx( 1)
                 if client.focus then client.focus:raise() end
              end),
-   awful.key({ modkey,           }, "k",
+   awful.key({ modkey,        }, "k",
              function ()
                 awful.client.focus.byidx(-1)
                 if client.focus then client.focus:raise() end
