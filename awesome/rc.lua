@@ -71,6 +71,7 @@ apptags =
    {
    ["Firefox"] = { screen = 1, tag = 2 },
    ["Chromium-browser"] = { screen = 1, tag = 2 },
+   ["Pidgin"] = { screen = 1, tag = 9 },
    -- ["mocp"] = { screen = 2, tag = 4 },
 }
 
