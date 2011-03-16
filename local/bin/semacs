@@ -1,1 +1,1 @@
-emacs -nw -q -l ~stm/.semacs $1
+emacs -nw -q -l ~stm/.semacs $*
