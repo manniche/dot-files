@@ -1,16 +1,14 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 ;; (add-to-list 'load-path "~/.emacs.d/elisp/erin.el")
 ;; (add-to-list 'load-path "~/.emacs.d/elisp/delsel.el")
-;; (add-to-list 'load-path "~/.emacs.d/elisp/mutt.el")
-(add-to-list 'load-path "~/.emacs.d/elisp/jabber/")
-
-;(require 'jabber)
 
 (require 'ido)
 (ido-mode t)
 
 (require 'delsel)
 (delete-selection-mode t)
+
+(require 'vline)
 
 ;;; Mutt/email (post-mode)
 (require 'mutt)
@@ -33,38 +31,6 @@
                     (cond ((string-match "Post" mode-name)
                            (post-goto-body))))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Jabber settings
-
-(setq jabber-username "stm" )
-
-(setq jabber-server "kelut.dbc.dk" )
-
-(setq jabber-password nil )
-
-(setq jabber-xosd-display-time 5)
-(defun jabber-xosd-display-message (message)
-  "Displays MESSAGE through the xosd"
-  (let ((process-connection-type nil))
-    (start-process "jabber-xosd" nil "osd_cat" "-p" "bottom" "-A" "center" "-f" "-*-courier-*-*-*-*-30" "-d" (number-to-string jabber-xosd-display-time))
-    (process-send-string "jabber-xosd" message)
-    (process-send-eof "jabber-xosd")))
-
-(defun jabber-message-xosd (text a)
-  (jabber-xosd-display-message "New message."))
-
-(add-hook 'jabber-alert-message-hook 'jabber-message-xosd)
-
-(defun jabber-alert ()
-  (let ((process-connection-type nil))
-    (start-process "jabber-xosd" nil "osd_cat" "-p" "bottom" "-A" "center" "-f" "-*-courier-*-*-*-*-30" "-d" (number-to-string jabber-xosd-display-time))
-    (process-send-string "jabber-xosd" message)
-    (process-send-eof "jabber-xosd"))
-)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 ;; functions 
 (defun insert-timestamp ()
@@ -73,7 +39,6 @@
   (goto-char (point-min))
   (insert (concat comment-start "Time-stamp: <>\n"))
 )
-
 
 (defun iwb ()
   "indent whole buffer"
@@ -105,6 +70,30 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; variable settings
+
+;;always follow symlinks
+(setq vc-follow-symlinks t)
+
+(defvar autosave-dir (concat "~/tmp/backups/"))
+(defvar backup-dir (concat "~/tmp/backups/"))
+
+;; Put autosave files (ie #foo#) in one place, *not*
+;; scattered all over the file system!
+(make-directory autosave-dir t)
+(defun auto-save-file-name-p (filename)
+  (string-match "^#.*#$" (file-name-nondirectory filename)))
+(defun make-auto-save-file-name ()
+  (concat autosave-dir
+          (if buffer-file-name
+              (concat "#" (file-name-nondirectory buffer-file-name) "#")
+            (expand-file-name
+             (concat "#%" (buffer-name) "#")))))
+
+;; Put backup files (ie foo~) in one place too. (The
+;; backup-directory-alist list contains regexp=>directory mappings;
+;; filenames matching a regexp are backed up in the corresponding
+;; directory. Emacs will mkdir it if necessary.)
+(setq backup-directory-alist (list (cons "." backup-dir)))
 
 ;; reduce number of standard keypresses for Steen
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -161,24 +150,14 @@
 ;; undo gør jeg mig meget i
 (global-set-key [M-backspace] 'undo-only)
 
-;; inserts predefined headers based on major mode
-(global-set-key "\C-c\ h" 'insert-header)
-
 ;; inserts timestamp
 (global-set-key "\C-c\ t" 'insert-timestamp)
 
 ;kill-copy line
 (global-set-key "\C-c\ l" 'copy-line)
 
-;reverse of C-k
-(global-set-key "\C-l" 'backwards-kill-line) ; C-u in zsh
-
 ;; un-bindings:
 ;;;;;;;;;;;;;;;
-
-;; ingen godnat til emacs
-(when window-system
-    (global-unset-key (kbd "C-z")))
 
 ;; insert: nej, hellere yank
 (global-unset-key [insert])
