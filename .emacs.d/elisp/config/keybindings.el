@@ -78,9 +78,6 @@
 ;I really hate hitting shift-ctrl-meta-5 for this
 (global-set-key "\C-c\ %" 'query-replace-regexp)
 
-;reverse of C-k
-(global-set-key "\C-u" 'backward-kill-line) ; C-u in zsh
-
 ;; see printer variables for more info
 (global-set-key "\C-cp" 'print-to-pdf)
 ;(global-set-key "\C-cp" 'print-to-minolta)
