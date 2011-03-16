@@ -5,7 +5,7 @@ export EMAIL="steen@manniche.net"
 export EDITOR=emacs
 export VISUAL=$EDITOR
 export SVN_EDITOR=semacs
-export BROWSER=chromium-browser
+export BROWSER=google-chrome
 
 export XTERM=urxvt
 
