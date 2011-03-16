@@ -1,3 +1,4 @@
+
 # The following lines were added by compinstall
 
 zstyle :compinstall filename '/home/stm/.zshrc'
@@ -244,8 +245,13 @@ command_title () {
     setopt LOCAL_OPTIONS
 }
 
-alias lll='ls -ahl --color | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `ls -al | egrep \"^drw\" | wc -l` \e[1;32m|\e[1;35m Files: \e[1;31m`ls -al | egrep -v \"^drw\" | grep -v total | wc -l` \e[1;32m]--"'
+function listMavenCompletions { 
+    reply=(cli:execute cli:execute-phase archetype:generate validate compile clean install test test-compile deploy package cobertura:cobertura jetty:run -Dmaven.test.skip=true -DarchetypeCatalog=http://tapestry.formos.com/maven-snapshot-repository -Dtest= `if [ -d ./src ] ; then find ./src/test -type f | grep -v svn | sed 's?.*/\([^/]*\)\..*?-Dtest=\1?' ; fi`); 
+}
 
+compctl -K listMavenCompletions mvn
+
+alias lll='ls -ahl --color | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `ls -al | egrep \"^drw\" | wc -l` \e[1;32m|\e[1;35m Files: \e[1;31m`ls -al | egrep -v \"^drw\" | grep -v total | wc -l` \e[1;32m]--"'
 alias ll='ls -la --color=auto'
 alias l='ls -l --color=auto'
 
@@ -253,8 +259,10 @@ alias gtd='emacs -f gtd'
 
 alias lesshtml='/usr/bin/w3m -dump -T text/html'
 
-alias pm-suspend='pm-suspend'
-alias suspend='sudo pm-suspend'
+alias diff-plain='diff'
+alias diff-gui='kompare'
+
+alias svn='svn --username=steman'
 
 bindkey -s "^x^f" $'emacs '
 
