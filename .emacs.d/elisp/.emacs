@@ -1,17 +1,21 @@
-;Time-stamp: <2010-04-06 21:48:10 stm>
+;Time-stamp: <2011-02-18 13:28:38 steman>
 
 ;;--------------------------------------------------
 ;;  Load Paths
 ;;--------------------------------------------------
 
 ( add-to-list 'load-path "~/.emacs.d/elisp" )
-;( add-to-list 'load-path "~/.emacs.d/elisp/haskell-mode-2.4" )
 ( add-to-list 'load-path "~/.emacs.d/elisp/config" )
 ( add-to-list 'load-path "~/.emacs.d/elisp/color-theme" )
-( add-to-list 'load-path "~/.emacs.d/elpa" )
-
+( add-to-list 'load-path "~/.emacs.d/elisp/project-mode" )
+( add-to-list 'load-path "~/.emacs.d/elisp/grails-mode" )
+( add-to-list 'load-path "~/.emacs.d/elisp/clojure-mode" )
 ;org mode setup
 ( add-to-list 'load-path "~/.org/")
+
+( setq org-directory "~/.org" )
+( setq org-mobile-inbox-for-pull "~/.org/iphone.org" )
+( setq org-mobile-directory "~/Dropbox/MobileOrg" )
 
 ;; initialization files
 
@@ -21,8 +25,6 @@
 ;; -------------------------------------------------
 ;; Variables
 ;; -------------------------------------------------
-
-(setq *my-desktop-dir* (expand-file-name "~/.emacs.d/desktop"))
 
 (require 'environment_vars)
 ;;--------------------
@@ -38,37 +40,55 @@
 (require 'keybindings)
 (my-keybindings)
 
-
 ;; -------------------------------------------------
 ;; Programming modes
 ;; -------------------------------------------------
 
-(require 'emacs-clojure)
-(require 'emacs-java)
+;(require 'emacs-clojure)
+;(require 'emacs-java)
 
 ;; mode for restructured text
-(require 'rst)
-(setq auto-mode-alist
-      (append auto-mode-alist
-              '(("\\.[markdown]$"  . rst-mode))
-              )
-      )
+(autoload 'rst "rst" "Major mode for editing rst documents." t)
+(add-to-list 'auto-mode-alist '("\\.rst$" . rst))
+(add-to-list 'auto-mode-alist '("\\.[markdown]$" . rst))
+;; (require 'rst)
+;; (setq auto-mode-alist
+;;       (append auto-mode-alist
+;;               '(("\\.[markdown]$"  . rst-mode))
+;;               )
+;;       )
 
 (setq
    ;; no background face for rst headlines
    rst-level-face-base-color nil
    )
 
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp//ac-dict")
-(ac-config-default)
+(autoload 'lua-mode "lua-mode" "Major mode for editing lua code." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+
+(autoload 'clojure-mode "clojure-mode" "Major mode for editing clojure code." t)
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+
+(require 'grails-mode)
+;(setq grails-mode t)
+;(setq project-mode t)
+(add-to-list 'auto-mode-alist '("\.gsp$" . nxml-mode)) ; Use whatever mode you want for views.
+(project-load-all) ; Loads all saved projects. Recommended, but not required.
+
+(autoload 'groovy-mode "groovy-mode" "Major mode for editing groovy code." t)
+(add-to-list 'auto-mode-alist '("\\.groovy$" . groovy-mode))
 
 ;; -----------------------------------------------------
 ;; Modes, packages and configurations relative to them
 ;; -----------------------------------------------------
 
+;; http://www.emacswiki.org/emacs/Edit_with_Emacs
+;(require 'edit-server)
+;(edit-server-start)
+  
+
 ;; emacs package system
-(require 'package)
+;(require 'package)
 
 ;; bookmarks
 (require 'bm)
@@ -174,6 +194,30 @@
                               (bm-buffer-save-all)
                               (bm-repository-save)))
 
-;; Desktop hook. Automatically save desktop file on C-x C-s
-(add-hook 'auto-save-hook (lambda () (desktop-save-in-desktop-dir)))
 
+(add-hook 'java-mode-user-hook
+          '(lambda ()
+             (outline-minor-mode)
+             (setq outline-regexp " *\\(private \\|public \\|protected \\|private class\\|public class\\)")
+             (hide-sublevels 1)))
+
+
+;; Desktop hook. Automatically save desktop file on C-x C-s
+;;(add-hook 'auto-save-hook (lambda () (desktop-save-in-desktop-dir)))
+
+
+;; Custom variables
+
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(nxhtml-autoload-web nil t)
+ '(rst-level-face-base-color "nil"))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "Grey15" :foreground "Grey" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
