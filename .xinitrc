@@ -1,7 +1,7 @@
 #!/bin/sh
 
 emacs --daemon &
-#conkeror --daemon &
+conkeror --daemon &
 
 ssh-agent awesome & wmpid=$!
 
@@ -12,5 +12,6 @@ syndaemon -d -t &
 
 #~/local/bin/ssh-add.sh &
 wmname LG3D &
-
+conky -c ~/.conkyrc_minimal &
+update-notifier &
 wait $wmpid
