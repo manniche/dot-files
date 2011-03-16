@@ -5,7 +5,7 @@ Xft.antialias:true
 
 Xcursor*theme: neutral
 
-emacs.font: -unknown-Inconsolata-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1
+!emacs.font: -unknown-Inconsolata-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1
 
 !URxvt.font: xft:Bitstream Vera Sans Mono-9
 URxvt.font: xft:Inconsolata-11
