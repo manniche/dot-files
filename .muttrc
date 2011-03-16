@@ -1,6 +1,6 @@
 # -*-mode: conf-*-
 # for mutt-1.5.13
-# Time-stamp: <2010-02-21 23:01:23 stm>
+# Time-stamp: <2011-03-14 20:50:03 steman>
 
 source ~/.mutt/ui
 
@@ -32,6 +32,7 @@ set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?(%.20Y) ?%s"
 
 set status_format = '[ %n(%u/%o)/%m - %p postponed ] [%P - sort: %s - lim it: %V] '
 
+set print_command="muttprint --printer TO_FILE:$HOME/tmp/muttprint.ps %s;ps2pdf $HOME/tmp/muttprint.ps"
 
 # viewing html
 macro pager \cb <pipe-entry>'python $HOME/local/bin/urlview.py'<enter> 'Use urlview.py to view urls'
@@ -78,8 +79,9 @@ macro index Sa '<limit>~A<enter>'
 macro index Su '<limit>~C steen manniche<enter>'
 
 # sendmail
-set sendmail="/usr/bin/esmtp -v -X /tmp/esmtp.log"
-set use_envelope_from=yes
+#set sendmail="/usr/bin/esmtp -v"
+#set sendmail="/usr/sbin/nullmailer-send"
+set use_envelope_from
 
 set editor="muttedit.sh"
 
