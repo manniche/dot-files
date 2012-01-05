@@ -16,7 +16,8 @@ mere sniff of it brings joy to my heart. So my hearty congrats to all
 of you who felt moved enough by this topic to contribute. By the way,
 the plural is conundrums. But I think conundra sounds posher.
 
-If a listener nods his head when you're explaining your program, wake him up.
+If a listener nods his head when you're explaining your program, wake
+him up.
 
 The string is a stark data structure and everywhere it is passed there
 is much duplication of process. It is a perfect vehicle for hiding
@@ -38,19 +39,132 @@ and naming things.
 All movements go too far.
 - Bertrand Russell
 
-There is a reason for everything. Sometimes, that reason just sucks.
-
 "Ja, es gibt ja halt Zahlen."
 "Ja."
 "Und mit denen kannst Du dann rechnen."
-"Ja..."
+"Jaaa."
 "Und damit kannst Du dann halt so Daten verschlüsseln."
 
 Saying that Java is nice because it works on every OS is like saying
 that anal sex is nice because it works on every gender.
 
-The existence of analogies between central features of various theories implies the existence of a general theory which underlies the particular theories and unifies them with respect to these central features. 
-- E.H. Moore
+There's a saying in German about the perfect being the enemy of
+the good - every engineer has to learn that lesson.
+- Peter Norvig
 
-It's 2002, and programming languages have almost caught up with 1958.
-- Paul Graham
+If I could change one thing, I might try to interest some early
+preliterate people in not using their thumbs when they count.
+- Guy Steele
+
+For software, we have this weird world with these weird, really
+bizarre fundamental properties [...] I don't look around and see
+anything that looks like an address or a pointer. We have objects;
+we don't have these weird things that computer scientists misname
+'objects'.
+- L Peter Deutsch
+
+Every now and then I feel a temptation to design a programming
+language but then I just lie down until it goes away.
+- L Peter Deutsch
+
+But to me the idea of the right kind of a program is something
+that matches the way I think as cloosely as possible rather than
+something that matches the machine as closely as possible.
+- Don Knuth
+
+These days, I always point out that you've got to make programs so
+that they are testable. And the only way to make a program
+testable is to think about that before you write the first line of
+code.
+- Bernie Cosell
+
+You can't be a real country unless you have a beer and an airline - it
+helps if you have some kind of football team, or some nuclear weapons,
+but at the very least you need a beer
+- Frank Zappa
+
+I once had a girlfriend who went to hear me talk for 90 minutes about
+LALR(1) parser generators [...] Needless to say, I married her.
+- Dave Beazley
+
+While the author's wildly swerwing train of thought did at one point
+flirt with coherence, this brief encounter was more likely a chance
+event than a result of even rudimentary lucidity
+- http://xkcd.com/406/
+
+there is no reward for emacs except the experience of using emacs, and
+nothing to be learned by it except humility
+
+While Java has plenty of other opportunities to create non-thread-safe
+code, I am not going to create an entirely new and nearly irresistible
+vector for doing so.  Iteration and side-effects are how we've been
+trained to do things in Java, but we have to learn to do better.
+- Brian Goetz
+
+Note that nobody reads every post in linux-kernel. In fact, nobody who
+expects to have time left over to actually do any real kernel work
+will read even half. Except Alan Cox, but he's actually not human, but
+about a thousand gnomes working in under-ground caves in Swansea. None
+of the individual gnomes read all the postings either, they just work
+together really well.
+- Linus Torvalds (2000-05-02)
+
+Talk is cheap. Show me the code
+- Linus Torvalds
+
+I will, in fact, claim that the difference between a bad programmer
+and a good one is whether he considers his code or his data structures
+more important. Bad programmers worry about the code. Good programmers
+worry about data structures and their relationships.
+- Linus Torvalds
+
+Real quality means making sure that people are proud of the code they
+write, that they're involved and taking it personally.
+- Linus Torvalds
+
+I’m an egotistical bastard, and I name all my projects after
+myself. First Linux, now git.
+- Linus Torvalds
+
+The only limiting factor of the Linux operating system is its user.
+- Linus Torvalds
+
+Más sabe el diablo por viejo que por diablo
+- Mexican proverb
+
+Learn the rules, break the rules, make up new rules, break the new rules. 
+- Marvin Bell
+
+The reader who finds the mathematics too difficult in some places is
+urged to do what the mathematician will do when he finds it too
+trivial: Skip it.
+- Preface to 'a history of 𝚷'
+
+The decimal system by itself proves nothing except that nature was a
+poor mathematician in giving us ten fingers (instead of a number the
+has more integral factors, like twelve)
+- a history of 𝚷
+
+toString() is not a serialization mechanism
+
+Now when you're explaining a 'why' you have to be in some framework
+that you allow something to be true. Otherwise you're perpetually
+asking 'why'
+- Richard Feynmann
+
+Ladies and gentlemen, it's time to consider moving the parenthesis
+from the end of the method name to the beginning of the function call.
+
+Efter et par timer i selskab med Béla Tarrs film begynder den lumsk at
+appellere til den særlige transcenderende bevidsthedstilstand, man på
+disse breddegrader kalder ’at få sig en morfar’.
+
+Good ideas want as many people as possible to have them
+- Peckish Law
+
+Everyone has a plan until they get punched in the mouth
+- Mike Tyson
+
+And now, I'm happily heading back to my far-left commie pinko liberal
+Lisp programming.
+- Steve Yegge
