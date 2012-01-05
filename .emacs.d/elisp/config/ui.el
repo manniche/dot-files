@@ -21,11 +21,12 @@
 ;;(setq stm-color-theme 'color-theme-clarity)
 ;; (setq stm-color-theme 'color-theme-billw)
 ;; (setq stm-color-theme 'color-theme-emacs-nw)
-;; (setq stm-color-theme 'color-theme-oswald)
+;(color-theme-oswald)
 ;; (setq stm-color-theme 'color-theme-parus)
 ;; (setq stm-color-theme 'color-theme-pok-wob)
 ;; (setq stm-color-theme 'color-theme-taming-mr-arneson)
- (setq stm-color-theme 'color-theme-charcoal-black)
+;; (setq stm-color-theme 'color-theme-charcoal-black)
+(color-theme-calm-forest)
 
 ;; vertical and horisontal lines for easier navigation:
 (require 'vline)
@@ -34,11 +35,9 @@
 (set-face-background 'hl-line "grey10")
 (set-face-background 'vline "grey10")
 
-;(setq stm-print-theme 'color-theme-high-contrast)
-
-(funcall stm-color-theme)
-
 (show-paren-mode t)
+(require 'highlight-parentheses)
+(highlight-parentheses-mode t)
 
 ;; line-numbering
 (require 'linum)

@@ -1,87 +1,42 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; key bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-(defun my-keybindings ()
-
-;(define-key rst-mode-map "\M-\r" 'rst-adjust-decoration)
-
 ;;bookmarking
-(global-set-key [f8] 'bm-toggle)
-(global-set-key [S-f8] 'bm-next)
-(global-set-key [S-C-f8] 'bm-previous)
-(global-set-key [M-f8] 'bm-all) ;shows all bms in all buffers
-; see variables for more info on the bookmarks
-
-;; bury the buffer
-(global-set-key [f9] 'bury-buffer)
-
-;; kill the buffer
-(global-set-key [C-f9] 'kill-buffer)
-
-
-;; custom functions bound here, see under functions
-(global-set-key [C-prior] 'shrink-window-1)
-(global-set-key [C-next]  'grow-window-1)
-
-(global-set-key [s-down] 'scroll-up-1)
-(global-set-key [s-up] 'scroll-down-1)
-
-(global-set-key [C-s-down] 'scroll-other-window-up-1)
-(global-set-key [C-s-up] 'scroll-other-window-down-1)
-
-;med logitech keyboard
-(global-set-key [XF86AudioRaiseVolume] 'scroll-down-5)
-(global-set-key [XF86AudioLowerVolume] 'scroll-up-5)
+(global-set-key (kbd "<f8>" ) 'bm-toggle)
+(global-set-key (kbd "<f7>" ) 'bm-next)
+(global-set-key (kbd "S-<f7>" ) 'bm-previous)
+(global-set-key (kbd "S-<f8>" ) 'bm-all) ;shows all bms in all buffers
+; see environments_vars.el for more info on the bookmarks
 
 ;hurtig switch mellem buffers i en frame
-(global-set-key [s-left] 'previous-buffer)
-(global-set-key [s-right] 'next-buffer)
+(global-set-key (kbd "s-<left>" ) 'previous-buffer)
+(global-set-key (kbd "s-<right>" ) 'next-buffer)
 
-(global-set-key "\M-o" 'other-window)
+;; see my-functions for definitions of these
+(global-set-key (kbd "s-<up>" ) 'scroll-down-1)
+(global-set-key (kbd "s-<down>" ) 'scroll-up-1)
 
-(global-set-key "\M-r" 'revert-buffer)
+(global-set-key (kbd "M-S-<up>" ) 'move-line-up)
+(global-set-key (kbd "M-S-<down>" ) 'move-line-down)
 
-;; jump to line no.
-(global-set-key "\M-g" 'goto-line)
+(global-set-key (kbd "M-s-<up>" ) 'grow-window-1)
+(global-set-key (kbd "M-s-<down>" ) 'shrink-window-1)
 
-;; I compile a lot
-(global-set-key "\C-x\ \C-k" 'compile)
+(global-set-key (kbd "M-r") 'revert-buffer)
 
-;; inserts predefined headers based on major mode
-(global-set-key "\C-x\ h" 'insert-header)
+(global-set-key (kbd "M-n") 'linum-mode)
 
-;; see function defs
-(global-set-key "\C-x\ t" 'insert-timestamp)
+(global-set-key (kbd "M-v") 'vline-mode)
 
-;; mark-whole-buffer bruges tit ( brug i stedet C-x h)
-;;(global-set-key "\M-a" 'mark-whole-buffer)
+(global-set-key (kbd "M-h") 'hl-line-mode)
 
-(global-set-key "\M-n" 'linum-mode)
-
-(global-set-key "\M-v" 'vline-mode)
-
-(global-set-key "\M-h" 'hl-line-mode)
-
-(global-set-key [M-left] 'dedent-current-region)
-(global-set-key [M-right] 'indent-current-region)
+(global-set-key (kbd "M-l") 'goto-line)
 
 ;; undo gør jeg mig meget i
-(global-set-key [M-backspace] 'undo-only)
+(global-set-key (kbd "M-<backspace>") 'undo-only)
 
 ;; split window in four
-(global-set-key "\C-x\ 4" 'split-window-in-four)
-
-;kill-copy line
-(global-set-key "\C-l" 'copy-line)
-
-;I really hate hitting shift-ctrl-meta-5 for this
-(global-set-key "\C-c\ %" 'query-replace-regexp)
+(global-set-key (kbd "C-x 4") 'split-window-in-four)
 
 ;; see printer variables for more info
 (global-set-key "\C-cp" 'print-to-pdf)
-;(global-set-key "\C-cp" 'print-to-minolta)
-
 
 ;; does a search at point
 (global-set-key "\C-c\ s" 'search-expr-at-point)
@@ -103,8 +58,8 @@
 (global-set-key [insert] 'yank)
 
 ;; jeg rammer af en eller anden grund hele tiden denne tastkombo...
-(global-unset-key (kbd "C-o"))
+(global-unset-key (kbd "C-o")) 
 
-  )
 
 (provide 'keybindings)
+
