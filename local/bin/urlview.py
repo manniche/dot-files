@@ -8,7 +8,7 @@ re_url  = re.compile( r'((?:f|ht)tps?://[^\t\n\'\"\<\> ]+)', re.I)
 browser = ( os.getenv( 'BROWSER' ), '' )
 browser_args = ''
 
-if browser is None:
+if browser[0] is None:
     browser = ( 'firefox', '' )
     browser_args = '-new-tab'
 
