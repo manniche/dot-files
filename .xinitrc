@@ -1,17 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env bash
+sleep 100
 
-emacs --daemon &
-conkeror --daemon &
-
-ssh-agent awesome & wmpid=$!
-
-xmodmap ~/.xmodmap &
-xrdb -load ~/.Xdefaults &
-xset r rate 230 40 &
-syndaemon -d -t &
-
-#~/local/bin/ssh-add.sh &
-wmname LG3D &
-conky -c ~/.conkyrc_minimal &
-update-notifier &
-wait $wmpid
+/usr/bin/ssh-agent /usr/bin/dbus-launch --exit-with-session &
+/usr/bin/dbus-launch --exit-with-session &
+/usr/bin/wmname LG3D
+/usr/bin/nm-applet &
+xfce4-power-manager --restart &
+                    
+exec /usr/bin/awesome
