@@ -101,7 +101,8 @@
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
 
-
+;; org-mode
+(require 'org-latex)
 
 ;; Beamer with org-mode
 ;; allow for export=>beamer by placing
