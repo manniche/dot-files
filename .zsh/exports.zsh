@@ -34,3 +34,5 @@ export VISUAL=$EDITOR
 export SVN_EDITOR=semacs
 export GIT_EDITOR=semacs
 export BROWSER=google-chrome
+
+export GRAILS_HOME=~/local/grails-2.0.0
