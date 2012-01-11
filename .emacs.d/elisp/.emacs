@@ -35,13 +35,12 @@
 ;;; end java mode setup
 
 ;;; eclim setup
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/eclim"))
+;;(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/eclim"))
 ;; only add the vendor path when you want to use the libraries provided with emacs-eclim
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/eclim/vendor"))
-(require 'eclim)
-
-(setq eclim-auto-save t)
-(global-eclim-mode t)
+;;(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/eclim/vendor"))
+;;(require 'eclim)
+;;(setq eclim-auto-save t)
+;;(global-eclim-mode t)
 ;;; end eclim setup
 
 ;;; edit-server edit textareas from chrome in emacs
