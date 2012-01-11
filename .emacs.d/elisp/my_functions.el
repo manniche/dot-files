@@ -188,7 +188,6 @@
 ;; Byte compile elisp files after saving
 (add-hook 'emacs-lisp-mode-hook
           '(lambda ()
-             (make-local-hook 'after-save-hook)
              (add-hook 'after-save-hook
                        '(lambda ()
                           (byte-compile-file buffer-file-name))
