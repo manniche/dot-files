@@ -160,5 +160,4 @@
      ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 ;; beamer end
-
 (provide 'environment_vars)

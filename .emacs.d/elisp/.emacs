@@ -9,8 +9,8 @@
 (add-to-list 'load-path "/usr/share/emacs23/site-lisp")
 
 ;; latex loadfiles
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
+;(load "auctex.el" nil t t)
+;(load "preview-latex.el" nil t t)
 
 ;;; elpa setup
 (require 'package)

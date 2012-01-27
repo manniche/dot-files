@@ -1,11 +1,11 @@
 # Currently this path is appendend to dynamically when picking a ruby version
-export PATH=~/.bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/sbin:$HOME/local/bin:/opt/bin:$PATH
+export PATH=~/.bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/sbin:$HOME/local/bin:/opt/bin:/opt/local/bin:$PATH
 
 # Our list of directories we can cd to from anywhere
 export CDPATH=.:~/entwicklung/
 
 # Set default console Java to 1.6
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home
 
 # Setup terminal, and turn on colors
 export CLICOLOR=1
