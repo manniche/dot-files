@@ -1,0 +1,88 @@
+xkcd_add_title = true;
+url_completion_use_history = true;
+
+url_remoting_fn = load_url_in_new_buffer;
+
+define_key(content_buffer_normal_keymap, "d", "follow-new-buffer");
+
+define_key(content_buffer_normal_keymap, "q", "quote-next-input-mode");
+
+//add_delicious_webjumps("ste1");
+
+define_webjump( "jira", "http://jira.infopaq.net/browse/%s" );
+
+define_webjump( "java", "http://www.google.com/search?q=site%3Ahttp%3A%2F%2Fjava.sun.com%2Fjavase%2F6%2Fdocs%2Fapi%2F%20%s&ie=utf-8&oe=utf-8&aq=t" );
+
+define_webjump( "g", "http://www.google.com/search?q=%s" );
+
+require("page-modes/gmail.js");
+
+//Setting the cache level so I can watch Big Videos
+session_pref("media.cache_size", 124000);
+
+// Session handling
+require("session.js");
+
+session_auto_save_auto_load = true;
+
+
+//easily switchable buffers
+minibuffer.prototype.read_recent_buffer = function () {
+    var window = this.window;
+    var buffer = this.window.buffers.current;
+    keywords(arguments, $prompt = "Buffer:",
+             $default = buffer,
+             $history = "buffer");
+    var buffers = window.buffers.buffer_list.slice(0);
+    buffers.push(buffers.shift());
+    var completer = all_word_completer(
+        $completions = buffers,
+        $get_string = function (x) x.title, 
+        $get_description = function (x) x.description);
+    var result = yield this.read(
+        $keymap = read_buffer_keymap,
+        $prompt = arguments.$prompt,
+        $history = arguments.$history,
+        $completer = completer,
+        $match_required = true,
+        $auto_complete = "buffer",
+        $auto_complete_initial = true,
+        $auto_complete_delay = 0,
+        $default_completion = arguments.$default);
+    yield co_return(result);
+};
+
+interactive("switch-to-recent-buffer",
+            "Switch to a buffer specified in the minibuffer.  List of buffers "+
+            "will be ordered by recency.",
+            function (I) {
+                switch_to_buffer(
+                    I.window,
+                    (yield I.minibuffer.read_recent_buffer(
+                         $prompt = "Switch to buffer:",
+                         $default = (I.window.buffers.count > 1 ?
+                                     I.window.buffers.buffer_list[1] :
+                                     I.buffer))));
+            });
+
+define_key(default_global_keymap, "C-x B", "switch-to-recent-buffer");
+define_key(default_global_keymap, "C-tab", "switch-to-recent-buffer");
+define_key(read_buffer_keymap, "C-tab", "minibuffer-complete");
+define_key(read_buffer_keymap, "C-S-tab", "minibuffer-complete-previous");
+
+//password management:
+session_pref("signon.rememberSignons", true);
+session_pref("signon.expireMasterPassword", false);
+session_pref("signon.SignonFileName", "signons.txt");
+
+Components.classes["@mozilla.org/login-manager;1"]
+    .getService(Components.interfaces.nsILoginManager);
+
+define_webjump("pinboard", function (url) {
+    if (url) {
+        return "http://pinboard.in/add?next=same&url=" + url;
+    } else {
+        return "javascript:document.location.href='http://pinboard.in/add?next=same&url='+encodeURIComponent(document.location.href)+'&description='+encodeURIComponent(document.getSelection())+'&title='+encodeURIComponent(document.title);";
+   }
+}, $argument = "optional");
+
