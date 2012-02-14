@@ -20,33 +20,25 @@
 (package-initialize)
 ;;; end elpa setup
 
-;;; clojure mode setup
-(add-to-list 'auto-mode-alist
- (cons (concat "\\." (regexp-opt '("clj" "cljs") t) "\\'")
- 'clojure-mode))
-(add-hook 'clojure-mode-hook (load-file "~/.emacs.d/elisp/config/emacs-clojure.el"))
-;;; end clojure mode setup
 
-;;; java mode setup
-(add-to-list 'auto-mode-alist
- (cons (concat "\\." (regexp-opt '("java" "jsp") t) "\\'")
- 'java-mode))
-(add-hook 'java-mode-hook (load-file "~/.emacs.d/elisp/config/emacs-java.el"))
-;;; end java mode setup
+;; http://www.emacswiki.org/emacs-en/OrgAnnotateFile
+(require 'org-annotate-file)
+(global-set-key (kbd "C-c C-l") 'org-annotate-file)
+(setq org-annotate-file-storage-file "~/.org/annotated.org")
 
-;;; eclim setup
-;;(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/eclim"))
-;; only add the vendor path when you want to use the libraries provided with emacs-eclim
-;;(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/eclim/vendor"))
-;;(require 'eclim)
-;;(setq eclim-auto-save t)
-;;(global-eclim-mode t)
-;;; end eclim setup
+
+
+;; General programming setup
+(require 'programming-setup)
 
 ;;; edit-server edit textareas from chrome in emacs
 (require 'edit-server)
 (edit-server-start)
 ;;; end edit-server
+
+;;; MobilOrg start
+(require 'mobile_org_setup)
+
 
 ;; my own vars and l'a'f
 (require 'environment_vars)
