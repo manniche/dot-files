@@ -1,1 +1,2 @@
-emacs -nw -q $*
+emacs -nw -Q -l ~/.emacs.d/elisp/.semacs $*
+
