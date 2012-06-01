@@ -1,5 +1,5 @@
 # Currently this path is appendend to dynamically when picking a ruby version
-export PATH=~/.bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/sbin:$HOME/local/bin:/opt/bin:$PATH
+export PATH=~/.bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/sbin:$HOME/opt/local/bin:$HOME/opt/bin:$PATH
 
 # Our list of directories we can cd to from anywhere
 export CDPATH=.:~/entwicklung/
@@ -33,6 +33,4 @@ export EDITOR=emacs
 export VISUAL=$EDITOR
 export SVN_EDITOR=semacs
 export GIT_EDITOR=semacs
-export BROWSER=google-chrome
-
-export GRAILS_HOME=~/local/grails-2.0.0
+export BROWSER=conkeror
