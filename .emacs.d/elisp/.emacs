@@ -5,6 +5,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/config")
 (add-to-list 'load-path "~/.emacs.d/elisp/color-theme")
 (add-to-list 'load-path "~/.emacs.d/elisp/edit-server")
+(add-to-list 'load-path "~/.emacs.d/elisp/ikiwiki")
 (add-to-list 'load-path "/usr/share/emacs23/site-lisp")
 
 ;;; elpa setup
@@ -37,6 +38,8 @@
 ;;; MobilOrg start
 (require 'mobile_org_setup)
 
+;; ikiwiki setup
+(require 'ikiwiki-org-plugin)
 
 ;; my own vars and l'a'f
 (require 'environment_vars)
