@@ -5,18 +5,16 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/config")
 (add-to-list 'load-path "~/.emacs.d/elisp/color-theme")
 (add-to-list 'load-path "~/.emacs.d/elisp/edit-server")
-
 (add-to-list 'load-path "/usr/share/emacs23/site-lisp")
-
-;; latex loadfiles
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
 
 ;;; elpa setup
 (require 'package)
-(setq package-archives '(("tromey" . "http://tromey.com/elpa/") 
-                          ("gnu" . "http://elpa.gnu.org/packages/")
-                          ("marmalade" . "http://marmalade-repo.org/packages/")))
+(add-to-list 'package-archives
+'("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+;; (setq package-archives '(("tromey" . "http://tromey.com/elpa/") 
+;;                           ("gnu" . "http://elpa.gnu.org/packages/")
+;;                           ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 ;;; end elpa setup
 
