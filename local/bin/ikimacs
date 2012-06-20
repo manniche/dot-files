@@ -1,1 +1,1 @@
-emacs -nw -Q -l ~/.emacs.d/elisp/.ikimacs $*
+emacs -nw -Q -l ~/.ikimacs $*

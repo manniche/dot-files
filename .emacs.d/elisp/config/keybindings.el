@@ -6,8 +6,8 @@
 ; see environments_vars.el for more info on the bookmarks
 
 ;hurtig switch mellem buffers i en frame
-(global-set-key (kbd "s-<left>" ) 'previous-buffer)
-(global-set-key (kbd "s-<right>" ) 'next-buffer)
+(global-set-key (kbd "M-<up>" ) 'previous-buffer)
+(global-set-key (kbd "M-<down>" ) 'next-buffer)
 
 ;; see my-functions for definitions of these
 (global-set-key (kbd "s-<up>" ) 'scroll-down-1)
