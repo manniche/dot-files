@@ -11,6 +11,34 @@
   (kill-line 0))
 
 
+;; org-stuff from norang.ca
+(defun bh/hide-other ()
+  (interactive)
+  (save-excursion
+    (org-back-to-heading 'invisible-ok)
+    (hide-other)
+    (org-cycle)
+    (org-cycle)
+    (org-cycle)))
+
+(defun bh/set-truncate-lines ()
+  "Toggle value of truncate-lines and refresh window display."
+  (interactive)
+  (setq truncate-lines (not truncate-lines))
+  ;; now refresh window display (an idiom from simple.el):
+  (save-excursion
+    (set-window-start (selected-window)
+                      (window-start (selected-window)))))
+
+(defun bh/make-org-scratch ()
+  (interactive)
+  (find-file "~/tmp/emacs/scratch.org")
+  (gnus-make-directory "~/tmp/emacs/publish"))
+
+(defun bh/switch-to-scratch ()
+  (interactive)
+  (switch-to-buffer "*scratch*"))
+
 ;; (defun c-newline-and-perhaps-comment (&optional soft)
 ;;   "Insert a newline and continue commenting if inside a C style comment.
 ;; This function usually inserts a newline character.  However it has
