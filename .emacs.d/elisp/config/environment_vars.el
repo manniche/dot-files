@@ -25,6 +25,7 @@
 (defvar username ( getenv "USER" ) )
 (defvar hostname ( substring ( system-name ) 0 ( string-match "\\." ( system-name ) ) ) )
 (setq user-mail-address "steen@manniche.net")
+(setq user-full-name "Steen Manniche")
 
 
 (setq rst-level-face-base-color "nil")
