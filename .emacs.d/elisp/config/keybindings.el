@@ -8,6 +8,9 @@
 ;hurtig switch mellem buffers i en frame
 (global-set-key (kbd "M-<up>" ) 'previous-buffer)
 (global-set-key (kbd "M-<down>" ) 'next-buffer)
+; og alternativer
+(global-set-key (kbd "C-<f9>") 'previous-buffer)
+(global-set-key (kbd "C-<f10>") 'next-buffer)
 
 ;; see my-functions for definitions of these
 (global-set-key (kbd "s-<up>" ) 'scroll-down-1)
@@ -28,6 +31,8 @@
 (global-set-key (kbd "M-h") 'hl-line-mode)
 
 (global-set-key (kbd "M-l") 'goto-line)
+
+(global-set-key (kbd "<f9> c") 'calendar)
 
 ;; undo gør jeg mig meget i
 (global-set-key (kbd "M-<backspace>") 'undo-only)
@@ -59,6 +64,27 @@
 
 ;; jeg rammer af en eller anden grund hele tiden denne tastkombo...
 (global-unset-key (kbd "C-o")) 
+
+;; org mode keys
+(global-set-key (kbd "<f12>") 'org-agenda)
+(global-set-key (kbd "<f9> n") 'org-narrow-to-subtree)
+(global-set-key (kbd "<f9> o") 'bh/make-org-scratch)
+(global-set-key (kbd "<f9> v") 'visible-mode)
+(global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task)
+(global-set-key (kbd "M-<f9>") 'org-toggle-inline-images)
+(global-set-key (kbd "C-x n r") 'narrow-to-region)
+(global-set-key (kbd "C-c r") 'org-capture)
+(global-set-key (kbd "<f11>") 'org-capture)
+
+
+;; Change the q key in the agenda so instead of killing the agenda
+;; buffer it merely buries it to the end of the buffer list. This
+;; allows me to pull it back up quickly with the q speed key or f9 f9
+;; and regenerate the results with g.
+(add-hook 'org-agenda-mode-hook
+          (lambda ()
+            (define-key org-agenda-mode-map "q" 'bury-buffer))
+          'append)
 
 
 (provide 'keybindings)
