@@ -9,4 +9,4 @@
 
 #xfce4-power-manager --restart &
 
-exec /usr/bin/awesome
+exec /usr/bin/awesome -c /home/stm/.config/awesome/rc.lua
