@@ -16,6 +16,9 @@
 (global-set-key (kbd "s-<up>" ) 'scroll-down-1)
 (global-set-key (kbd "s-<down>" ) 'scroll-up-1)
 
+(global-set-key (kbd "s-<right>" ) 'next-buffer)
+(global-set-key (kbd "s-<left>" ) 'previous-buffer)
+
 (global-set-key (kbd "M-S-<up>" ) 'move-line-up)
 (global-set-key (kbd "M-S-<down>" ) 'move-line-down)
 
