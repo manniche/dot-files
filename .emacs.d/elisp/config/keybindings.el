@@ -6,21 +6,15 @@
 ; see environments_vars.el for more info on the bookmarks
 
 ;hurtig switch mellem buffers i en frame
-(global-set-key (kbd "M-<up>" ) 'previous-buffer)
-(global-set-key (kbd "M-<down>" ) 'next-buffer)
-; og alternativer
-(global-set-key (kbd "C-<f9>") 'previous-buffer)
-(global-set-key (kbd "C-<f10>") 'next-buffer)
+(global-set-key (kbd "s-<right>" ) 'next-buffer)
+(global-set-key (kbd "s-<left>" ) 'previous-buffer)
 
 ;; see my-functions for definitions of these
 (global-set-key (kbd "s-<up>" ) 'scroll-down-1)
 (global-set-key (kbd "s-<down>" ) 'scroll-up-1)
 
-(global-set-key (kbd "s-<right>" ) 'next-buffer)
-(global-set-key (kbd "s-<left>" ) 'previous-buffer)
-
-(global-set-key (kbd "M-S-<up>" ) 'move-line-up)
-(global-set-key (kbd "M-S-<down>" ) 'move-line-down)
+(global-set-key (kbd "<f5>") (other-window -1) )
+(global-set-key (kbd "<f6>") (other-window 1) )
 
 (global-set-key (kbd "M-s-<up>" ) 'grow-window-1)
 (global-set-key (kbd "M-s-<down>" ) 'shrink-window-1)
