@@ -32,6 +32,7 @@
 ;;;;;;;;;;;;;;;;;
 ;; always ido
 (require 'ido)
+(ido-mode t)
 
 ;; General programming setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
