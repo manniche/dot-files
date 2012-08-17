@@ -35,7 +35,7 @@
     dump = cat-file -p
     # will push the current branch only and named branch with `git pub {branch-name}`
     pub = "!f() { git push -u ${1:-origin} `git symbolic-ref HEAD`; }; f" 
-
+    changes=!git log --name-status HEAD..
 [giggle]
 	main-window-maximized = false
 	main-window-geometry = 718x879+716+19
