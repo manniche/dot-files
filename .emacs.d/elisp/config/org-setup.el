@@ -1,17 +1,20 @@
 (setq org-directory "~/.org")
 (setq org-default-notes-file "~/.org/capture.org")
+(setq org-annotate-file-storage-file "~/.org/annotated.org")
+(setq org-agenda-files (list "~/.org/nsi/work.org"
+                             "~/.org/master.org"))
 
 ;; from http://doc.norang.ca/org-mode
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
-              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE"))))
+              (sequence "WAITING(w@/!)" "QUESTION(h@/!)" "|" "CANCELLED(c@/!)" "PHONE"))))
 
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
               ("NEXT" :foreground "blue" :weight bold)
               ("DONE" :foreground "forest green" :weight bold)
               ("WAITING" :foreground "orange" :weight bold)
-              ("HOLD" :foreground "magenta" :weight bold)
+              ("QUESTION" :foreground "magenta" :weight bold)
               ("CANCELLED" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
 
@@ -25,11 +28,11 @@
 (setq org-todo-state-tags-triggers
       (quote (("CANCELLED" ("CANCELLED" . t))
               ("WAITING" ("WAITING" . t))
-              ("HOLD" ("WAITING" . t) ("HOLD" . t))
-              (done ("WAITING") ("HOLD"))
-              ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
-              ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
-              ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
+              ("QUESTION" ("WAITING" . t) ("QUESTION" . t))
+              (done ("WAITING") ("QUESTION"))
+              ("TODO" ("WAITING") ("CANCELLED") ("QUESTION"))
+              ("NEXT" ("WAITING") ("CANCELLED") ("QUESTION"))
+              ("DONE" ("WAITING") ("CANCELLED") ("QUESTION")))))
 
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, and org-protocol
 (setq org-capture-templates
