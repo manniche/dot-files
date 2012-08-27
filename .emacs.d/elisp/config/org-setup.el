@@ -2,7 +2,8 @@
 (setq org-default-notes-file "~/.org/capture.org")
 (setq org-annotate-file-storage-file "~/.org/annotated.org")
 (setq org-agenda-files (list "~/.org/nsi/work.org"
-                             "~/.org/master.org"))
+                             "~/.org/master.org"
+                             "~/.org/calendar.org"))
 
 ;; from http://doc.norang.ca/org-mode
 (setq org-todo-keywords
