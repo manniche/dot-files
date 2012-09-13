@@ -4,24 +4,49 @@ I have a theory, which has not let me down so far, that there is an inverse rela
 Tadhg Kelly: Stories, Structure, Abstraction and Games
 And that's why Chess and Go remain as enduringly popular as they are, and why soccer is the most popular game on earth. Robustness and elegance are the key driving forces here, and they are in direct opposition to the brittleness and complexity, the defining traits of story.
 
-Bill Tozier: Diverse themes observed at GECCO 2006
-What one wants is to be able to talk with a diverse club of smart people, arrange to do short one-off research projects and simulations, publish papers or capture intellectual property quickly and easily, and move on to another conversation. Quickly. Easily. For a living. Can't do that in industry. Can't do that in the Academy. Yet in my experience, scientists and engineers all want it. Maybe even a few mathematicians and social scientists do, too.
-
 Luiz Henrique de Figueiredo: lua-l
  > I found myself wishing to have a continue keyword [...]
  > I can't recall an official reason why it isn't in the language.
 Lua evolves by answering "why?" not "why not?".
 
-David Hestenes and Garret Sobczyk: Clifford Algebra to Geometric Calculus: A Unified Language for Mathematics, p xii
-Klein's seminal analysis of the structure and history of mathematics brings to light two major processes by which mathematics grows and becomes organized... The one emphasizes algebraic structure while the other emphasizes geometric interpretation. Klein's analysis shows one process alternately dominating the other in the historical development of mathematics. But there is no necessary reason that the two processes should operate in mutual exclusion. Indeed, each process is undoubtedly grounded in one the two great capacities of the human mind: the capacity for language and the capacity for spatial perception. From the psychological point of view, then, the fusion of algebra with geometry is so fundamental that one could well say, 'Geometry without algebra is dumb! Algebra without geometry is blind!'
+David Hestenes and Garret Sobczyk: Clifford Algebra to Geometric
+Calculus: A Unified Language for Mathematics, p xii Klein's seminal
+analysis of the structure and history of mathematics brings to light
+two major processes by which mathematics grows and becomes
+organized... The one emphasizes algebraic structure while the other
+emphasizes geometric interpretation. Klein's analysis shows one
+process alternately dominating the other in the historical development
+of mathematics. But there is no necessary reason that the two
+processes should operate in mutual exclusion. Indeed, each process is
+undoubtedly grounded in one the two great capacities of the human
+mind: the capacity for language and the capacity for spatial
+perception. From the psychological point of view, then, the fusion of
+algebra with geometry is so fundamental that one could well say,
+'Geometry without algebra is dumb! Algebra without geometry is blind!'
 
 Richard Hamming: The Unreasonable Effectiveness of Mathematics (1980)
-The Postulates of Mathematics Were Not on the Stone Tablets that Moses Brought Down from Mt. Sinai. It is necessary to emphasize this. We begin with a vague concept in our minds, then we create various sets of postulates, and gradually we settle down to one particular set. In the rigorous postulational approach, the original concept is now replaced by what the postulates define. This makes further evolution of the concept rather difficult and as a result tends to slow down the evolution of mathematics. It is not that the postulation approach is wrong, only that its arbitrariness should be clearly recognized, and we should be prepared to change postulates when the need becomes apparent.
+The Postulates of Mathematics Were Not on the Stone Tablets that Moses
+Brought Down from Mt. Sinai. It is necessary to emphasize this. We
+begin with a vague concept in our minds, then we create various sets
+of postulates, and gradually we settle down to one particular set. In
+the rigorous postulational approach, the original concept is now
+replaced by what the postulates define. This makes further evolution
+of the concept rather difficult and as a result tends to slow down the
+evolution of mathematics. It is not that the postulation approach is
+wrong, only that its arbitrariness should be clearly recognized, and
+we should be prepared to change postulates when the need becomes
+apparent.
 
 Richard Hamming: The Art of Doing Science and Engineering (1997)
-Education is what, when, and why to do things. Training is how to do it. In science, if you know what you are doing, you should not be doing it. In engineering, if you do not know what you are doing, you should not be doing it.
-Dan Bricklin: interview on Triumph of the Nerds
-People who saw [VisiCalc] and went and got it... Like an accountant, I remember showing it to one around here and he started shaking and said, "That's what I do all week. I could do it in an hour." ... I meet these people now, they come up to me and say, "I gotta tell you, you changed my life. You made accounting fun."
+Education is what, when, and why to do things. Training is how to do
+it. In science, if you know what you are doing, you should not be
+doing it. In engineering, if you do not know what you are doing, you
+should not be doing it.  Dan Bricklin: interview on Triumph of the
+Nerds People who saw [VisiCalc] and went and got it... Like an
+accountant, I remember showing it to one around here and he started
+shaking and said, "That's what I do all week. I could do it in an
+hour." ... I meet these people now, they come up to me and say, "I
+gotta tell you, you changed my life. You made accounting fun."
 
 Dan Bricklin and Bob Frankston: interview on Triumph of the Nerds
 DB: You know, looking back at how successful a lot of other people have been [as a result of our work], it's kind of sad that we weren't as successful...
@@ -116,42 +141,16 @@ Two fundamental ideas run through this book. The first is that it is possible to
 Steven Johnson: Emergence: The Connected Lives of Ants, Brains, Cities, and Software
 Cities bring minds together and put them into coherent slots. ... Ideas and goods flow readily within these clusters, leading to productive cross-pollination, ensuring that good ideas don't die out in rural isolation. The power unleashed by this data storage is evident in the earliest large-scale human settlements... By some accounts, grain cultivation, the plow, the potter's wheel, the sailboat, the draw loom, copper metallurgy, abstract mathematics, exact astronomical observation, the calendar -- all of these inventions appeared within centuries of the original urban populations. It's possible, even likely, that more isolated groups or individuals had stumbled upon some of those technologies at an earlier date, but they didn't become part of the collective intelligence of civilization until there were cities to store and transmit them.
 
-Ken Robinson: TED 2006 talk
-University professors... live in their heads. ... They're disembodied, in a kind of literal way. They look upon their body as a form of transport for their heads. It's a way of getting their heads to meetings.
-
-J. Yee: email
-Last night I went to a baby shower where a good number of the attendees were babies themselves. I kept thinking how ridiculous it is that people pour so much time and energy into supporting a single life, when there are so many others that need more support.
-
-Will Wright: interview in Designing Interactions
-We noticed that when we were designing The Sims, a certain degree of abstraction in the game is very beneficial. You don't actually get very close to the characters. You can't quite see their facial expressions, but everybody in their mind is imagining the facial expressions on the characters.
-In computer game design, you're dealing with two processors. You've got the processor in front of you on the computer and you've got the processor in your head, and so the game itself is actually running on both. There are certain things that the computer is very good at, but there are other things that the human imagination is better at.
-
-Wikileaks editors (anonymous): Wikileaks: About
-Considering corporations as analogous to a nation state reveals the following properties:
-    The right to vote does not exist except for share holders (analogous to land owners) and even there voting power is in proportion to ownership.
-    All power issues from a central committee.
-    There is no balancing division of power. There is no fourth estate. There are no juries and innocence is not presumed.
-    Failure to submit to any order may result in instant exile.
-    There is no freedom of speech.
-    There is no right of association. Even love between men and women is forbidden without approval.
-    The economy is centrally planned.
-    There is pervasive surveillance of movement and electronic communication.
-    The society is heavily regulated, to the degree many employees are told when, where and how many times a day they can go to the toilet.
-    There is little transparency and freedom of information is unimaginable.
-    Internal opposition groups are blackbanned, surveilled and/or marginalized whenever and wherever possible.
-While having a GDP and population comparable to Belgium, Denmark or New Zealand, most corporations have nothing like their quality of civic freedoms and protections. Internally, some mirror the most pernicious aspects of the 1960s Soviet system. This is even more striking when the regional civic laws the company operates under are weak (such as in West Papua or South Korea); there, the character of these corporate tyrannies is unobscured by their surroundings.
-
-Aaron Hertzman: Machine Learning for Computer Graphics: A Manifesto and Tutorial
-It is a truism that artificial intelligence research can never become successful, because its successes are not viewed as AI.
-
 Chaim Gingold: Miniature Gardens & Magic Crayons
 Will Wright points out that while playing games, people engage a game in their head, and what counts is this mental world. "So what we're trying to do as designers is build up these mental models in the player. The computer is just an incremental step, an intermediate model to the model in the player's head." His explanation of this concept works like this: somebody walks into a game store and looks at the cover of your game's box. Based on the front of the box, they start playing a game in their head, and if that game is interesting, they'll pick up the box and look at the back. They then play a new game in their head, closer to the one you've designed. If they like that game, then they'll buy the game and take it home.
+
 Bret Victor: email (9/3/04)
 Interface matters to me more than anything else, and it always has. I just never realized that. I've spent a lot of time over the years desperately trying to think of a "thing" to change the world. I now know why the search was fruitless -- things don't change the world. People change the world by using things. The focus must be on the "using", not the "thing". Now that I'm looking through the right end of the binoculars, I can see a lot more clearly, and there are projects and possibilities that genuinely interest me deeply.
+
 Joe Armstrong: erlang-questions mailing list
 The real principle is "let some other process fix the error". The "let it fail" philosophy is a consequence of this. ... look to make a fault-tolerant system you need TWO computers not ONE right ... and If you've got TWO computers you need to start thinking about distributed programming *whether you like or not* and if you're going to do distributed computing then you'll have to think about the following ...
-Malcolm Gladwell: Group Think
 
+Malcolm Gladwell: Group Think
 [The] point is not that innovation attracts groups but that innovation is found in groups: that it tends to arise out of social interaction -- conversation, validation, the intimacy of proximity, and the look in your listener's eye that tells you you're onto something. ...
 
 When [Erasmus Darwin, James Watt, Joseph Priestley, etc.] were not meeting, they were writing to each other with words of encouragement or advice or excitement. This was truly -- in a phrase that is invariably and unthinkingly used in the pejorative -- a mutual-admiration society. ...
@@ -271,11 +270,12 @@ James Herndon: How to Survive in Your Native Land, p 36
 This drove us out of our minds, and it drove us out of our minds every day... Unaccountably, the course was not, as we'd thought, a course where students would get to do all the things we'd thought up for them to do, but instead a course where they could steadfastly refuse to do everything and then complain that there was nothing to do. ...
 
 We never quite accepted the notion that the real curriculum of the course was precisely the question What Shall We Do In Here? and that it was really an important question and maybe the only important question.
-Keith Johnstone: Impro: Improvisation and the Theatre, p 149
 
+Keith Johnstone: Impro: Improvisation and the Theatre, p 149
 We don't know much about Masks in this culture ... because this culture is usually hostile to trance states. We distrust spontaneity, and try to replace it by reason: the Mask was driven out of theatre in the same way that improvisation was driven out of music. ... Education itself might be seen as primarily an anti-trance activity.
 
 I see the Mask as something that is continually flaring up in this culture, only to be almost immediately snuffed out. No sooner have I established a tradition of Mask work somewhere than the students start getting taught the 'correct' movements, just as they learn a phoney 'Commedia dell' Arte' technique.
+
 Charles Bloom: Intolerance
 Just the mathematics of being single are depressing. You have to flirt with ten girls to get a date with one. You have to go on ten dates to find someone you want to have something long term with. You have to have ten long term relationships to find the one that works. It's unbearable.
 Adam Cadre: Fatal abstraction
@@ -850,6 +850,9 @@ Everyone has a plan until they get punched in the mouth
 And now, I'm happily heading back to my far-left commie pinko liberal
 Lisp programming.
 - Steve Yegge
+
+The intensity of stupidity that is looking back at you is just amazing.
+- Werner Herzog, on chickens
 
 Bracket the original problem between the simplest version of the
 problem you cannot solve and the fullest version of the problem you
