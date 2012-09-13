@@ -44,3 +44,6 @@
 	file-view-vpane-position = 381
 [core]
 	editor = semacs
+[user]
+	email = steen@manniche.net
+	name = Steen Manniche
