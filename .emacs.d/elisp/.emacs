@@ -4,7 +4,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (add-to-list 'load-path "~/.emacs.d/elisp/config")
 (add-to-list 'load-path "~/.emacs.d/elisp/color-theme")
-(add-to-list 'load-path "/usr/share/emacs23/site-lisp")
+;(add-to-list 'load-path "/usr/share/emacs23/site-lisp")
 
 ;; The completions buffer is needed for making C-g work. I'm not yet sure why
 (generate-new-buffer "*Completions*")
