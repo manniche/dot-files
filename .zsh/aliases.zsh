@@ -1,8 +1,8 @@
-alias l='ls -l --color=auto'
+alias l='ls -l -G'
 
-alias ll='ls -la --color=auto'
+alias ll='ls -la -G'
 
-alias lll='ls -ahl --color | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `ls -al | egrep \"^drw\" | wc -l` \e[1;32m|\e[1;35m Files: \e[1;31m`ls -al | egrep -v \"^drw\" | grep -v total | wc -l` \e[1;32m]--"'
+alias lll='ls -ahl -G | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `ls -al | egrep \"^drw\" | wc -l` \e[1;32m|\e[1;35m Files: \e[1;31m`ls -al | egrep -v \"^drw\" | grep -v total | wc -l` \e[1;32m]--"'
 
 
 alias mysql='mysql -u root'
