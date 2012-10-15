@@ -2,7 +2,7 @@
 (add-to-list 'load-path
               "~/.emacs.d/elpa/yasnippet")
 (require 'yasnippet) ;; not yasnippet-bundle
-(yas/initialize)
+;(yas/initialize)
 (yas/load-directory "~/.emacs.d/elpa/yasnippet/snippets")
 (yas/global-mode 1)
 
