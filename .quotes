@@ -858,3 +858,21 @@ Bracket the original problem between the simplest version of the
 problem you cannot solve and the fullest version of the problem you
 can solve. Then try to move your brackets.
 - John D. Cook
+
+BTW, I never give "trick questions" about real mathematical
+content. There is no need; mathematics is already tricky. :-)
+- Keith Devlin
+
+The only way that problems get solved in real life is with a lot of
+hard work on getting the details right. Not by some over-arching
+ideology that somehow magically makes things work.
+- Linus Torvalds
+
+In fact, one of the design principles behind git was to make forking
+easy, and not have any technical barrier (like a "more central
+repository") that held back forking. Forking is important, and forking
+needs to happen any time there is a developer who thinks that they can
+do a better job in some area. Go wild, fork the project, and prove
+your point. Show everybody that you can make improvements.
+- Linus Torvalds
+
