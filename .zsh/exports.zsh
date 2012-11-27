@@ -1,5 +1,8 @@
+# Adding clojure home
+export CLOJURE_HOME=~/.cljr/bin/
+
 # Currently this path is appendend to dynamically when picking a ruby version
-export PATH=~/.bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/sbin:$HOME/opt/local/bin:$HOME/opt/bin:$PATH
+export PATH=~/.bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/sbin:$HOME/opt/local/bin:$HOME/opt/bin:$CLOJURE_HOME:$PATH
 
 # Our list of directories we can cd to from anywhere
 export CDPATH=.:~/entwicklung/
