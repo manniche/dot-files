@@ -1,3 +1,7 @@
+(require 'org-install)
+(require 'org-exp)
+(require 'org-latex)
+
 (setq org-directory "~/.org")
 (setq org-default-notes-file "~/.org/capture.org")
 (setq org-annotate-file-storage-file "~/.org/annotated.org")
@@ -51,6 +55,25 @@
                "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
               ("h" "Habit" entry (file "~/.org/capture.org")
                "* NEXT %?\n%U\n%a\nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
+
+;;LaTeX export options
+(setq org-export-latex-listings t)
+;; (add-to-list 'org-export-latex-classes
+;;              '("article"
+;;                "\\documentclass{article}"
+;;                ("\\section{%s}" . "\\section*{%s}")
+;;                ("\\subsection{%s}" . "\\subsection*{%s}")
+;; 	     )
+;;              '("book"
+;;                "\\documentclass{book}"
+;;                ("\\part{%s}" . "\\part*{%s}")
+;;                ("\\chapter{%s}" . "\\chapter*{%s}")
+;;                ("\\section{%s}" . "\\section*{%s}")
+;;                ("\\subsection{%s}" . "\\subsection*{%s}")
+;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;; 	     )
+;; )
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; refiling from capture.org
