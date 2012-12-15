@@ -4,7 +4,6 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (add-to-list 'load-path "~/.emacs.d/elisp/config")
 (add-to-list 'load-path "~/.emacs.d/elisp/color-theme")
-;(add-to-list 'load-path "/usr/share/emacs23/site-lisp")
 
 ;; The completions buffer is needed for making C-g work. I'm not yet sure why
 (generate-new-buffer "*Completions*")
@@ -13,7 +12,7 @@
 ;;;;;;;;;;;;;
 (require 'package)
 (add-to-list 'package-archives
-'("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ;; Org mode setup
@@ -24,7 +23,7 @@
 (require 'org-setup)
 
 ;; MobilOrg start
-;(require 'mobile_org_setup)
+                                        ;(require 'mobile_org_setup)
 
 ;;;;;;;;;;;;;;;;;
 ;; always ido
