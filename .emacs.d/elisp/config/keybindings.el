@@ -62,6 +62,8 @@
 ;; jeg rammer af en eller anden grund hele tiden denne tastkombo...
 (global-unset-key (kbd "C-o")) 
 
+(global-set-key [f10] 'ns-toggle-fullscreen)
+
 ;; org mode keys
 (global-set-key (kbd "<f12>") 'org-agenda)
 (global-set-key (kbd "<f9> n") 'org-narrow-to-subtree)
