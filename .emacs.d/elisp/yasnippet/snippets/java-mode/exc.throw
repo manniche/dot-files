@@ -1,3 +1,0 @@
-#name : throw Exception
-# --
-throw new ${1:Type}Exception($2);
