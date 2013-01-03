@@ -2,9 +2,8 @@
 (add-to-list 'load-path
               "~/.emacs.d/elpa/yasnippet")
 (require 'yasnippet) ;; not yasnippet-bundle
-;(yas/initialize)
-(yas-load-directory "~/.emacs.d/elisp/yasnippet/snippets")
-(yas-global-mode 1)
+(yas/initialize)
+(yas/global-mode 1)
 
 ;;; clojure mode setup
 (add-to-list 'auto-mode-alist
