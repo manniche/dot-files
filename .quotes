@@ -9,24 +9,6 @@ elated. "Hey, we got it right!" he said. "Not bad for amateurs."
 I'm using Linux. A library that emacs uses to communicate with Intel hardware.
 - erwin@#emacs
 
-<Lukhas> ".JAVA" ??!
-<Lukhas> burn in flames, double heretic
-<Erwin> You can't just burn in flames. You need to instantiate a
-        OxygenStream then on top of that a BufferedOxygenConsumer then give
-        that as parameters to a FlameProducerConsumerFactoryQueue.
-
-[...] after an engaging debate at work today where some suggestions
-included 'conundri', 'conundrae', 'conundinomie',
-'conundrinopigomipingus' - all of which I dismissed as being utterly
-uneducated guesses. I do not believe in the concept of overbearing
-pedants. Pedantry is a rare and beautiful thing these days and the
-mere sniff of it brings joy to my heart. So my hearty congrats to all
-of you who felt moved enough by this topic to contribute. By the way,
-the plural is conundrums. But I think conundra sounds posher.
-
-If a listener nods his head when you're explaining your program, wake
-him up.
-
 The string is a stark data structure and everywhere it is passed there
 is much duplication of process. It is a perfect vehicle for hiding
 information.
@@ -34,20 +16,8 @@ information.
 The best book on programming for the layman is "Alice in Wonderland";
 but that's because it's the best book on anything for the layman.
 
-In English every word can be verbed. Would that it were so in our
-programming languages.
-
 All movements go too far.
 - Bertrand Russell
-
-"Ja, es gibt ja halt Zahlen."
-"Ja."
-"Und mit denen kannst Du dann rechnen."
-"Jaaa."
-"Und damit kannst Du dann halt so Daten verschlüsseln."
-
-Saying that Java is nice because it works on every OS is like saying
-that anal sex is nice because it works on every gender.
 
 There's a saying in German about the perfect being the enemy of
 the good - every engineer has to learn that lesson.
@@ -206,3 +176,6 @@ nobody can stop you.
 - http://what-if.xkcd.com/20/
 If at first you don't succeed, that's one data point
 http://xkcd.com/1154/
+
+Nothing is always absolutely so
+- Sturgeon's Law
