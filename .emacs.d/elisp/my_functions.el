@@ -218,7 +218,7 @@
 (defun insert-date ()
   "Insert date at point."
   (interactive)
-  (insert (format-time-string "%a %b %e, %Y %l:%M %p" )))
+  (insert (format-time-string "%a %b %e %H:%M:%S %Y" )))
 
 ;; does a general java.sun.com search, but mostly hits the api
 (defun search-java-at-point ()
