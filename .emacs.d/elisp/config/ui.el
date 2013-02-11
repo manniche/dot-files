@@ -49,4 +49,15 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+;; showing file permission bits in the modeline (http://superuser.com/questions/547803/showing-file-permission-bits-in-the-modeline-of-emacs/549146)
+;; New variable to contain buffer file permission format construct.
+(defvar my-mode-line-buffer-permissions
+  '(:eval (when (buffer-file-name) (format " %04o" (file-modes (buffer-file-name))))))
+;; The variable must be marked as "risky" (see C-h v mode-line-format)
+(put 'my-mode-line-buffer-permissions 'risky-local-variable t)
+;; And finally add it right after the file name:
+(setq-default
+ mode-line-buffer-identification
+ (append mode-line-buffer-identification (list 'my-mode-line-buffer-permissions)))
+
 (provide 'ui)
