@@ -15,16 +15,6 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-;; Org mode setup
-;;;;;;;;;;;;;;;;;
-;; http://www.emacswiki.org/emacs-en/OrgAnnotateFile
-;; (require 'org-annotate-file)
-;; (global-set-key (kbd "C-c C-l") 'org-annotate-file)
-;; (require 'org-setup)
-
-;; MobilOrg start
-                                        ;(require 'mobile_org_setup)
-
 ;;;;;;;;;;;;;;;;;
 ;; always ido
 (require 'ido)
