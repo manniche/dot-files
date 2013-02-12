@@ -40,5 +40,5 @@ export BROWSER=conkeror
 
 # experiments
 export LANGUAGE=EN_us
-export LC_ALL="C"
-export LANG="EN"
+export LC_ALL="en_US.utf8"
+export LANG="EN_us.UTF-8"
