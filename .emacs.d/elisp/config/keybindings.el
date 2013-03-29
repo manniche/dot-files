@@ -6,15 +6,17 @@
 ; see environments_vars.el for more info on the bookmarks
 
 ;hurtig switch mellem buffers i en frame
-(global-set-key (kbd "s-<right>" ) 'next-buffer)
-(global-set-key (kbd "s-<left>" ) 'previous-buffer)
+(global-set-key (kbd "C-c n" ) 'next-buffer)
+(global-set-key (kbd "C-c p" ) 'previous-buffer)
 
 ;; see my-functions for definitions of these
 (global-set-key (kbd "s-<up>" ) 'scroll-down-1)
 (global-set-key (kbd "s-<down>" ) 'scroll-up-1)
 
-(global-set-key (kbd "<f5>") (other-window -1) )
-(global-set-key (kbd "<f6>") (other-window 1) )
+(global-set-key (kbd "s-<left>") 'windmove-left )
+(global-set-key (kbd "s-<right>") 'windmove-right )
+(global-set-key (kbd "s-<up>") 'windmove-up )
+(global-set-key (kbd "s-<down>") 'windmove-down )
 
 (global-set-key (kbd "M-s-<up>" ) 'grow-window-1)
 (global-set-key (kbd "M-s-<down>" ) 'shrink-window-1)
@@ -38,7 +40,7 @@
 (global-set-key (kbd "C-x 4") 'split-window-in-four)
 
 ;; see printer variables for more info
-(global-set-key "\C-cp" 'print-to-pdf)
+(global-set-key (kbd "C-c C-p") 'print-to-pdf)
 
 ;; does a search at point
 (global-set-key "\C-c\ s" 'search-expr-at-point)
