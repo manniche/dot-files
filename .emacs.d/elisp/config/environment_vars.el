@@ -164,4 +164,10 @@
 
 ;; beamer end
 
+;; load markdown mode on markdown files
+(add-to-list 'auto-mode-alist
+ (cons (concat "\\." (regexp-opt '("md" "markdown") t) "\\'")
+ 'markdown-mode))
+
+
 (provide 'environment_vars)
