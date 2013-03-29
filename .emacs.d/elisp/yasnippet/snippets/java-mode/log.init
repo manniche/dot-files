@@ -1,3 +1,0 @@
-#name : log4j log initialization
-# --
-Logger log = Logger.getLogger( `(file-name-sans-extension (buffer-name))`.class );

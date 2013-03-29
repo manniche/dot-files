@@ -27,12 +27,29 @@
     co = checkout
     df = diff
     lg = log -p
-    hist = log --pretty=format:\"%h %ad | [%aE]: %s%d\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
     # will push the current branch only and named branch with `git pub {branch-name}`
     pub = "!f() { git push -u ${1:-origin} `git symbolic-ref HEAD`; }; f" 
+    # view changes between fetched changes and HEAD
     changes=!git log --name-status HEAD..
+    # add selected parts of the changes in the working directory
+    ap = "add --patch"
+    # when you have removed a file with `rm`, and really meant `git rm`
+    au = "add --update"
+    # stashes _everything_ in the working dir. `save` allows for appending a message
+    ss = "stash save -u"
+    # amends previous commit, reusing the commit message
+    amendc = "commit --amend -C HEAD"
+    # shows all aliases defined
+    alias = "!git config -l | grep alias | cut -c 7-"
+    # log me up!
+    l = "!git log-hist"
+    log-hist = "!git log-pretty --graph"
+    log-pretty = "log --pretty='format:%C(blue)%h%C(red)%d%C(yellow) %s %C(green)%an%Creset, %ar'"
+    hist = log --pretty=format:\"%h %ad | [%aE]: %s%d\" --graph --date=short
+
+
 [giggle]
 	main-window-maximized = false
 	main-window-geometry = 718x879+716+19

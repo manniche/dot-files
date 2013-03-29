@@ -1,3 +1,0 @@
-#name : import
-# --
-import java.${1:package}.${2:class};

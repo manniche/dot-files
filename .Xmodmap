@@ -1,6 +1,7 @@
-keycode 130 = XF86WWW 
+keycode 135 = Hyper_L
+!keycode 130 = XF86WWW 
 keycode 129 = Hyper_L 
-keycode 122 = XF86Search
+!keycode 122 = XF86Search
 !
 ! Swap Caps_Lock and Control_L
 !

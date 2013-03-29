@@ -1,9 +1,0 @@
-# -*- coding: utf-8 -*-
-# name: logger
-# contributor: Steen Manniche <steen@manniche.net>
-# --
-import logging as log
-
-log.basicConfig( level = log.DEBUG,
-                format = '%(asctime)s %(levelname)s %(message)s' )
-log.getLogger( '' )

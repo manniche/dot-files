@@ -1,3 +1,0 @@
-#name : Parameter (@param)
-# --
-@param ${1:variable} ${2:descrition}

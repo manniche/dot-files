@@ -4,6 +4,36 @@
 
 source ~/.mutt/ui
 
+## Maildir setup
+set mbox_type=Maildir
+
+set spoolfile="~/Maildir/INBOX"
+set folder="~/Maildir/"
+#set mbox="~/Maildir/"
+set mask="!^\\.[^.]"
+set record="+.Sent"
+set postponed="+.Drafts"
+
+mailboxes ! + `\\
+
+for file in ~/Maildir/.*; do \\
+
+  box=$(basename "$file"); \\
+
+  if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \\
+
+      -a ! "$box" = '.subscriptions' ]; then \\
+
+    echo -n "\"+$box\" "; \\
+
+  fi; \\
+
+done`
+
+macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+## end Maildir setup
+
 # save copy of mail in sent-mail
 set record = =INBOX
 set sort=threads
@@ -83,7 +113,7 @@ macro index Su '<limit>~C steen manniche<enter>'
 #set sendmail="/usr/sbin/nullmailer-send"
 set use_envelope_from
 
-set editor="muttedit.sh"
+set editor="muttedit"
 
 ###########
 # hooks

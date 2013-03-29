@@ -1,3 +1,0 @@
-#name : ArrayList
-# --
-List<${1:Type}> ${2:variable} = new ArrayList<$1>();

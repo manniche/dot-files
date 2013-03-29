@@ -1,3 +1,0 @@
-#name : println (err)
-# --
-System.err.println($0);
