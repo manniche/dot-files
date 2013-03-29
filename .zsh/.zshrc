@@ -14,3 +14,5 @@ source ~/.zsh/zsh_hooks.zsh
 
 fpath=(/home/s/.zsh/zsh_completions $fpath)
 #source ~/.rvm/scripts/rvm 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
