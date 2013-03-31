@@ -48,7 +48,7 @@
     log-hist = "!git log-pretty --graph"
     log-pretty = "log --pretty='format:%C(blue)%h%C(red)%d%C(yellow) %s %C(green)%an%Creset, %ar'"
     hist = log --pretty=format:\"%h %ad | [%aE]: %s%d\" --graph --date=short
-
+    pr = "pull --rebase"
 
 [giggle]
 	main-window-maximized = false
