@@ -111,7 +111,7 @@ macro index Su '<limit>~C steen manniche<enter>'
 # sendmail
 #set sendmail="/usr/bin/esmtp -v"
 #set sendmail="/usr/sbin/nullmailer-send"
-set use_envelope_from
+set use_envelope_from=yes
 
 set editor="muttedit"
 
