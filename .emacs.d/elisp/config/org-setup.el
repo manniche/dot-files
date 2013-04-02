@@ -58,21 +58,25 @@
 
 ;;LaTeX export options
 (setq org-export-latex-listings t)
-;; (add-to-list 'org-export-latex-classes
-;;              '("article"
-;;                "\\documentclass{article}"
-;;                ("\\section{%s}" . "\\section*{%s}")
-;;                ("\\subsection{%s}" . "\\subsection*{%s}")
-;; 	     )
-;;              '("book"
-;;                "\\documentclass{book}"
-;;                ("\\part{%s}" . "\\part*{%s}")
-;;                ("\\chapter{%s}" . "\\chapter*{%s}")
-;;                ("\\section{%s}" . "\\section*{%s}")
-;;                ("\\subsection{%s}" . "\\subsection*{%s}")
-;;                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-;; 	     )
-;; )
+(add-to-list 'org-export-latex-classes
+             '("article"
+               "\\documentclass{article}
+\\documentclass[11pt,a4paper]{article}
+\\usepackage[T1]{fontenc}
+\\usepackage{fontspec}
+\\usepackage{rotating}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               )
+             '("book"
+               "\\documentclass{book}"
+               ("\\part{%s}" . "\\part*{%s}")
+               ("\\chapter{%s}" . "\\chapter*{%s}")
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+	     )
+)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
