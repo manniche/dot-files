@@ -29,7 +29,7 @@
 
 (global-set-key (kbd "M-h") 'hl-line-mode)
 
-(global-set-key (kbd "M-l") 'goto-line)
+(global-set-key (kbd "M-l") 'downcase-word)
 
 (global-set-key (kbd "<f9> c") 'calendar)
 
