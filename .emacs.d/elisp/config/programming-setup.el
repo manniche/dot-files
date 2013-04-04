@@ -19,5 +19,11 @@
 (add-hook 'java-mode-hook (load-file "~/.emacs.d/elisp/config/emacs-java.el"))
 ;;; end java mode setup
 
+;;; markdown mode setup
+(add-to-list 'auto-mode-alist
+ (cons (concat "\\." (regexp-opt '("md" "markdown") t) "\\'")
+ 'markdown-mode))
+;;; end markdown mode setup
+
 
 (provide 'programming-setup)
