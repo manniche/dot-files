@@ -25,5 +25,14 @@
  'markdown-mode))
 ;;; end markdown mode setup
 
+;; define projman projects
+ (setq projman-projects
+       '(("site"
+          :root "~/sites/text.manniche.net"
+          :type markdown
+          :open-hook (lambda () (global-auto-revert-mode 1))
+          :compile-command "python fabfile.py deploy"
+           )))
+
 
 (provide 'programming-setup)
