@@ -27,6 +27,10 @@
 (setq user-mail-address "steen@manniche.net")
 (setq user-full-name "Steen Manniche")
 
+;; have google chrome open links by default
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
+
 
 (setq rst-level-face-base-color "nil")
 

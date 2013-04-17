@@ -239,6 +239,13 @@
   (let ((search (thing-at-point 'word)))
     (browse-url (concat "http://www.google.com/search?q=" search"&domains=www.emacswiki.org&sitesearch=www.emacswiki.org&sourceid=google-search&submit=submit"))))
 
+;;lookup word-at-point on merriam-webster
+(defun search-word-at-point ()
+  (interactive)
+  (let ((search (thing-at-point 'word)))
+    (browse-url (concat "http://www.merriam-webster.com/dictionary/" search )))
+)
+
 ;; registers search-functions with major modes
 (defun search-expr-at-point ()
   (interactive)
