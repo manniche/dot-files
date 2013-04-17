@@ -21,6 +21,9 @@
 
 
 [alias]
+    # useful aliases for daily gitting.
+    # some of this taken from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+    # other parts from Janmyr@jayway
     st = status
     ci = commit
     br = branch
@@ -49,6 +52,15 @@
     log-pretty = "log --pretty='format:%C(blue)%h%C(red)%d%C(yellow) %s %C(green)%an%Creset, %ar'"
     hist = log --pretty=format:\"%h %ad | [%aE]: %s%d\" --graph --date=short
     pr = "pull --rebase"
+    # toggle tracking of changes for files
+    stoptracking   = update-index --assume-unchanged
+    resumetracking  = update-index --no-assume-unchanged
+    parkedfiles  = "!git ls-files -v | grep ^h | cut -c 3-"
+    # snapshooting using stash
+    # will produce a stash named snapshot: Mon Apr 8 12:39:06 BST 2013
+    snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+    
+
 
 [giggle]
 	main-window-maximized = false
@@ -61,3 +73,5 @@
 [user]
 	email = steen@manniche.net
 	name = Steen Manniche
+[diff]
+	algorithm = patience
