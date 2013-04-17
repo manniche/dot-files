@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# name: strf
+# contributor: Steen Manniche <steen@manniche.net>
+# --
+print "$0%s"%( ${1:var_name} )

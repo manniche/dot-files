@@ -1,0 +1,7 @@
+#name : junit method
+# --
+@Test 
+public void test${1:method_name}()
+{
+    $0
+}

@@ -1,0 +1,11 @@
+# name : python file skeleton
+# contributor: Steen Manniche <steen@manniche.net>
+# provides a skeleton python file template, with docstrings compatible with pydoc, doxygen and sphinx
+# --
+#!/usr/bin/env python
+# -*- coding: utf-8 -*- 
+"""@module `(substring (file-name-sans-extension (buffer-name)) 0 -2)`
+${1:module purpose}
+"""
+
+$0
