@@ -24,6 +24,7 @@
     # useful aliases for daily gitting.
     # some of this taken from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
     # other parts from Janmyr@jayway
+    # others still from http://blog.blindgaenger.net/advanced_git_aliases.html
     st = status
     ci = commit
     br = branch
@@ -59,7 +60,7 @@
     # snapshooting using stash
     # will produce a stash named snapshot: Mon Apr 8 12:39:06 BST 2013
     snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-    
+    ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore    
 
 
 [giggle]
