@@ -77,5 +77,7 @@
 	name = Steen Manniche
 [diff]
 	algorithm = patience
-[push]
-	default = simple
+[github]
+	user = manniche
+[ghi]
+	token = 911ee86017a0cdd66dce53bd89e0a03c6e6b9c13
