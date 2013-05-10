@@ -61,6 +61,7 @@
     # will produce a stash named snapshot: Mon Apr 8 12:39:06 BST 2013
     snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
     ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore    
+    workprofile = config user.email \"semn@lundbeck.com\"
 
 
 [giggle]
@@ -70,9 +71,11 @@
 	main-window-view = HistoryView
 	file-view-vpane-position = 381
 [core]
-	editor = !emacs -nw
+	editor = emacs -Q -nw
 [user]
 	email = steen@manniche.net
 	name = Steen Manniche
 [diff]
 	algorithm = patience
+[push]
+	default = simple
