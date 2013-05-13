@@ -33,10 +33,10 @@ bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
+# bindsym $mod+Left focus left
+ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+J move left
@@ -90,6 +90,9 @@ bindsym $mod+0 workspace 10
 
 # switch between the current and the previously focused one
 bindsym $mod+Escape workspace back_and_forth
+
+bindsym $mod+Left workspace prev
+bindsym $mod+Right workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1
