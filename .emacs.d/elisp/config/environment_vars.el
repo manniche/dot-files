@@ -109,7 +109,7 @@
 
 
 ;; org-mode
-(require 'org-latex)
+;(require 'org-latex)
 
 ;; Beamer with org-mode
 ;; allow for export=>beamer by placing
@@ -167,5 +167,6 @@
      ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 ;; beamer end
+
 
 (provide 'environment_vars)
