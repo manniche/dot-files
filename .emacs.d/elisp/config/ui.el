@@ -35,6 +35,11 @@
 (set-face-background 'hl-line "grey10")
 (set-face-background 'vline "grey10")
 
+;fonts, dunno how this will pan out
+;(set-frame-font "Inconsolata-12")
+;(set-face-font 'default " -*-bitstream vera sans mono-medium-r-*-*-*-120-*-*-*-*-iso10646-*")
+;(set-face-font 'default "-outline-bitstream vera sans mono-normal-r-normal-normal-12-90-96-96-c-*-iso10646-1")
+
 (show-paren-mode t)
 (require 'highlight-parentheses)
 (highlight-parentheses-mode t)

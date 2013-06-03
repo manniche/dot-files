@@ -38,6 +38,13 @@ export SVN_EDITOR=emacs\ -nw\ -Q
 export GIT_EDITOR=emacs\ -nw\ -Q
 export BROWSER=conkeror
 
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
+export SQLPATH="/opt/oracle/instantclient_11_2"
+#export TNS_ADMIN="/usr/local/oracle/network/admin"
+export NLS_LANG="AMERICAN_AMERICA.UTF8"
+export PATH=$PATH:$LD_LIBRARY_PATH
+
+
 # experiments
 export LANGUAGE=EN_us
 export LC_ALL="en_US.utf8"

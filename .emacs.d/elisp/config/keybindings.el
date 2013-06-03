@@ -3,6 +3,8 @@
 (global-set-key (kbd "<f7>" ) 'bm-next)
 (global-set-key (kbd "S-<f7>" ) 'bm-previous)
 (global-set-key (kbd "S-<f8>" ) 'bm-all) ;shows all bms in all buffers
+(global-set-key (kbd "<f9>") 'bm-bookmark-annotate)
+(global-set-key (kbd "S-<f9>") 'bm-bookmark-show-annotation)
 ; see environments_vars.el for more info on the bookmarks
 
 ;hurtig switch mellem buffers i en frame
@@ -10,13 +12,13 @@
 (global-set-key (kbd "C-c p" ) 'previous-buffer)
 
 ;; see my-functions for definitions of these
-(global-set-key (kbd "s-<up>" ) 'scroll-down-1)
-(global-set-key (kbd "s-<down>" ) 'scroll-up-1)
+(global-set-key (kbd "M-<up>" ) 'scroll-down-1)
+(global-set-key (kbd "M-<down>" ) 'scroll-up-1)
 
-(global-set-key (kbd "s-<left>") 'windmove-left )
-(global-set-key (kbd "s-<right>") 'windmove-right )
-(global-set-key (kbd "s-<up>") 'windmove-up )
-(global-set-key (kbd "s-<down>") 'windmove-down )
+(global-set-key (kbd "S-M-<left>") 'windmove-left )
+(global-set-key (kbd "S-M-<right>") 'windmove-right )
+(global-set-key (kbd "S-M-<up>") 'windmove-up )
+(global-set-key (kbd "S-M-<down>") 'windmove-down )
 
 (global-set-key (kbd "M-s-<up>" ) 'grow-window-1)
 (global-set-key (kbd "M-s-<down>" ) 'shrink-window-1)
@@ -31,7 +33,7 @@
 
 (global-set-key (kbd "M-l") 'downcase-word)
 
-(global-set-key (kbd "<f9> c") 'calendar)
+;(global-set-key (kbd "<f9> c") 'calendar)
 
 ;; undo gør jeg mig meget i
 (global-set-key (kbd "M-<backspace>") 'undo-only)
@@ -68,14 +70,14 @@
 
 ;; org mode keys
 (global-set-key (kbd "<f12>") 'org-agenda)
-(global-set-key (kbd "<f9> n") 'org-narrow-to-subtree)
-(global-set-key (kbd "<f9> o") 'bh/make-org-scratch)
-(global-set-key (kbd "<f9> v") 'visible-mode)
-(global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task)
-(global-set-key (kbd "M-<f9>") 'org-toggle-inline-images)
-(global-set-key (kbd "C-x n r") 'narrow-to-region)
-(global-set-key (kbd "C-c r") 'org-capture)
-(global-set-key (kbd "<f11>") 'org-capture)
+;; (global-set-key (kbd "<f9> n") 'org-narrow-to-subtree)
+;; (global-set-key (kbd "<f9> o") 'bh/make-org-scratch)
+;; (global-set-key (kbd "<f9> v") 'visible-mode)
+;; (global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task)
+;; (global-set-key (kbd "M-<f9>") 'org-toggle-inline-images)
+;; (global-set-key (kbd "C-x n r") 'narrow-to-region)
+;; (global-set-key (kbd "C-c r") 'org-capture)
+;; (global-set-key (kbd "<f11>") 'org-capture)
 
 
 ;; Change the q key in the agenda so instead of killing the agenda
