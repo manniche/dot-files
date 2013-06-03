@@ -8,7 +8,7 @@ export PATH=~/.bin:/usr/local/opt/ruby193/bin:/usr/local/sbin:/usr/local/bin:/us
 export CDPATH=.:~/entwicklung/
 
 # Set default console Java to 1.6
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export JAVA_HOME=/opt/jdk1.7/
 
 # Setup terminal, and turn on colors
 export CLICOLOR=1
@@ -37,6 +37,13 @@ export VISUAL=$EDITOR
 export SVN_EDITOR=emacs\ -nw\ -Q
 export GIT_EDITOR=emacs\ -nw\ -Q
 export BROWSER=conkeror
+
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
+export SQLPATH="/opt/oracle/instantclient_11_2"
+#export TNS_ADMIN="/usr/local/oracle/network/admin"
+export NLS_LANG="AMERICAN_AMERICA.UTF8"
+export PATH=$PATH:$LD_LIBRARY_PATH
+
 
 # experiments
 export LANGUAGE=EN_us

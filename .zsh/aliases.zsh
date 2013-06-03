@@ -7,7 +7,7 @@ alias lll='ls -ahl -G | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `ls -al |
 
 alias mysql='mysql -u root'
 alias mysqladmin='mysqladmin -u root'
-
+alias semacs='emacs -nw -Q'
 bindkey -s "^x^f" $'semacs '
 
 #from http://jaderholm.com/configs/zshrc

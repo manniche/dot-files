@@ -29,7 +29,7 @@
 
 ;; have google chrome open links by default
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "google-chrome")
+      browse-url-generic-program "firefox")
 
 
 (setq rst-level-face-base-color "nil")
@@ -109,7 +109,7 @@
 
 
 ;; org-mode
-(require 'org-latex)
+;(require 'org-latex)
 
 ;; Beamer with org-mode
 ;; allow for export=>beamer by placing
@@ -167,5 +167,6 @@
      ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 ;; beamer end
+
 
 (provide 'environment_vars)
