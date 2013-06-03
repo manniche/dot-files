@@ -65,17 +65,20 @@
 
 
 [giggle]
-	main-window-maximized = false
-	main-window-geometry = 718x879+716+19
-	history-view-vpane-position = 268
-	main-window-view = HistoryView
-	file-view-vpane-position = 381
+    main-window-maximized = false
+    main-window-geometry = 718x879+716+19
+    history-view-vpane-position = 268
+    main-window-view = HistoryView
+    file-view-vpane-position = 381
 [core]
-	editor = emacs -Q -nw
+    editor = emacs -Q -nw
 [user]
-	email = steen@manniche.net
-	name = Steen Manniche
+    email = steen@manniche.net
+    name = Steen Manniche
 [diff]
-	algorithm = patience
+    algorithm = patience
 [push]
-	default = simple
+    default = simple
+[github]
+    user = manniche
+    
