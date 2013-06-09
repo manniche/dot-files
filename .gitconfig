@@ -80,3 +80,5 @@
 
 [github]
     user = manniche
+[push]
+	default = current
