@@ -33,6 +33,7 @@
     lg = log -p
     type = cat-file -t
     dump = cat-file -p
+    undo-commit = 'reset --soft HEAD^'
     # will push the current branch only and named branch with `git pub {branch-name}`
     pub = "!f() { git push -u ${1:-origin} `git symbolic-ref HEAD`; }; f" 
     # view changes between fetched changes and HEAD
@@ -62,7 +63,10 @@
     snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
     ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore    
     workprofile = config user.email \"semn@lundbeck.com\"
-
+    l50  = "!f () { git log --abbrev-commit --date=short --pretty=format:'%h%x00%cd%x00%s%x00%an%x00%d' $@ | gawk -F '\\0' '{ printf \"\\033[31m%s\\033[0m \\033[32m%s\\033[0m  %-50s \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, gensub(/(.{49}).{2,}/, \"\\\\1…\",\"g\",$3), $4, $5 }' | less -R; }; f"
+    l80  = "!f () { git log --abbrev-commit --date=short --pretty=format:'%h%x00%cd%x00%s%x00%an%x00%d' $@ | gawk -F '\\0' '{ printf \"\\033[31m%s\\033[0m \\033[32m%s\\033[0m  %-80s \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, gensub(/(.{79}).{2,}/, \"\\\\1…\",\"g\",$3), $4, $5 }' | less -R; }; f"
+    lg50 = "!f () { git log --graph --color=always --abbrev-commit --date=relative --pretty=format:'%x00%h%x00%s%x00%cd%x00%an%x00%d' $@ | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m %-50s \\033[32m%14s\\033[0m \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, gensub(/(.{49}).{2,}/, \"\\\\1…\",\"g\",$3), $4, $5, $6 }' | less -R; }; f"
+    lg80 = "!f () { git log --graph --color=always --abbrev-commit --date=relative --pretty=format:'%x00%h%x00%s%x00%cd%x00%an%x00%d' $@ | gawk -F '\\0' '{ printf \"%s\\033[31m%s\\033[0m %-80s \\033[32m%14s\\033[0m \\033[30;1m%s\\033[0m\\033[33m%s\\n\", $1, $2, gensub(/(.{79}).{2,}/, \"\\\\1…\",\"g\",$3), $4, $5, $6 }' | less -R; }; f"
 
 [giggle]
     main-window-maximized = false
