@@ -2,7 +2,7 @@
 export CLOJURE_HOME=~/.cljr/bin
 
 # Currently this path is appendend to dynamically when picking a ruby version
-export PATH=~/.bin:/usr/local/opt/ruby193/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/share/python/:/sbin:$HOME/opt/local/bin:$HOME/opt/bin:$CLOJURE_HOME:$PATH
+export PATH=~/.bin:/usr/local/opt/ruby193/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/share/python/:/sbin:$HOME/opt/local/bin:$HOME/opt/bin:$CLOJURE_HOME:/opt/sqldeveloper:$PATH
 
 # Our list of directories we can cd to from anywhere
 export CDPATH=.:~/entwicklung/
@@ -49,3 +49,5 @@ export PATH=$PATH:$LD_LIBRARY_PATH
 export LANGUAGE=EN_us
 export LC_ALL="en_US.utf8"
 export LANG="EN_us.UTF-8"
+
+source ~/.zsh/.oracleenv

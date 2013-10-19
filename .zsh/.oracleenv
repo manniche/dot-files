@@ -1,0 +1,7 @@
+TNS_ADMIN=/opt/oracle/instantclient_11_2
+NLS_LANG=AMERICAN_AMERICA.WE8ISO8859P1
+ORACLE_HOME=/opt/oracle/instantclient_11_2
+PATH=/opt/oracle/instantclient_11_2/bin:$PATH
+LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
+
+export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL ORACLE_HOME TNS_ADMIN NLS_LANG LD_LIBRARY_PATH
