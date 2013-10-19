@@ -39,10 +39,10 @@ bindsym $mod+Up focus up
 #bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+J move left
-bindsym $mod+Shift+K move down
-bindsym $mod+Shift+L move up
-bindsym $mod+Shift+colon move right
+# bindsym $mod+Shift+J move left
+# bindsym $mod+Shift+K move down
+# bindsym $mod+Shift+L move up
+# bindsym $mod+Shift+colon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -113,6 +113,9 @@ bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+E exit
 
+bindsym $mod+Shift+j resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+k resize grow width 10 px or 10 ppt
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -144,3 +147,4 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status --config ~/.i3/status.conf
 }
+
