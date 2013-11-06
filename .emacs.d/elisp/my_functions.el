@@ -220,6 +220,13 @@
   (interactive)
   (insert (format-time-string "%Y-%m-%eT%H:%M:%S%z" )))
 
+;; insert date into buffer
+(defun insert-date-alt ()
+  "Insert alternative date at point."
+  (interactive)
+  (insert (format-time-string "%Y-%m-%e %H:%M" )))
+
+
 ;; does a general java.sun.com search, but mostly hits the api
 (defun search-java-at-point ()
   (interactive)
