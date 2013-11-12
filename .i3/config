@@ -94,10 +94,6 @@ bindsym $mod+Escape workspace back_and_forth
 bindsym $mod+Left workspace prev
 bindsym $mod+Right workspace next
 
-#for keyboards without the windows key
-bindsym Shift+Ctrl+Left workspace prev
-bindsym Shift+Ctrl+Right workspace next
-
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace 1
 bindsym $mod+Shift+at move container to workspace 2
