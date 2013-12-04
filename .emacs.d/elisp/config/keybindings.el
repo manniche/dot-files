@@ -8,20 +8,20 @@
 ; see environments_vars.el for more info on the bookmarks
 
 ;hurtig switch mellem buffers i en frame
-(global-set-key (kbd "C-c n" ) 'next-buffer)
-(global-set-key (kbd "C-c p" ) 'previous-buffer)
+(global-set-key (kbd "C-<next>" ) 'next-buffer)
+(global-set-key (kbd "C-<prior>" ) 'previous-buffer)
 
 ;; see my-functions for definitions of these
 (global-set-key (kbd "M-<up>" ) 'scroll-down-1)
 (global-set-key (kbd "M-<down>" ) 'scroll-up-1)
 
+(global-set-key (kbd "M-s-<up>" ) 'grow-window-1)
+(global-set-key (kbd "M-s-<down>" ) 'shrink-window-1)
+
 (global-set-key (kbd "S-M-<left>") 'windmove-left )
 (global-set-key (kbd "S-M-<right>") 'windmove-right )
 (global-set-key (kbd "S-M-<up>") 'windmove-up )
 (global-set-key (kbd "S-M-<down>") 'windmove-down )
-
-(global-set-key (kbd "M-s-<up>" ) 'grow-window-1)
-(global-set-key (kbd "M-s-<down>" ) 'shrink-window-1)
 
 (global-set-key (kbd "M-r") 'revert-buffer)
 
@@ -33,7 +33,7 @@
 
 (global-set-key (kbd "M-l") 'downcase-word)
 
-;(global-set-key (kbd "<f9> c") 'calendar)
+(global-set-key (kbd "<f12>") 'save-buffer)
 
 ;; undo gør jeg mig meget i
 (global-set-key (kbd "M-<backspace>") 'undo-only)
@@ -69,7 +69,7 @@
 (global-set-key [f10] 'ns-toggle-fullscreen)
 
 ;; org mode keys
-(global-set-key (kbd "<f12>") 'org-agenda)
+(global-set-key (kbd "<f11>") 'org-agenda)
 ;; (global-set-key (kbd "<f9> n") 'org-narrow-to-subtree)
 ;; (global-set-key (kbd "<f9> o") 'bh/make-org-scratch)
 ;; (global-set-key (kbd "<f9> v") 'visible-mode)
