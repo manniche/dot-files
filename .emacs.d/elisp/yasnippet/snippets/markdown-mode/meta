@@ -5,9 +5,10 @@
 title: ${1:Title of post}
 date: `(insert-date-alt)`
 category: ${2:text}
-published: ${3:true|false}
-tags: ${4:first_tag}
+slug: ${3:slug}
+published: ${4:true|false}
+tags: ${5:first_tag}
 
-## ${5: heading} ##
+## ${6: heading} ##
 
 $0
