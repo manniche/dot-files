@@ -36,7 +36,7 @@ export EDITOR=emacs
 export VISUAL=$EDITOR
 export SVN_EDITOR=emacs\ -nw\ -Q
 export GIT_EDITOR=emacs\ -nw\ -Q
-export BROWSER=conkeror
+export BROWSER=uzbl-tabbed
 
 export LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
 export SQLPATH="/opt/oracle/instantclient_11_2"
