@@ -45,10 +45,12 @@ export SQLPATH="/opt/oracle/instantclient_11_2"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 export PATH=$PATH:$LD_LIBRARY_PATH
 
-
 # experiments
 export LANGUAGE=EN_us
 export LC_ALL="en_US.utf8"
 export LANG="EN_us.UTF-8"
+
+#virtualenv
+export WORKON_HOME=~/.virtualenvs
 
 source ~/.zsh/.oracleenv
