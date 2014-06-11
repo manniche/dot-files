@@ -5,14 +5,7 @@ keycode 129 = Hyper_L
 !
 ! Swap Caps_Lock and Control_L
 !
-remove Lock = Caps_Lock
-!remove Control = Control_L
-!keysym Control_L = Caps_Lock
-keysym Caps_Lock = Control_L
-!add Lock = Caps_Lock
-add Control = Control_L
-!remove control = Control_R
-!remove mod1 = Alt_R
+! use setxkbmap -option ctrl:nocaps
 
 !keycode 113 = Mode_switch
 keycode 108 = Mode_switch
