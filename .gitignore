@@ -5,10 +5,7 @@
 netbeans
 */netbeans-7.1.1
 */glassfish-3.1.2
-<<<<<<< HEAD
-local/bin/emacs24
-=======
 *~
 abbrev_defs
 .emacs.d/tramp
->>>>>>> origin
+.emacs.d/ido.last
