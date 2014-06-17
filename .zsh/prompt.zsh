@@ -43,4 +43,4 @@ function git_prompt_info {
   fi
 }
 
-PROMPT='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %~%<< $(git_prompt_info)${PR_BOLD_WHITE}>%{${reset_color}%} '
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %~%<< $(git_prompt_info)${PR_BOLD_GREY}>%{${reset_color}%} '
