@@ -7,6 +7,10 @@
 (global-set-key (kbd "S-<f9>") 'bm-bookmark-show-annotation)
 ; see environments_vars.el for more info on the bookmarks
 
+(global-set-key (kbd "<f10>") 'org-agenda)
+(global-set-key (kbd "<f11>") 'kill-buffer)
+(global-set-key (kbd "<f12>") 'save-buffer)
+
 ;hurtig switch mellem buffers i en frame
 (global-set-key (kbd "C-<next>" ) 'next-buffer)
 (global-set-key (kbd "C-<prior>" ) 'previous-buffer)
@@ -32,8 +36,6 @@
 (global-set-key (kbd "M-h") 'hl-line-mode)
 
 (global-set-key (kbd "M-l") 'downcase-word)
-
-(global-set-key (kbd "<f12>") 'save-buffer)
 
 ;; undo gør jeg mig meget i
 (global-set-key (kbd "M-<backspace>") 'undo-only)
@@ -66,10 +68,8 @@
 ;; jeg rammer af en eller anden grund hele tiden denne tastkombo...
 (global-unset-key (kbd "C-o")) 
 
-(global-set-key [f10] 'ns-toggle-fullscreen)
 
 ;; org mode keys
-(global-set-key (kbd "<f11>") 'org-agenda)
 ;; (global-set-key (kbd "<f9> n") 'org-narrow-to-subtree)
 ;; (global-set-key (kbd "<f9> o") 'bh/make-org-scratch)
 ;; (global-set-key (kbd "<f9> v") 'visible-mode)
