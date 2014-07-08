@@ -90,3 +90,5 @@
     user = manniche
 [push]
 	default = current
+[url "https://"]
+	insteadOf = git://
