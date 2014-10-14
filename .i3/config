@@ -18,13 +18,13 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec evilvte
+bindsym $mod+Return exec roxterm
 
 # kill focused window
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+x exec dmenu_run
 
 # change focus
 bindsym $mod+j focus left
