@@ -245,3 +245,8 @@ the world, is taken over by the world.  Considering what the world
 does to other things it has taken over, it would be terrible, terrible
 fate.
 -Erik Naggum
+
+my programs don't know much about the external world except that it's
+a hostile place, and they need to be able to undo possible damage if
+the world unexpectedly changes around them.
+-Erik Naggum
