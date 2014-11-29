@@ -32,8 +32,8 @@ export NODE_PATH=/usr/local/lib/node
 export PYTHONPATH=/usr/local/lib/python2.6/site-packages
 
 export EMAIL="steen@manniche.net"
-export EDITOR=emacs
-export VISUAL=$EDITOR
+export EDITOR=emacs\ -nw\ -Q
+export VISUAL=ec
 export SVN_EDITOR=emacs\ -nw\ -Q
 export GIT_EDITOR=emacs\ -nw\ -Q
 export BROWSER=uzbl-tabbed
