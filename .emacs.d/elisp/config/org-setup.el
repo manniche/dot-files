@@ -60,11 +60,6 @@
 (setq org-export-latex-listings t)
 (add-to-list 'org-export-latex-classes
              '("article"
-               "\\documentclass{article}
-\\documentclass[11pt,a4paper]{article}
-\\usepackage[T1]{fontenc}
-\\usepackage{fontspec}
-\\usepackage{rotating}"
                ("\\section{%s}" . "\\section*{%s}")
                ("\\subsection{%s}" . "\\subsection*{%s}")
                )
@@ -220,5 +215,14 @@ Late deadlines first, then scheduled, then non-late deadlines"
   (interactive)
   (switch-to-buffer "*Org Agenda*")
   (delete-other-windows))
+
+(setq org-export-with-drawers t)
+
+(defun my-org-export-format-drawer (name content)
+  "Export drawers to drawer HTML class."
+  (setq content (org-remove-indentation content))
+  (format "@<div class=\"drawer\">%s@</div>\n" content))
+
+(setq org-export-format-drawer-function 'my-org-export-format-drawer)
 
 (provide 'org-setup)
