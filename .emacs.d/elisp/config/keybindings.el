@@ -58,6 +58,8 @@
 (when window-system
     (global-unset-key (kbd "C-z")))
 
+(global-unset-key (kbd "C-x C-c"))
+
 ;; jeg mailer andetsteds fra
 (global-unset-key (kbd "C-x m"))
 
