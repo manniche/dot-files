@@ -67,6 +67,10 @@ clean () {
     fi
 }
 
+cleantex () {
+    find . \( -name '*.aux' -o -name '*.log' -o -name '*.toc' -o -name '*.out' \) -ok rm '{}' ';'
+}
+
 mkcd() { 
     mkdir "$1" && cd "$1"; 
 }
@@ -108,8 +112,4 @@ sanitize() {
     arg=$(($arg - 1));
   done
 }
-
-
-
-
 
