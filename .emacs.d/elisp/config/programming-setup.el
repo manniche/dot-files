@@ -2,7 +2,7 @@
 (add-to-list 'load-path
               "~/.emacs.d/elpa/yasnippet")
 (require 'yasnippet) ;; not yasnippet-bundle
-(yas/global-mode 1)
+(yas-global-mode 1)
 
 ;;; clojure mode setup
 (add-to-list 'auto-mode-alist
@@ -16,6 +16,13 @@
  (cons (concat "\\." (regexp-opt '("java" "jsp") t) "\\'")
  'java-mode))
 (add-hook 'java-mode-hook (load-file "~/.emacs.d/elisp/config/emacs-java.el"))
+;;; end java mode setup
+
+;;; python mode setup
+(add-to-list 'auto-mode-alist
+ (cons (concat "\\." (regexp-opt '("py" "ipy") t) "\\'")
+ 'elpy-mode))
+(add-hook 'elpy-mode-hook (load-file "~/.emacs.d/elisp/config/emacs-python.el"))
 ;;; end java mode setup
 
 ;;; markdown mode setup
