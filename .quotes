@@ -236,7 +236,7 @@ Why is the IT world defined by people who are unable to deal with the
 concepts of continuity, longevity, and design for long-term stability?
 Why do they believe they are so much smarter than everything that has
 gone before them, when they clearly are not and repeat mistakes that
-take years to undo, if not replaced by another stupid “revolution”
+take years to undo, if not replaced by another stupid "revolution"
 that itself starts from scratch?
 - Erik Naggum
 
@@ -244,9 +244,14 @@ I would not like CL take over the world, because that which takes over
 the world, is taken over by the world.  Considering what the world
 does to other things it has taken over, it would be terrible, terrible
 fate.
--Erik Naggum
+- Erik Naggum
 
 my programs don't know much about the external world except that it's
 a hostile place, and they need to be able to undo possible damage if
 the world unexpectedly changes around them.
--Erik Naggum
+- Erik Naggum
+
+Humans do strange shit to software that we could never predict in the
+controlled setting of our carefully constructed software development
+environments.
+- http://randsinrepose.com/archives/the-qa-mindset/
