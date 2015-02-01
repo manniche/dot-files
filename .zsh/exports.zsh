@@ -32,12 +32,12 @@ export NODE_PATH=/usr/local/lib/node
 export PYTHONPATH=/usr/local/lib/python2.6/site-packages
 
 export EMAIL="steen@manniche.net"
-export EDITOR=emacs\ -nw\ -Q
-export VISUAL=ec
-export SVN_EDITOR=emacs\ -nw\ -Q
-export GIT_EDITOR=emacs\ -nw\ -Q
+export EDITOR=nvim
+export VISUAL=nvim
+export SVN_EDITOR=nvim
+export GIT_EDITOR=nvim
 export BROWSER=uzbl-tabbed
-export TERMINAL=evilvte
+export TERMINAL=roxterm
 
 export LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
 export SQLPATH="/opt/oracle/instantclient_11_2"
