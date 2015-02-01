@@ -12,7 +12,7 @@ source ~/.zsh/functions.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/zsh_hooks.zsh
 
-fpath=(/home/s/.zsh/zsh_completions $fpath)
+fpath=(/home/semn/.zsh/zsh_completions $fpath)
 #source ~/.rvm/scripts/rvm 
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
