@@ -21,15 +21,18 @@
 ;;; python mode setup
 (add-to-list 'auto-mode-alist
  (cons (concat "\\." (regexp-opt '("py" "ipy") t) "\\'")
- 'elpy-mode))
+ 'python-mode))
 (add-hook 'elpy-mode-hook (load-file "~/.emacs.d/elisp/config/emacs-python.el"))
-;;; end java mode setup
+;;; end python mode setup
 
 ;;; markdown mode setup
 (add-to-list 'auto-mode-alist
  (cons (concat "\\." (regexp-opt '("md" "markdown") t) "\\'")
  'markdown-mode))
 ;;; end markdown mode setup
+
+;; projectile: https://github.com/bbatsov/projectile
+(projectile-global-mode)
 
 ;; define projman projects
  (setq projman-projects
