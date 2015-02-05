@@ -31,7 +31,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
@@ -57,7 +57,8 @@ NeoBundle 'tomasr/molokai'
 "" Vim-Bootstrap Updater
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
-let g:vim_bootstrap_langs = "python,javascript"
+let g:vim_bootstrap_langs = "ruby,python,html,javascript"
+let g:vim_bootstrap_editor = "nvim"				" nvim or vim
 
 "" Custom bundles
 
@@ -66,6 +67,22 @@ NeoBundle "davidhalter/jedi-vim"
 NeoBundle "scrooloose/syntastic"
 NeoBundle "majutsushi/tagbar"
 NeoBundle "Yggdroot/indentLine"
+
+
+"" HTML Bundle
+NeoBundle 'amirh/HTML-AutoCloseTag'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'gorodinskiy/vim-coloresque'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'mattn/emmet-vim'
+
+
+"" Ruby Bundle
+NeoBundle "tpope/vim-rails"
+NeoBundle "tpope/vim-rake"
+NeoBundle "tpope/vim-projectionist"
+NeoBundle "thoughtbot/vim-rspec"
+NeoBundle "majutsushi/tagbar"
 
 
 "" Javascript Bundle
@@ -121,7 +138,6 @@ set nobackup
 set noswapfile
 
 set fileformats=unix,dos,mac
-set backspace=indent,eol,start
 set showcmd
 set shell=/bin/sh
 
@@ -140,7 +156,7 @@ set mousemodel=popup
 set t_Co=256
 set nocursorline
 set guioptions=egmrti
-set gfn=Monospace\ 8
+set gfn=Monospace\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -170,9 +186,6 @@ set scrolloff=3
 "" Status bar
 set laststatus=2
 
-"" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
 "" Use modeline overrides
 set modeline
 set modelines=10
@@ -181,7 +194,11 @@ set title
 set titleold="Terminal"
 set titlestring=%F
 
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\ %{fugitive#statusline()}
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+if exists("*fugitive#statusline")
+  set statusline+=%{fugitive#statusline()}
+endif
 
 let g:airline_theme = 'powerlineish'
 let g:airline_enable_branch = 1
@@ -377,6 +394,7 @@ vmap > >gv
 
 "" Open current line on GitHub
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
+
 "" Custom configs
 
 " vim-python
@@ -399,6 +417,7 @@ let g:jedi#completions_command = "<C-Space>"
 
 " syntastic
 let g:syntastic_python_checkers=['python', 'flake8']
+let g:syntastic_python_flake8_post_args='--ignore=W391'
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
@@ -409,7 +428,36 @@ nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 
+
+
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+
+augroup vimrc-ruby
+  autocmd!
+  autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
+  autocmd Filetype ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+
+" Tagbar
+nmap <silent> <F4> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+
+
 let g:javascript_enable_domhtmlcss = 1
+
 
 
 "" Include user's local vim config
