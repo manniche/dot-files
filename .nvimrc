@@ -49,6 +49,7 @@ NeoBundle 'Shougo/vimshell.vim'
 
 "" Snippets
 NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'honza/vim-snippets'
 
 "" Color
@@ -341,10 +342,13 @@ let g:ctrlp_map = ',e'
 let g:ctrlp_open_new_file = 'r'
 
 " snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
 
 " syntastic
 let g:syntastic_always_populate_loc_list=1
