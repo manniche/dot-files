@@ -91,7 +91,6 @@ NeoBundle "scrooloose/syntastic"
 
 "" Slacker
 NeoBundle 'ryanss/vim-hackernews'
-NeoBundle 'heavenshell/vim-slack'
 
 
 call neobundle#end()
