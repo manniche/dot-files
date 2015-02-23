@@ -89,7 +89,7 @@ NeoBundle "majutsushi/tagbar"
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
 
-
+NeoBundle "paredit.vim"
 
 call neobundle#end()
 
