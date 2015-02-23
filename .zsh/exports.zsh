@@ -36,7 +36,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export SVN_EDITOR=nvim
 export GIT_EDITOR=nvim
-export BROWSER=uzbl-tabbed
+export BROWSER=firefox
 export TERMINAL=roxterm
 
 export LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
