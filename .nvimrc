@@ -89,9 +89,7 @@ NeoBundle "majutsushi/tagbar"
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
 
-"" Slacker
-NeoBundle 'ryanss/vim-hackernews'
-
+NeoBundle "paredit.vim"
 
 call neobundle#end()
 
