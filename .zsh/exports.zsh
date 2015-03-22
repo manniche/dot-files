@@ -38,6 +38,7 @@ export SVN_EDITOR=nvim
 export GIT_EDITOR=nvim
 export BROWSER=firefox
 export TERMINAL=roxterm
+export TERM=xterm-256color
 
 export LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
 export SQLPATH="/opt/oracle/instantclient_11_2"
