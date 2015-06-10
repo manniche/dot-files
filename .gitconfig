@@ -69,11 +69,13 @@
 
     # http://stackoverflow.com/a/4991675/1448983
     oldest-ancestor = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
-	branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
-	branchlog = !sh -c \"git log `git oldest-ancestor`..\"
+    branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
+	  branchlog = !sh -c \"git log `git oldest-ancestor`..\"
 
     tags = "!git for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/tags"
 
+    delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*\\|master||develop' | xargs -n 1 git branch -d"
+    
 [giggle]
     main-window-maximized = false
     main-window-geometry = 718x879+716+19
