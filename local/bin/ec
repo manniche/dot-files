@@ -1,0 +1,10 @@
+EMACS="/usr/bin/emacs"
+EMACSCLIENT="/usr/bin/emacsclient"
+
+if test -n "$1"; then
+    $EMACSCLIENT --no-wait "$@" 2> /dev/null || $EMACS "$@" &
+else
+    $EMACSCLIENT --eval "(raise-frame (selected-frame))" 2> /dev/null || $EMACS &
+fi
+
+i3-msg -t command "workspace 10"
