@@ -297,4 +297,8 @@
   (insert-address "quote" )
 )
 
+(fset 'replace-ctrlms
+   [escape ?< escape ?% ?\C-q ?\C-m return return ?!])
+(global-set-key "\C-cm" 'replace-ctrlms)
+
 (provide 'my_functions)
