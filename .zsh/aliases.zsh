@@ -26,4 +26,4 @@ alias -g S='|sort'
 
 alias -g has='ps aux | grep -v grep | grep'
 alias -g agrep='ack-grep'
-alias -g ack='ack-grep'
+#alias -g ack='ack-grep'

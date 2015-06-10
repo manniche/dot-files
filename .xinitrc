@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
 
-/usr/bin/ssh-agent /usr/bin/dbus-launch --exit-with-session &
-#/usr/bin/dbus-launch --exit-with-session &
+#unset DBUS_SESSION_BUS_ADDRESS
+#export DBUS_SESSION_BUS_ADDRESS
+
+# Dbus fix
+#if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+#    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+#fi
+source /home/manniche/bin/dbus-fix
+
+#/usr/bin/ssh-agent /usr/bin/dbus-launch --exit-with-session &
 /usr/bin/wmname LG3D &
+#spacefm -d &
+nm-applet &
+cbatticon &
+volumeicon &
 /usr/bin/owncloud &
 /usr/bin/SpiderOak &
 xmodmap ~/.Xmodmap
-exec i3
+#exec i3

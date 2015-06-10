@@ -2,7 +2,7 @@
 export CLOJURE_HOME=~/.cljr/bin
 
 # Currently this path is appendend to dynamically when picking a ruby version
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python/:/sbin:$HOME/local/bin:$CLOJURE_HOME:/opt/sqldeveloper:/usr/lib/rstudio/bin/:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python/:/sbin:$HOME/local/bin:$CLOJURE_HOME:/opt/sqldeveloper:/usr/lib/rstudio/bin/:~/bin/:$PATH
 
 # Our list of directories we can cd to from anywhere
 export CDPATH=.:~/entwicklung/
@@ -32,10 +32,10 @@ export NODE_PATH=/usr/local/lib/node
 export PYTHONPATH=/usr/local/lib/python2.6/site-packages
 
 export EMAIL="steen@manniche.net"
-export EDITOR=nvim
-export VISUAL=nvim
-export SVN_EDITOR=nvim
-export GIT_EDITOR=nvim
+export EDITOR=emacs
+export VISUAL=emacs
+export SVN_EDITOR=emacsclient
+export GIT_EDITOR=emacsclient
 export BROWSER=firefox
 export TERMINAL=roxterm
 export TERM=xterm-256color
