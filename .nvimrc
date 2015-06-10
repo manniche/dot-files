@@ -91,6 +91,8 @@ NeoBundle "scrooloose/syntastic"
 
 NeoBundle "paredit.vim"
 
+NeoBundle "cwoac/nvim"
+
 call neobundle#end()
 
 " Required:
