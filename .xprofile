@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 #unset DBUS_SESSION_BUS_ADDRESS
@@ -15,7 +16,7 @@ source /home/manniche/bin/dbus-fix
 nm-applet &
 cbatticon &
 volumeicon &
-/usr/bin/owncloud &
+#/usr/bin/owncloud &
 /usr/bin/SpiderOak &
 xmodmap ~/.Xmodmap
 #exec i3
