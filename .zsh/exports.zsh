@@ -4,15 +4,8 @@ export CLOJURE_HOME=~/.cljr/bin
 # Currently this path is appendend to dynamically when picking a ruby version
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python/:/sbin:$HOME/local/bin:$CLOJURE_HOME:/opt/sqldeveloper:/usr/lib/rstudio/bin/:~/bin/:$PATH
 
-# Our list of directories we can cd to from anywhere
-export CDPATH=.:~/entwicklung/
-
-# Set default console Java to 1.6
-export JAVA_HOME=/opt/jdk1.7/
-
 # Setup terminal, and turn on colors
 export CLICOLOR=1
-#export LSCOLORS=Gxfxcxdxbxegedabagacad
 
 # Enable color in grep
 export GREP_OPTIONS='--color=auto'
@@ -28,21 +21,17 @@ export PAGER='less'
 export LESSOPEN="| /usr/bin/lesspipe %s"
 export LESSCLOSE="/usr/bin/lesspipe %s %s"
 
-export NODE_PATH=/usr/local/lib/node
-export PYTHONPATH=/usr/local/lib/python2.6/site-packages
-
 export EMAIL="steen@manniche.net"
-export EDITOR=emacs
-export VISUAL=emacs
-export SVN_EDITOR=emacsclient
-export GIT_EDITOR=emacsclient
+export EDITOR=vim
+export VISUAL=$EDITOR
+export SVN_EDITOR=$EDITOR
+export GIT_EDITOR=$EDITOR
 export BROWSER=firefox
-export TERMINAL=roxterm
-export TERM=xterm-256color
+export TERMINAL=terminator
+#export TERM=xterm-256color
 
 export LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
 export SQLPATH="/opt/oracle/instantclient_11_2"
-#export TNS_ADMIN="/usr/local/oracle/network/admin"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 export PATH=$PATH:$LD_LIBRARY_PATH
 
