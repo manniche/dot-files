@@ -149,7 +149,7 @@ set shell=/bin/sh
 syntax on
 set ruler
 set number
-
+set relativenumber
 let no_buffers_menu=1
 highlight BadWhitespace ctermbg=red guibg=red
 colorscheme molokai
