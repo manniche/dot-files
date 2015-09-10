@@ -12,8 +12,6 @@ bindkey -s "^x^f" $'semacs '
 alias vim='nvim'
 bindkey -s ",e" $'nvim'
 
-alias grep='ack'
-
 #from http://jaderholm.com/configs/zshrc
 # Global Aliases
 alias -g L='|less'
@@ -25,5 +23,4 @@ alias -g W='|wc -l'
 alias -g S='|sort'
 
 alias -g has='ps aux | grep -v grep | grep'
-alias -g agrep='ack-grep'
-alias -g ack='ack-grep'
+
