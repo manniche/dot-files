@@ -65,4 +65,11 @@
  mode-line-buffer-identification
  (append mode-line-buffer-identification (list 'my-mode-line-buffer-permissions)))
 
+;; powerline
+(require 'powerline) 
+(powerline-default-theme) 
+
+(require 'evil-leader)
+(global-evil-leader-mode)
+
 (provide 'ui)
