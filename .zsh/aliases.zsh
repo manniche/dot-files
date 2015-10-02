@@ -1,5 +1,4 @@
-alias l='ls -l -G'
-
+alias l='ls -alhF --group-directories-first --color=always'
 alias ll='ls -la -G --color'
 
 alias lll='ls -ahl -G --color | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `ls -al | egrep \"^drw\" | wc -l` \e[1;32m|\e[1;35m Files: \e[1;31m`ls -al | egrep -v \"^drw\" | grep -v total | wc -l` \e[1;32m]--"'
