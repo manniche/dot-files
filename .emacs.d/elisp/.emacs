@@ -1,6 +1,5 @@
 (server-start)
 
-(add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (add-to-list 'load-path "~/.emacs.d/elisp/config")
 (add-to-list 'load-path "~/.emacs.d/elisp/color-theme")
@@ -11,9 +10,9 @@
 ;; elpa setup
 ;;;;;;;;;;;;;
 (require 'package)
-(add-to-list 'package-archives
-             '("elpy" . "http://jorgenschaefer.github.io/packages/")
-             '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
 ;;;;;;;;;;;;;;;;;
@@ -30,3 +29,8 @@
 (require 'ui)
 (require 'my_functions)
 (require 'keybindings)
+
+;; vi-mode
+(require 'evil)
+(evil-mode)
+

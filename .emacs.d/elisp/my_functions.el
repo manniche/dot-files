@@ -297,6 +297,15 @@
   (insert-address "quote" )
 )
 
+
+(defun sudo-file ()
+  "Re-open the current buffer's file with sudo"
+  (interactive)
+  (let ((p (point)))
+    (find-alternate-file
+     (concat "/sudo::" (buffer-file-name)))
+    (goto-char p)))
+
 (fset 'replace-ctrlms
    [escape ?< escape ?% ?\C-q ?\C-m return return ?!])
 (global-set-key "\C-cm" 'replace-ctrlms)

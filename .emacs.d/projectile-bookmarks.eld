@@ -1,1 +1,0 @@
-("~/entwicklung/LSPRails3/" "~/dot-files/" "~/entwicklung/LSP4Externals/")
