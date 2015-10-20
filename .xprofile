@@ -14,7 +14,7 @@ source /home/manniche/bin/dbus-fix
 /usr/bin/wmname LG3D &
 #spacefm -d &
 nm-applet &
-cbatticon &
+#cbatticon &
 volumeicon &
 #/usr/bin/owncloud &
 /usr/bin/SpiderOak &
