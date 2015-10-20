@@ -1,5 +1,5 @@
 (package-initialize)
 
-(elpy-enable)
+;(elpy-enable)
 
 (provide 'emacs-python)

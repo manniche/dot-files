@@ -43,5 +43,8 @@
           :compile-command "python fabfile.py deploy"
            )))
 
+;; vi-mode
+(require 'evil)
+(evil-mode)
 
 (provide 'programming-setup)
