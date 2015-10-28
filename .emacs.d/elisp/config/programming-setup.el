@@ -31,6 +31,16 @@
  'markdown-mode))
 ;;; end markdown mode setup
 
+;;; ruby/rails setup
+(add-hook 'speedbar-mode-hook
+          (lambda()
+            (speedbar-add-supported-extension "\\.rb")
+            (speedbar-add-supported-extension "\\.ru")
+            (speedbar-add-supported-extension "\\.erb")
+            (speedbar-add-supported-extension "\\.rjs")
+            (speedbar-add-supported-extension "\\.rhtml")
+            (speedbar-add-supported-extension "\\.rake")))
+
 ;; projectile: https://github.com/bbatsov/projectile
 (projectile-global-mode)
 
