@@ -37,14 +37,6 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
 NeoBundle 'Shougo/vimshell.vim'
 
 "" Snippets
@@ -88,9 +80,7 @@ NeoBundle "majutsushi/tagbar"
 
 "" Javascript Bundle
 NeoBundle "scrooloose/syntastic"
-
 NeoBundle "paredit.vim"
-
 NeoBundle "cwoac/nvim"
 
 call neobundle#end()
@@ -159,23 +149,6 @@ set t_Co=256
 set nocursorline
 set guioptions=egmrti
 set gfn=Monospace\ 10
-
-" if has("gui_running")
-"   if has("gui_mac") || has("gui_macvim")
-"     set guifont=Menlo:h12
-"     set transparency=7
-"   endif
-" else
-"   let g:CSApprox_loaded = 1
-
-"   if $COLORTERM == 'gnome-terminal'
-"     set term=xterm-256color
-"   else
-"     if $TERM == 'xterm'
-"       set term=xterm-256color
-"     endif
-"   endif
-" endif
 
 if &term =~ '256color'
   set t_ut=
