@@ -11,6 +11,9 @@
 (global-set-key (kbd "<f11>") 'kill-buffer)
 (global-set-key (kbd "<f12>") 'save-buffer)
 
+(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "C-;") 'comment-or-uncomment-region )
+
 ;hurtig switch mellem buffers i en frame
 (global-set-key (kbd "C-<next>" ) 'next-buffer)
 (global-set-key (kbd "C-<prior>" ) 'previous-buffer)
@@ -19,13 +22,13 @@
 (global-set-key (kbd "M-<up>" ) 'scroll-down-1)
 (global-set-key (kbd "M-<down>" ) 'scroll-up-1)
 
-(global-set-key (kbd "M-s-<up>" ) 'grow-window-1)
-(global-set-key (kbd "M-s-<down>" ) 'shrink-window-1)
+(global-set-key (kbd "M-S-<up>" ) 'grow-window-1)
+(global-set-key (kbd "M-S-<down>" ) 'shrink-window-1)
 
-(global-set-key (kbd "S-M-<left>") 'windmove-left )
-(global-set-key (kbd "S-M-<right>") 'windmove-right )
-(global-set-key (kbd "S-M-<up>") 'windmove-up )
-(global-set-key (kbd "S-M-<down>") 'windmove-down )
+(global-set-key (kbd "<left>") 'windmove-left )
+(global-set-key (kbd "<right>") 'windmove-right )
+(global-set-key (kbd "<up>") 'windmove-up )
+(global-set-key (kbd "<down>") 'windmove-down )
 
 (global-set-key (kbd "M-r") 'revert-buffer)
 

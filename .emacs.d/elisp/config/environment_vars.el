@@ -65,6 +65,11 @@
 (setq-default scroll-step 1)
 (setq-default scroll-conservatively 1000)
 
+;;play nice with the other kids: respect the x-clipboard
+(setq x-select-enable-clipboard t)
+
+;;indicate empty lines
+(setq indicate-empty-lines t)
 ;; displays contents of the kill-ring in a separate buffer
 ;; (require 'browse-kill-ring)
 ;; (browse-kill-ring-default-keybindings)
