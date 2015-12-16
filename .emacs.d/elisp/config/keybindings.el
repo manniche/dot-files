@@ -25,10 +25,10 @@
 (global-set-key (kbd "M-S-<up>" ) 'grow-window-1)
 (global-set-key (kbd "M-S-<down>" ) 'shrink-window-1)
 
-(global-set-key (kbd "<left>") 'windmove-left )
-(global-set-key (kbd "<right>") 'windmove-right )
-(global-set-key (kbd "<up>") 'windmove-up )
-(global-set-key (kbd "<down>") 'windmove-down )
+(evil-global-set-key 'normal (kbd "<left>") 'windmove-left )
+(evil-global-set-key 'normal (kbd "<right>") 'windmove-right )
+(evil-global-set-key 'normal (kbd "<up>") 'windmove-up )
+(evil-global-set-key 'normal (kbd "<down>") 'windmove-down )
 
 (global-set-key (kbd "M-r") 'revert-buffer)
 
@@ -83,17 +83,6 @@
 ;; (global-set-key (kbd "C-x n r") 'narrow-to-region)
 ;; (global-set-key (kbd "C-c r") 'org-capture)
 ;; (global-set-key (kbd "<f11>") 'org-capture)
-
-
-;; Change the q key in the agenda so instead of killing the agenda
-;; buffer it merely buries it to the end of the buffer list. This
-;; allows me to pull it back up quickly with the q speed key or f9 f9
-;; and regenerate the results with g.
-(add-hook 'org-agenda-mode-hook
-          (lambda ()
-            (define-key org-agenda-mode-map "q" 'bury-buffer))
-          'append)
-
 
 (provide 'keybindings)
 
