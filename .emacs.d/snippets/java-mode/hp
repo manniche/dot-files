@@ -1,0 +1,12 @@
+#name : header and package name for java file
+# --
+/**
+ * \file ${1:`(file-name-sans-extension (buffer-name))`}.java
+ * \brief The ${1:`(file-name-sans-extension (buffer-name))`} class
+ * \package ${2:`(nth 0 (last (split-string  (substring (pwd) 10 ) "/" ) 2))`};
+ */
+
+package ${3:`(concat (replace-regexp-in-string "/" "." (substring (nth 1 (split-string  (substring (pwd) 10 ) "src" ) ) 1 -1) ) ";" )`}
+
+
+$0

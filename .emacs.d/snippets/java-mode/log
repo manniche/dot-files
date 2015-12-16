@@ -1,0 +1,3 @@
+#name : log4j string.format log line
+# --
+log.${1:debug|info|warn|fatal}( String.format( "$0" ) );
