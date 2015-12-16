@@ -1,3 +1,0 @@
-#name : throws Exception
-# --
-throws ${1:Type}Exception

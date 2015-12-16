@@ -1,7 +1,0 @@
-#name : junit method with exception
-# --
-@Test (expect=${1:exception}.class)
-public void test${2:method_name}()
-{
-  $0
-}

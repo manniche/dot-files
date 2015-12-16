@@ -1,3 +1,0 @@
-#name : boolean
-# --
-boolean ${1:variable} = ${2:true};

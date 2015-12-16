@@ -1,5 +1,0 @@
-#name : Return value (@return)
-# --
-/**
- * @return ${1:descrition}
- */

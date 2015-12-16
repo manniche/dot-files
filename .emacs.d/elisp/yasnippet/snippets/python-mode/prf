@@ -1,3 +1,0 @@
-#name : format
-# --
-print( '{}'.format( $1 ) )$0
