@@ -1,7 +1,9 @@
 ;; yasnippet
-(add-to-list 'load-path
-              "~/.emacs.d/elpa/yasnippet")
 (require 'yasnippet) ;; not yasnippet-bundle
+(setq yas-snippet-dirs
+      '("~/.emacs.d/plugins/yasnippet/snippets"               
+        "~/.emacs.d/elisp/yasnippet/snippets"
+        ))
 (yas-global-mode 1)
 
 ;;; clojure mode setup
@@ -55,6 +57,6 @@
 
 ;; vi-mode
 (require 'evil)
-(evil-mode)
+(evil-mode 1)
 
 (provide 'programming-setup)
