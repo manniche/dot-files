@@ -38,6 +38,15 @@ bindsym $mod+l focus right
 bindsym $mod+Up focus up
 #bindsym $mod+Right focus right
 
+# volume controls
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 # move focused window
 # bindsym $mod+Shift+J move left
 # bindsym $mod+Shift+K move down
