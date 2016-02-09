@@ -8,7 +8,7 @@ alias mysql='mysql -u root'
 alias mysqladmin='mysqladmin -u root'
 alias semacs='emacs -nw -Q'
 bindkey -s "^x^f" $'semacs '
-alias vim='nvim'
+
 bindkey -s ",e" $'nvim'
 
 #from http://jaderholm.com/configs/zshrc
