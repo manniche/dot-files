@@ -1,8 +1,7 @@
 ;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle
 (setq yas-snippet-dirs
-      '("~/.emacs.d/plugins/yasnippet/snippets"               
-        "~/.emacs.d/elisp/yasnippet/snippets"
+      '("~/.emacs.d/snippets"               
         ))
 (yas-global-mode 1)
 
