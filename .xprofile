@@ -19,4 +19,5 @@ volumeicon &
 #/usr/bin/owncloud &
 /usr/bin/SpiderOak &
 xmodmap ~/.Xmodmap
+setxkbmap -option ctrl:nocaps
 #exec i3
