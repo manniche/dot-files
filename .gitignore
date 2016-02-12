@@ -11,3 +11,4 @@ abbrev_defs
 .emacs.d/ido.last
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/plugins
+.emacs.d/ac-comphist.dat
