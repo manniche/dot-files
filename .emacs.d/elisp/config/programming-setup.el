@@ -58,4 +58,5 @@
 (require 'evil)
 (evil-mode 1)
 
+(linum-relative-mode 1)
 (provide 'programming-setup)
