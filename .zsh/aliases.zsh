@@ -6,10 +6,12 @@ alias lll='ls -ahl -G --color | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `
 
 alias mysql='mysql -u root'
 alias mysqladmin='mysqladmin -u root'
+alias urldecode='python -c "import sys, urllib.parse; print( urllib.parse.unquote_plus(sys.argv[1]) )"'
+
 alias semacs='emacs -nw -Q'
 bindkey -s "^x^f" $'semacs '
 
-bindkey -s ",e" $'nvim'
+bindkey -s ",e" $'vim'
 
 #from http://jaderholm.com/configs/zshrc
 # Global Aliases
