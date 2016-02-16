@@ -13,10 +13,10 @@
 (setq package-list '(yasnippet clojure-mode evil projectile highlight highlight-parentheses powerline evil-leader markdown-mode linum-relative))
 
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
-			 ("elpy" . "http://jorgenschaefer.github.io/packages/")
+                         ("elpy" . "http://jorgenschaefer.github.io/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "http://melpa.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+                         ("melpa" . "http://melpa.org/packages/")
+                         ))
 
 (package-initialize)
 (unless package-archive-contents
