@@ -83,6 +83,7 @@
 ;; (global-set-key (kbd "C-x n r") 'narrow-to-region)
 ;; (global-set-key (kbd "C-c r") 'org-capture)
 ;; (global-set-key (kbd "<f11>") 'org-capture)
-
+(define-key evil-normal-state-map (kbd "S-<return>" ) "O-<esc>" )
+(define-key evil-normal-state-map (kbd "C-S-<return>" ) "o-<esc>" )
 (provide 'keybindings)
 
