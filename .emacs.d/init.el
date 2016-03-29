@@ -35,6 +35,7 @@
 ;; General programming setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'programming-setup)
+(require 'js2-setup)
 
 ;; my own vars and l'a'f
 (require 'environment_vars)
