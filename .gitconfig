@@ -97,3 +97,6 @@
 	default = current
 [url "https://"]
 	insteadOf = git://
+[diff]
+    external = git-meld
+    
