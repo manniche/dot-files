@@ -131,8 +131,8 @@ bindsym $mod+Shift+l resize grow width 1 px or 1 ppt
 # special rules for applications
 for_window [title="Meld$"] fullscreen enable
 
-assign [class="^Firefox$"] → 1
 assign [instance="^Devtools$"] → 2
+assign [class="^Firefox$"] → 1
 assign [class="^Emacs$"] → 10
 
 
