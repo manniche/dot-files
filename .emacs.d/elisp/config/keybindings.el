@@ -13,6 +13,7 @@
 
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region )
+;(global-set-key (kbd "C-RET") (quoted-insert 'newline))
 
 ;hurtig switch mellem buffers i en frame
 (global-set-key (kbd "C-<next>" ) 'next-buffer)
@@ -37,6 +38,13 @@
 (global-set-key (kbd "M-v") 'vline-mode)
 
 (global-set-key (kbd "M-h") 'hl-line-mode)
+
+(global-set-key (kbd "C-c o") 'occur)
+
+(global-set-key (kbd "C-c <right>") 'hs-show-block)
+(global-set-key (kbd "C-c <left>")  'hs-hide-block)
+(global-set-key (kbd "C-c <up>")    'hs-hide-all)
+(global-set-key (kbd "C-c <down>")  'hs-show-all)
 
 (global-set-key (kbd "M-l") 'downcase-word)
 
