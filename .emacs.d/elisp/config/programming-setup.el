@@ -32,6 +32,11 @@
  'markdown-mode))
 ;;; end markdown mode setup
 
+;;;javascript mode setup
+(add-to-list 'auto-mode-alist
+  (cons (concat "\\." (regexp-opt '("js") t) "\\'")
+   'js2-mode))
+
 ;;; ruby/rails setup
 (add-hook 'speedbar-mode-hook
           (lambda()
