@@ -18,6 +18,7 @@ nm-applet &
 volumeicon &
 #/usr/bin/owncloud &
 /usr/bin/SpiderOak &
+/sbin/wicd-gtk &
 xmodmap ~/.Xmodmap
 setxkbmap -option ctrl:nocaps
 #exec i3
