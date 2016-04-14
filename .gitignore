@@ -14,3 +14,4 @@ abbrev_defs
 .emacs.d/ac-comphist.dat
 local/bin/determine_authors.sh
 local/bin/file_stats.sh
+local/bin/Sencha
