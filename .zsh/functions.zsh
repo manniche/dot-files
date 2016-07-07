@@ -37,14 +37,6 @@ function extract {
   fi
 }
 
-function pg_start {
-  /usr/local/bin/pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
-}
-
-function pg_stop {
-  /usr/local/bin/pg_ctl -D /usr/local/var/postgres stop -s -m fast
-}
-
 calendar() {
    if [[ ! -f /usr/bin/cal ]] ; then
       echo "Please install cal before trying to use it!"
@@ -74,6 +66,7 @@ cleantex () {
 mkcd() { 
     mkdir "$1" && cd "$1"; 
 }
+
 cpv () {
     ## verbose copy
     ## rsync, but neutered to only make local copies
@@ -113,3 +106,8 @@ sanitize() {
   done
 }
 
+# shadows system ssh to start tmux sessions. Will be revised when I
+# eventually hit a server without tmux installed
+ssh() {
+  /usr/bin/ssh -t $@ "tmux attach || tmux new";
+}
