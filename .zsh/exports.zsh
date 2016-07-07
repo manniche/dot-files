@@ -18,7 +18,7 @@ export LESSOPEN="| /usr/bin/lesspipe %s"
 export LESSCLOSE="/usr/bin/lesspipe %s %s"
 
 export EMAIL="steen@manniche.net"
-export EDITOR=vim
+export EDITOR="emacs -nw -Q"
 export VISUAL=$EDITOR
 export SVN_EDITOR=$EDITOR
 export GIT_EDITOR=$EDITOR
