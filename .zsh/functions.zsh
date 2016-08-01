@@ -108,6 +108,6 @@ sanitize() {
 
 # shadows system ssh to start tmux sessions. Will be revised when I
 # eventually hit a server without tmux installed
-ssh() {
-  /usr/bin/ssh -t $@ "tmux attach || tmux new";
+ssht() {
+    /usr/bin/ssh -t $@ "tmux attach || tmux new";
 }
