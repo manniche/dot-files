@@ -2,4 +2,4 @@
 # name: log_f
 # contributor: Steen Manniche <steen@manniche.net>
 # --
-log.debug( "$0 $1=%s"%( ${1:var_name} ) )
+log.debug( "$0 $1={}".format( ${1:var_name} ) )
