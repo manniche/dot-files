@@ -13,10 +13,6 @@ export ARCHFLAGS='-arch x86_64'
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 
-#make less read archive files:
-export LESSOPEN="| /usr/bin/lesspipe %s"
-export LESSCLOSE="/usr/bin/lesspipe %s %s"
-
 export EMAIL="steen@manniche.net"
 export EDITOR="emacs -nw -Q"
 export VISUAL=$EDITOR
@@ -26,8 +22,6 @@ export BROWSER=firefox
 export TERMINAL=terminator
 #export TERM=xterm-256color
 
-export LD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
-export SQLPATH="/opt/oracle/instantclient_11_2"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 export PATH=$PATH:$LD_LIBRARY_PATH
 
@@ -39,4 +33,4 @@ export LANG="EN_us.UTF-8"
 #virtualenv
 export WORKON_HOME=~/.virtualenvs
 
-source ~/.zsh/.oracleenv
+export PYTHONSTARTUP=~/.pythonrc
