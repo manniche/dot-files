@@ -13,6 +13,10 @@ export ARCHFLAGS='-arch x86_64'
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 
+#make less read archive files:
+export LESSOPEN="| /usr/bin/lesspipe %s"
+export LESSCLOSE="/usr/bin/lesspipe %s %s"
+
 export EMAIL="steen@manniche.net"
 export EDITOR="emacs -nw -Q"
 export VISUAL=$EDITOR
