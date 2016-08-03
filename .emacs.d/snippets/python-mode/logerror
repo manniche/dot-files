@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# name: logerror
+# contributor: Steen Manniche <steen@manniche.net>
+# --
+log.error( "$0", exc_info=True)
