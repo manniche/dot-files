@@ -26,11 +26,6 @@
 (global-set-key (kbd "M-S-<up>" ) 'grow-window-1)
 (global-set-key (kbd "M-S-<down>" ) 'shrink-window-1)
 
-(evil-global-set-key 'normal (kbd "<left>") 'windmove-left )
-(evil-global-set-key 'normal (kbd "<right>") 'windmove-right )
-(evil-global-set-key 'normal (kbd "<up>") 'windmove-up )
-(evil-global-set-key 'normal (kbd "<down>") 'windmove-down )
-
 (global-set-key (kbd "M-r") 'revert-buffer)
 
 (global-set-key (kbd "M-n") 'linum-mode)
@@ -91,7 +86,6 @@
 ;; (global-set-key (kbd "C-x n r") 'narrow-to-region)
 ;; (global-set-key (kbd "C-c r") 'org-capture)
 ;; (global-set-key (kbd "<f11>") 'org-capture)
-(define-key evil-normal-state-map (kbd "S-<return>" ) "O-<esc>" )
-(define-key evil-normal-state-map (kbd "C-S-<return>" ) "o-<esc>" )
+
 (provide 'keybindings)
 
