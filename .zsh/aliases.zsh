@@ -9,6 +9,7 @@ alias mysqladmin='mysqladmin -u root'
 alias urldecode='python -c "import sys, urllib.parse; print( urllib.parse.unquote_plus(sys.argv[1]) )"'
 
 alias semacs='emacs -nw -Q'
+alias pymacs='emacs -q -load ~/.pymacs.d/init.el'
 bindkey -s "^x^f" $'semacs '
 
 bindkey -s ",e" $'vim'

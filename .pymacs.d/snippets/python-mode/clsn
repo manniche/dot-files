@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: class
+# key: clsn
+# group: object oriented
+# --
+class ${1:Class}( ${2:Object} ):
+    $0
