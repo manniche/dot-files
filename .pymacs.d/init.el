@@ -20,10 +20,12 @@
   (package-refresh-contents))
 
 (defvar pymacs-packages
-  '(better-defaults
-    elpy
-    vline
-    material-theme))
+  '(better-defaults ; https://github.com/technomancy/better-defaults#new-behaviour
+    ein             ; jupyter notebook integration
+    elpy            ; python emacs
+    vline           ; visual vertical lines
+    material-theme  ; ui
+    ))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
@@ -52,5 +54,7 @@
 (require 'environment_vars)
 (require 'my_functions)
 (require 'keybindings)
+
+(elpy-use-ipython)
 
 ;; init.el ends here
