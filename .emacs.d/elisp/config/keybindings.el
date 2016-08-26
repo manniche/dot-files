@@ -26,6 +26,9 @@
 (global-set-key (kbd "M-S-<up>" ) 'grow-window-1)
 (global-set-key (kbd "M-S-<down>" ) 'shrink-window-1)
 
+(global-set-key (kbd "S-<up>") 'move-line-up)
+(global-set-key (kbd "S-<down>") 'move-line-down)
+
 (global-set-key (kbd "M-r") 'revert-buffer)
 
 (global-set-key (kbd "M-n") 'linum-mode)
@@ -48,6 +51,11 @@
 
 ;; split window in four
 (global-set-key (kbd "C-x 4") 'split-window-in-four)
+
+(global-set-key (kbd "C-x C-<left>") 'windmove-left )
+(global-set-key (kbd "C-x C-<right>") 'windmove-right )
+(global-set-key (kbd "C-x C-<up>") 'windmove-up )
+(global-set-key (kbd "C-x C-<down>") 'windmove-down )
 
 ;; see printer variables for more info
 (global-set-key (kbd "C-c C-p") 'print-to-pdf)
