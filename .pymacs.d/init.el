@@ -25,6 +25,7 @@
     elpy            ; python emacs
     vline           ; visual vertical lines
     material-theme  ; ui
+    markdown-mode   ; writing
     ))
 
 (mapc #'(lambda (package)
