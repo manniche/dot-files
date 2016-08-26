@@ -17,3 +17,4 @@ local/bin/file_stats.sh
 local/bin/Sencha
 *.zwc
 places
+request
