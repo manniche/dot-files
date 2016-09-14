@@ -26,9 +26,6 @@
 (global-set-key (kbd "M-S-<up>" ) 'grow-window-1)
 (global-set-key (kbd "M-S-<down>" ) 'shrink-window-1)
 
-(global-set-key (kbd "S-<up>") 'move-line-up)
-(global-set-key (kbd "S-<down>") 'move-line-down)
-
 (global-set-key (kbd "M-r") 'revert-buffer)
 
 (global-set-key (kbd "M-n") 'linum-mode)
