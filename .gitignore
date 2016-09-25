@@ -18,3 +18,4 @@ local/bin/Sencha
 *.zwc
 places
 request
+django-mode
