@@ -17,3 +17,9 @@ fpath=(/home/semn/.zsh/zsh_completions $fpath)
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+for i in /etc/novoenv.d/*.sh; do
+    if [ -r "$i" ]; then
+        . $i
+    fi
+done
