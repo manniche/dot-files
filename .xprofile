@@ -11,4 +11,5 @@ volumeicon &
 /sbin/wicd-gtk &
 xmodmap ~/.Xmodmap
 setxkbmap -option ctrl:nocaps
+feh --bg-fill .i3/deep-dark-space.png
 #exec i3
