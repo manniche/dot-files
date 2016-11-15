@@ -3,14 +3,11 @@
 */elpa
 */cache
 netbeans
-*/netbeans-7.1.1
-*/glassfish-3.1.2
 .idea
 *.iml
 *~
 *bak
 abbrev_defs
-.emacs.d/tramp
 .emacs.d/ido.last
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/plugins
@@ -19,6 +16,6 @@ local/bin/determine_authors.sh
 local/bin/file_stats.sh
 local/bin/Sencha
 *.zwc
-places
-request
-django-mode
+*.elc
+*.eld
+tramp
