@@ -37,6 +37,12 @@
   (cons (concat "\\." (regexp-opt '("js") t) "\\'")
    'js2-mode))
 
+;;;javascript mode setup
+(add-to-list 'auto-mode-alist
+  (cons (concat "\\." (regexp-opt '("jsx") t) "\\'")
+   'web-mode))
+
+
 ;;; ruby/rails setup
 (add-hook 'speedbar-mode-hook
           (lambda()

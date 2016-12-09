@@ -76,7 +76,11 @@
     latest = "!git tags | cut -f 3 -d '/' | cut -f 1 -d ' ' | tail -1"
     delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*\\|master||develop' | xargs -n 1 git branch -d"
     hotfix = "!git co -b `git tags | cut -f 3 -d '/' | cut -f 1 -d ' ' | tail -1 | awk 'BEGIN { FS = \".\"};{printf \"hotfix/\" $1 \".\" $2 \".\" $3+1 }'`"
-
+    who = shortlog -s -n --no-merges
+    standup = shortlog --since=yesterday
+    today = shortlog --since=midnight
+    undo = reset HEAD^
+    
 [giggle]
     main-window-maximized = false
     main-window-geometry = 718x879+716+19
@@ -85,6 +89,7 @@
     file-view-vpane-position = 381
 [core]
     editor = emacs -Q -nw
+	excludesfile = ~/.gitignore
 [user]
     email = steen@manniche.net
     name = Steen Manniche

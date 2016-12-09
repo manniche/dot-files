@@ -1,5 +1,0 @@
-
-session="$HOME/.dbus/session-bus/$(dbus-uuidgen --get)-$(echo $DISPLAY | sed -e 's/\([^:]*:\)//g' -e 's/\..*$//g')"
-if [ -e $session ] ; then
-    . $session
-fi

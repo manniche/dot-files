@@ -10,7 +10,7 @@
 ;; elpa setup
 ;;;;;;;;;;;;;
 ;(require 'package)
-(setq package-list '(yasnippet clojure-mode evil projectile highlight highlight-parentheses powerline evil-leader markdown-mode linum-relative elpy js2-mode))
+(setq package-list '(yasnippet clojure-mode evil projectile highlight highlight-parentheses powerline evil-leader markdown-mode linum-relative elpy js2-mode web-mode))
 
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
                          ("elpy" . "http://jorgenschaefer.github.io/packages/")

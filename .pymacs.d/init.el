@@ -26,6 +26,7 @@
     vline           ; visual vertical lines
     material-theme  ; ui
     markdown-mode   ; writing
+    web-mode        ; for editing web-ish files
     ))
 
 (mapc #'(lambda (package)
@@ -42,6 +43,7 @@
 
 ;; THIS IS PYMACS
 (elpy-enable)
+(elpy-use-ipython)
 
 ;; yas custom dir
 (add-to-list 'yas-snippet-dirs (concat user-emacs-directory "/snippets" ))
@@ -56,6 +58,17 @@
 (require 'my_functions)
 (require 'keybindings)
 
-(elpy-use-ipython)
+;;; programming setup
+;;; markdown mode setup
+(add-to-list 'auto-mode-alist
+ (cons (concat "\\." (regexp-opt '("md" "markdown") t) "\\'")
+ 'markdown-mode))
+;;; end markdown mode setup
+
+;;;javascript mode setup
+(add-to-list 'auto-mode-alist
+  (cons (concat "\\." (regexp-opt '("js" "jsx") t) "\\'")
+   'web-mode))
+
 
 ;; init.el ends here
