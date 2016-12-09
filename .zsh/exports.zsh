@@ -23,7 +23,7 @@ export VISUAL=$EDITOR
 export SVN_EDITOR=$EDITOR
 export GIT_EDITOR=$EDITOR
 export BROWSER=firefox
-export TERMINAL=terminator
+export TERMINAL=lxterminal
 #export TERM=xterm-256color
 
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
