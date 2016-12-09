@@ -8,7 +8,7 @@ netbeans
 *~
 abbrev_defs
 .emacs.d/tramp
-.emacs.d/ido.last
+ido.last
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/plugins
 .emacs.d/ac-comphist.dat
