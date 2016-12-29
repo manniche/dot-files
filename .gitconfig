@@ -70,7 +70,7 @@
     # http://stackoverflow.com/a/4991675/1448983
     oldest-ancestor = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
     branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
-	  branchlog = !sh -c \"git log `git oldest-ancestor`..\"
+	branchlog = !sh -c \"git log `git oldest-ancestor`..\"
 
     tags = "!git for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/tags"
     latest = "!git tags | cut -f 3 -d '/' | cut -f 1 -d ' ' | tail -1"
@@ -80,7 +80,8 @@
     standup = shortlog --since=yesterday
     today = shortlog --since=midnight
     undo = reset HEAD^
-    
+    gpush = "!git push 2>&1 | egrep --only-matching '(http.*$)' | xargs firefox"
+
 [giggle]
     main-window-maximized = false
     main-window-geometry = 718x879+716+19
