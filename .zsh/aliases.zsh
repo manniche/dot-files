@@ -6,7 +6,7 @@ alias lll='ls -ahl -G --color | more; echo "\e[1;32m --[\e[1;34m Dirs:\e[1;36m `
 
 alias mysql='mysql -u root'
 alias mysqladmin='mysqladmin -u root'
-alias urldecode='python -c "import sys, urllib.parse; print( urllib.parse.unquote_plus(sys.argv[1]) )"'
+alias urldecode='python3 -c "import sys, urllib.parse; print( urllib.parse.unquote_plus(sys.argv[1]) )"'
 
 alias semacs='emacs -nw -Q'
 alias pymacs='emacs -q -load ~/.pymacs.d/init.el'
