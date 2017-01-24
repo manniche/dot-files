@@ -12,5 +12,6 @@ URxvt.font: xft:Inconsolata-11
 URxvt.buffered: true
 URxvt.background: black
 URxvt.foreground: white
+URxvt*urgentOnBell: true
 
 !URxvt.font xft:Monospace-10:antialias=true
