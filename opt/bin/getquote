@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import random
+
+def parse_quote_file(filepath):
+    """
+    given a filepath to the .quotes file,
+    returns a list of the files+authors 
+    """
+    quote_list = []
+    with open(filepath) as q:
+        a = ''
+        for l in q.readlines():
+            if len(l.strip()) is 0:
+                quote_list.append(a)
+                a = ''
+            else:
+                a += l
+    return quote_list
+
+def select_quote( quote_list ):
+    return random.choice( quote_list )
+
+
+if __name__ == '__main__':
+    import os
+    
+    quotes_file = os.path.join(os.environ.get('HOME'), '.quotes')
+    quote = select_quote(parse_quote_file(quotes_file))
+
+    print( quote )
