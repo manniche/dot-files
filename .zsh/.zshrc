@@ -14,10 +14,8 @@ source ~/.zsh/zsh_hooks.zsh
 
 fpath=(/home/semn/.zsh/zsh_completions $fpath)
 
-if [ -d /etc/novoenv.d ]; then
-    for i in /etc/novoenv.d/*.sh; do
-        if [ -r "$i" ]; then
-            . $i
-        fi
-    done
-fi
+for i in /etc/novoenv.d/*.sh; do
+  if [[ -x "$i" ]]; then
+    source "$i"
+  fi
+done
