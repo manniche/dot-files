@@ -81,7 +81,8 @@
     today = shortlog --since=midnight
     undo = reset HEAD^
     gpush = "!git push 2>&1 | egrep --only-matching '(http.*$)' | xargs firefox"
-
+    change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+    
 [giggle]
     main-window-maximized = false
     main-window-geometry = 718x879+716+19
@@ -92,7 +93,7 @@
     editor = emacs -Q -nw
 	excludesfile = ~/.gitignore
 [user]
-    email = steen@manniche.net
+	email = steen@manniche.net
     name = Steen Manniche
 [diff]
     algorithm = patience
