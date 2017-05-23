@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pandoc -f markdown -t org $1 -o `basename $1 .md`.org
