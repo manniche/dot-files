@@ -21,7 +21,7 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 
 # Remove extra blanks from each command line being added to history
-setopt HIST_REDUCE_BLANKS
+# setopt HIST_REDUCE_BLANKS
 
 # Include more information about when the command was executed, etc
 setopt EXTENDED_HISTORY
