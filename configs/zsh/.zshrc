@@ -13,9 +13,3 @@ source ~/.zsh/history.zsh
 source ~/.zsh/zsh_hooks.zsh
 
 fpath=(/home/semn/.zsh/zsh_completions $fpath)
-
-for i in /etc/novoenv.d/*.sh; do
-  if [[ -x "$i" ]]; then
-    source "$i"
-  fi
-done
