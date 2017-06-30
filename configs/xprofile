@@ -3,12 +3,12 @@
 
 /usr/bin/wmname LG3D &
 #spacefm -d &
-nm-applet &
+#nm-applet &
 #cbatticon &
-volumeicon &
+#volumeicon &
 #/usr/bin/owncloud &
 /usr/bin/SpiderOak &
-/sbin/wicd-gtk &
+#/sbin/wicd-gtk &
 xmodmap ~/.Xmodmap
 setxkbmap -option ctrl:nocaps
 feh --bg-fill .i3/deep-dark-space.png
