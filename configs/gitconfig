@@ -70,7 +70,7 @@
     # http://stackoverflow.com/a/4991675/1448983
     oldest-ancestor = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
     branchdiff = !sh -c \"git diff `git oldest-ancestor`..\"
-	branchlog = !sh -c \"git log `git oldest-ancestor`..\"
+    branchlog = !sh -c \"git log `git oldest-ancestor`..\"
 
     tags = "!git for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/tags"
     latest = "!git tags | cut -f 3 -d '/' | cut -f 1 -d ' ' | tail -1"
@@ -81,8 +81,9 @@
     today = shortlog --since=midnight
     undo = reset HEAD^
     gpush = "!git push 2>&1 | egrep --only-matching '(http.*$)' | xargs firefox"
-    change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
-    
+    team =  log --graph --color=always --abbrev-commit --date=relative --pretty=format:\"%h %ad | [%aE]: %s%d\" --all --since='1 weeks'  --no-merges
+    recap = log --all --no-merges --pretty=format:\"%h %ad | [%aE]: %s%d\" --graph --date=short --author='Steen Manniche'
+
 [giggle]
     main-window-maximized = false
     main-window-geometry = 718x879+716+19
@@ -92,17 +93,14 @@
 [core]
     editor = emacs -Q -nw
     excludesfile = ~/.gitignore
-
 [user]
     email = steen@manniche.net
     name = Steen Manniche
 [diff]
     algorithm = patience
-
 [github]
     user = manniche
 [push]
-	default = current
+    default = current
 [url "https://"]
-	insteadOf = git://
-
+    insteadOf = git://
