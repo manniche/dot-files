@@ -34,7 +34,7 @@
     dump = cat-file -p
     undo-commit = 'reset --soft HEAD^'
     # will push the current branch only and named branch with `git pub {branch-name}`
-    pub = "!f() { git push -u ${1:-origin} `git symbolic-ref HEAD`; }; f" 
+    pub = "!f() { git push -u ${1:-origin} `git symbolic-ref HEAD`; }; f"
     # view changes between fetched changes and HEAD
     changes=!git log --name-status HEAD..
     # add selected parts of the changes in the working directory
@@ -83,7 +83,7 @@
     gpush = "!git push 2>&1 | egrep --only-matching '(http.*$)' | xargs firefox"
     team =  log --graph --color=always --abbrev-commit --date=relative --pretty=format:\"%h %ad | [%aE]: %s%d\" --all --since='1 weeks'  --no-merges
     recap = log --all --no-merges --pretty=format:\"%h %ad | [%aE]: %s%d\" --graph --date=short --author='Steen Manniche'
-
+    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 [giggle]
     main-window-maximized = false
     main-window-geometry = 718x879+716+19
