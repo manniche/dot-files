@@ -1,6 +1,3 @@
-# Adding clojure home
-export CLOJURE_HOME=~/.cljr/bin
-
 # Currently this path is appendend to dynamically when picking a ruby version
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python/:/sbin:$HOME/local/bin:$HOME/opt/bin:/usr/lib/rstudio/bin/:~/bin/:$PATH
 
@@ -21,7 +18,7 @@ export EMAIL="steen@manniche.net"
 export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'ec'; else echo 'emacs -nw -Q'; fi)"
 export VISUAL=$EDITOR
 export SVN_EDITOR=$EDITOR
-export GIT_EDITOR=$EDITOR
+export GIT_EDITOR=emacs -nw -Q
 export BROWSER=firefox
 export TERMINAL=lxterminal
 #export TERM=xterm-256color
