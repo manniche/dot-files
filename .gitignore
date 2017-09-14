@@ -28,3 +28,4 @@ places
 request
 django-mode
 .emacs.d/.cache/
+.zsh/novoenv.zsh
