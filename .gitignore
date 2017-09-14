@@ -27,3 +27,4 @@ local/bin/Sencha
 places
 request
 django-mode
+.emacs.d/.cache/
