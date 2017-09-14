@@ -1,0 +1,11 @@
+#key : sigint handler
+#name : Snippet to insert sigint handler
+#contributor: Steen Manniche <steen@manniche.net>
+# --
+
+import signal
+import sys
+def signal_handler(signal, frame):
+    print('$0')
+    sys.exit(0)
+signal.signal(signal.SIGINT, signal_handler)
