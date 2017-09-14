@@ -83,7 +83,7 @@
     gpush = "!git push 2>&1 | egrep --only-matching '(http.*$)' | xargs firefox"
     team =  log --graph --color=always --abbrev-commit --date=relative --pretty=format:\"%h %ad | [%aE]: %s%d\" --all --since='1 weeks'  --no-merges
     recap = log --all --no-merges --pretty=format:\"%h %ad | [%aE]: %s%d\" --graph --date=short --author='Steen Manniche'
-    cleanup = "!f() { git branch --merged ${1-develop} | grep -v " ${1-develop}$" | xargs -r git branch -d; }; f"
+    log-branch = !git cherry -v develop `git rev-parse --abbrev-ref HEAD`
 [giggle]
     main-window-maximized = false
     main-window-geometry = 718x879+716+19
