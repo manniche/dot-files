@@ -1,17 +1,33 @@
-Xft.dpi:96
-Xft.hinting:true
-Xft.hintstyle:hintslight
-Xft.antialias:true
+URxvt.background:	#1F1D19
+URxvt.foreground:	#DEDEDE
+!URxvt.font:				xft:DejaVu Sans Mono:pixelsize=8:antialias=true:hinting=true
+!URxvt.boldFont:					   xft:DejaVu Sans Mono:bold:pixelsize=8:antialias=true:hinting=true
+URxvt.scrollBar:				   false
+URxvt.saveLines:				   65535
+Xft*dpi:       128
+Xft*antialias: True
+Xft*hinting:   Full
+URxvt.keysym.KP_Add:    +
+URxvt.keysym.KP_Subtract: -
+URxvt.keysym.KP_Multiply: *
+URxvt.keysym.KP_Divide  : /
+URxvt.keysym.KP_Decimal : .
+URxvt.keysym.KP_Separator : ,
+
+! Xft.dpi:96
+! Xft.hinting:true
+! Xft.hintstyle:hintslight
+! Xft.antialias:true
 
 Xcursor*theme: neutral
 
 !emacs.font: -unknown-Inconsolata-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1
 
-!URxvt.font: xft:Bitstream Vera Sans Mono-9
-URxvt.font: xft:Inconsolata-11
+! URxvt.font: xft:Bitstream Vera Sans Mono-10
+!URxvt.font: xft:Inconsolata-11
 URxvt.buffered: true
-URxvt.background: black
-URxvt.foreground: white
+! URxvt.background: black
+! URxvt.foreground: white
 URxvt*urgentOnBell: true
 
 !URxvt.font xft:Monospace-10:antialias=true
