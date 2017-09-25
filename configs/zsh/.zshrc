@@ -11,7 +11,7 @@ source ~/.zsh/bindkeys.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/zsh_hooks.zsh
-source ~/.zsh/novoenv.zsh
 fpath=(/home/semn/.zsh/zsh_completions $fpath)
 
+# /etc/novoenv.d
 
