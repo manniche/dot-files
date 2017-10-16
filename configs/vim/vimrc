@@ -1,0 +1,220 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" plugins
+Plugin 'tpope/vim-fugitive'
+"Plugin 'wincent/command-t'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'agude/vim-eldar'
+Plugin 'viis/vim-bclose'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-surround'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'nvie/vim-flake8'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-unimpaired'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+syntax on
+
+" Map key to toggle opt
+function MapToggle(key, opt)
+  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+  exec 'nnoremap '.a:key.' '.cmd
+  exec 'inoremap '.a:key." \<C-O>".cmd
+endfunction
+command -nargs=+ MapToggle call MapToggle(<f-args>)
+
+
+" color theme
+set t_Co=256
+"set background=light
+set background=dark
+"colorscheme solarized
+colorscheme eldar
+
+" use UTF-8
+set encoding=utf-8
+
+" use , as the leader
+let mapleader = ","
+
+" folding
+set foldmethod=indent
+set foldlevel=99
+let g:SimpylFold_docstring_preview=1
+
+" tabs
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+
+" flag unneccessary whitespace
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+
+" visual help
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+set ruler
+set listchars=tab:>-,trail:-
+set list
+set colorcolumn=120
+
+" search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" line breaks
+set nowrap
+set formatoptions=l
+
+set wildmenu
+set showcmd
+map Y y$
+
+"ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$']
+
+" set cursorcolumn
+nnoremap ; :
+nnoremap : ;
+
+" remap j and k to scroll by visual lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" emacs format lines to textwrap http://vim.1045645.n5.nabble.com/Opposite-of-lt-shift-gt-J-td1163281.html
+nnoremap Q gqap
+vnoremap Q gq
+
+" remap ctrl+arrows to move between buffers
+nnoremap <silent> <C-Right> <c-w>l
+nnoremap <silent> <C-Left> <c-w>h
+nnoremap <silent> <C-Up> <c-w>k
+nnoremap <silent> <C-Down> <c-w>j
+
+" Ctrl-h to escape insert mode
+inoremap <C-h> <ESC>
+
+"This unsets the 'last search pattern' register by hitting return
+nnoremap <CR> :noh<CR>
+
+" map up/down to C-p/C-n in command line mode
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" increase command history
+set history=200
+
+" NerdTree
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+
+" bclose
+nnoremap <silent> <Leader>x :Bclose<CR>
+
+" buffers
+set hidden
+nnoremap <silent> <Leader>b :b#<CR>
+nnoremap <silent> <Leader>j :bn<CR>
+nnoremap <silent> <Leader>k :bp<CR>
+
+" search for selected text with //
+vnoremap // y/<C-R>"<CR>"
+
+" enable mouse
+set mouse=a
+
+" Python settings, PEP8
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+let python_highlight_all=1
+
+"python with virtualenv support - requires python support
+"py << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+  "project_base_dir = os.environ['VIRTUAL_ENV']
+  "activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  "execfile(activate_this, dict(__file__=activate_this))
+"EOF
+
+
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_pylint_post_args='--disable=import-error'
+let g:syntastic_mode_map = {'passive_filetypes': ['perl']}
+let g:syntastic_javascript_checkers = ['eslint']
+
+" YouCompleteMe settings - Requires python support
+" let g:ycm_autoclose_preview_window_after_completion=1
+" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+" split windows
+noremap <Tab> <C-W>w
+noremap <Bar> <C-W>v<C-W><Right>
+noremap - <C-W>s<C-W><Down>
+
+
+""" handle whitespace
+function ShowSpaces(...)
+  let @/='\v(\s+$)|( +\ze\t)'
+  let oldhlsearch=&hlsearch
+  if !a:0
+    let &hlsearch=!&hlsearch
+  else
+    let &hlsearch=a:1
+  end
+  return oldhlsearch
+endfunction
+
+function TrimSpaces() range
+  let oldhlsearch=ShowSpaces(1)
+  execute a:firstline.",".a:lastline."substitute ///gec"
+  let &hlsearch=oldhlsearch
+endfunction
+
+command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
+command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
+nnoremap <F12>     :ShowSpaces 1<CR>
+nnoremap <S-F12>   m`:TrimSpaces<CR>``
+vnoremap <S-F12>   :TrimSpaces<CR>
+""" end handle whitespace
