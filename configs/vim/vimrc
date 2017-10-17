@@ -220,3 +220,26 @@ nnoremap <F12>     :ShowSpaces 1<CR>
 nnoremap <S-F12>   m`:TrimSpaces<CR>``
 vnoremap <S-F12>   :TrimSpaces<CR>
 """ end handle whitespace
+
+" Python 
+au BufNewFile,BufRead *.py:
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=120
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+let python_highlight_all=1
+syntax on
+
+"python virtualenv support
+python3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  exec(compile(open(activate_this, 'rb').read(), activate_this, 'exec'))
+EOF
