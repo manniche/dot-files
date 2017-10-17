@@ -91,7 +91,7 @@
     main-window-view = HistoryView
     file-view-vpane-position = 381
 [core]
-    editor = emacs -Q -nw
+    editor = vim
     excludesfile = ~/.gitignore
 [user]
     email = steen@manniche.net
