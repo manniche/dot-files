@@ -1,5 +1,5 @@
 # Currently this path is appendend to dynamically when picking a ruby version
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python/:/sbin:$HOME/local/bin:$HOME/opt/bin:/usr/lib/rstudio/bin/:~/bin/:$PATH
+export PATH=/opt/bin/:/usr/local/sbin:/usr/local/bin:/usr/local/share/python/:/sbin:$HOME/local/bin:$HOME/opt/bin:~/bin/:$PATH
 
 # Setup terminal, and turn on colors
 export CLICOLOR=1
