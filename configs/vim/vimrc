@@ -23,7 +23,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -196,8 +196,8 @@ let g:syntastic_mode_map = {'passive_filetypes': ['perl']}
 let g:syntastic_javascript_checkers = ['eslint']
 
 " YouCompleteMe settings - Requires python support
-" let g:ycm_autoclose_preview_window_after_completion=1
-" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 " split windows
