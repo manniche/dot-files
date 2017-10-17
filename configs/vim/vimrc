@@ -151,7 +151,11 @@ nnoremap <silent> <Leader>k :bp<CR>
 " search for selected text with //
 vnoremap // y/<C-R>"<CR>"
 
+" insert space or a single character from normal mode http://vim.wikia.com/wiki/Insert_a_single_character
 nnoremap <space> i<space><esc>
+nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
+nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
+
 
 " enable mouse
 set mouse=a
