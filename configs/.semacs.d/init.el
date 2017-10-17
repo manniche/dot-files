@@ -8,7 +8,7 @@
 (require 'delsel)
 (delete-selection-mode t)
 
-(require 'vline)
+;(require 'vline)
 
 ;;; Mutt/email (post-mode)
 (require 'mutt)
