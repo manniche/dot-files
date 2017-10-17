@@ -1,0 +1,4 @@
+#!/bin/bash
+while inotifywait -r -e modify,create,delete /opt/entwicklung; do
+    rsync -avz /opt/entwicklung /z/home/sme/entwicklung_stale
+done
