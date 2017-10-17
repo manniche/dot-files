@@ -1,0 +1,2 @@
+emacs -Q -l ~/.spacemacs.d/init.el $*
+
