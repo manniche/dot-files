@@ -145,6 +145,8 @@ nnoremap <silent> <Leader>k :bp<CR>
 " search for selected text with //
 vnoremap // y/<C-R>"<CR>"
 
+nnoremap <space> i<space><esc>
+
 " enable mouse
 set mouse=a
 
