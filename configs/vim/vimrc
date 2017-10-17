@@ -71,14 +71,20 @@ set autoindent
 " flag unneccessary whitespace
 " au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-
 " visual help
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
+":au FocusLost * :set number
+":au FocusGained * :set relativenumber
 set ruler
 set listchars=tab:>-,trail:-
 set list
 set colorcolumn=120
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 
 " search
 set hlsearch
