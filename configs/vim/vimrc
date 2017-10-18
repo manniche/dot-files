@@ -160,27 +160,6 @@ nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 " enable mouse
 set mouse=a
 
-" Python settings, PEP8
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
-
-let python_highlight_all=1
-
-"python with virtualenv support - requires python support
-"py << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-  "project_base_dir = os.environ['VIRTUAL_ENV']
-  "activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  "execfile(activate_this, dict(__file__=activate_this))
-"EOF
 
 
 " syntastic settings
@@ -194,6 +173,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_pylint_post_args='--disable=import-error'
 let g:syntastic_mode_map = {'passive_filetypes': ['perl']}
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_checkers = ['python3 -m flake8.run']
 
 " YouCompleteMe settings - Requires python support
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -231,7 +211,7 @@ nnoremap <S-F12>   m`:TrimSpaces<CR>``
 vnoremap <S-F12>   :TrimSpaces<CR>
 """ end handle whitespace
 
-" Python 
+" Python settings, PEP8
 au BufNewFile,BufRead *.py:
     \ set tabstop=4
     \ set softtabstop=4
