@@ -1,6 +1,6 @@
-(add-to-list 'load-path "~/.emacs.d/elisp/")
-;; (add-to-list 'load-path "~/.emacs.d/elisp/erin.el")
-;; (add-to-list 'load-path "~/.emacs.d/elisp/delsel.el")
+(add-to-list 'load-path "~/.semacs.d/elisp/")
+(add-to-list 'load-path "~/.semacs.d/elisp/jabber/")
+(add-to-list 'load-path "~/.semacs.d/elisp/fsm")
 
 (require 'ido)
 (ido-mode t)
@@ -8,10 +8,12 @@
 (require 'delsel)
 (delete-selection-mode t)
 
-;(require 'vline)
+(require 'vline)
 
 ;;; Mutt/email (post-mode)
 (require 'mutt)
+
+(require 'jabber)
 
 (defadvice server-process-filter (after post-mode-message first activate)
    "If the buffer is in post mode, overwrite the server-edit
