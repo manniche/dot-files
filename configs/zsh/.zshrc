@@ -1,6 +1,10 @@
 # Load vcs_info so precmd can utilize it
 # autoload -Uz vcs_info
 
+if [ -d /etc/novoenv.d ]
+then
+    source ~/.zsh/novoenv.zsh
+fi
 source ~/.zsh/colors.zsh
 source ~/.zsh/setopt.zsh
 source ~/.zsh/exports.zsh
