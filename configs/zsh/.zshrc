@@ -1,6 +1,6 @@
 # Load vcs_info so precmd can utilize it
 # autoload -Uz vcs_info
-
+[ $TERM = "dumb" ] && unsetopt zle && PS1='$ ' # Hi Tramp!
 source ~/.zsh/colors.zsh
 source ~/.zsh/setopt.zsh
 source ~/.zsh/exports.zsh
