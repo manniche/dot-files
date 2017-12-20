@@ -28,7 +28,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'jceb/vim-orgmode'
+Plugin 'MattesGroeger/vim-bookmarks'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
