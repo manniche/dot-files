@@ -37,12 +37,12 @@ filetype plugin indent on    " required
 syntax on
 
 " Map key to toggle opt
-function MapToggle(key, opt)
+function! MapToggle(key, opt)
   let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
   exec 'nnoremap '.a:key.' '.cmd
   exec 'inoremap '.a:key." \<C-O>".cmd
 endfunction
-command -nargs=+ MapToggle call MapToggle(<f-args>)
+command! -nargs=+ MapToggle call MapToggle(<f-args>)
 
 
 " color theme
@@ -189,7 +189,7 @@ noremap - <C-W>s<C-W><Down>
 
 
 """ handle whitespace
-function ShowSpaces(...)
+function! ShowSpaces(...)
   let @/='\v(\s+$)|( +\ze\t)'
   let oldhlsearch=&hlsearch
   if !a:0
@@ -200,14 +200,14 @@ function ShowSpaces(...)
   return oldhlsearch
 endfunction
 
-function TrimSpaces() range
+function! TrimSpaces() range
   let oldhlsearch=ShowSpaces(1)
   execute a:firstline.",".a:lastline."substitute ///gec"
   let &hlsearch=oldhlsearch
 endfunction
 
-command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
-command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
+command! -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
+command! -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
 nnoremap <F12>     :ShowSpaces 1<CR>
 nnoremap <S-F12>   m`:TrimSpaces<CR>``
 vnoremap <S-F12>   :TrimSpaces<CR>
