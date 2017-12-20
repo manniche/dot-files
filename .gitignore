@@ -30,3 +30,6 @@ django-mode
 .emacs.d/.cache/
 .zsh/novoenv.zsh
 *.swp
+opt/bin/gource
+opt/bin/pycharm
+opt/share/
