@@ -123,3 +123,8 @@ man(){
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
 }
+
+function lb() {
+    # from https://routley.io/tech/2017/11/23/logbook.html
+    vim ~/logbook/$(date '+%Y-%m-%d').md
+}
