@@ -65,8 +65,9 @@ let g:SimpylFold_docstring_preview=1
 
 " tabs
 set shiftwidth=4
+set tabstop=4
 set softtabstop=4
-set expandtab
+set expandtab                   " replace tabs with ${tabstop} spaces
 set autoindent
 
 " flag unneccessary whitespace
@@ -86,12 +87,16 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
+set nobackup
+set nowritebackup
+set directory=/tmp//            " prepend(^=) $HOME/.tmp/ to default path; use full path as backup filename(//)
+set noswapfile                  "
 
 " search
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+set hlsearch                    " highlight search
+set incsearch                   " show matches while typing
+set ignorecase                  " be case insensitive when searching
+set smartcase                   " be case sensitive when input has a capital letter
 
 " line breaks
 set nowrap
@@ -130,6 +135,9 @@ inoremap <C-h> <ESC>
 "This unsets the 'last search pattern' register by hitting return
 nnoremap <CR> :noh<CR>
 
+" Insert linebreak from normal mode
+nnoremap <C-J> i<CR><Esc>k$
+
 " map up/down to C-p/C-n in command line mode
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -157,6 +165,12 @@ nnoremap <space> i<space><esc>
 nnoremap s :exec "normal i".nr2char(getchar())."\e"<CR>
 nnoremap S :exec "normal a".nr2char(getchar())."\e"<CR>
 
+" Use leader k/j to move text lines up or down
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+
+" Overwrite marked text
+vmap r "_dP
 
 " enable mouse
 set mouse=a
@@ -172,14 +186,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_pylint_post_args='--disable=import-error'
 let g:syntastic_mode_map = {'passive_filetypes': ['perl']}
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['python3 -m flake8.run']
 
 " YouCompleteMe settings - Requires python support
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 " split windows
@@ -226,12 +239,3 @@ au BufNewFile,BufRead *.py:
 let python_highlight_all=1
 syntax on
 
-"python virtualenv support
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  exec(compile(open(activate_this, 'rb').read(), activate_this, 'exec'))
-EOF
