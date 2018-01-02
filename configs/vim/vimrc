@@ -180,7 +180,8 @@ vmap r "_dP
 " enable mouse
 set mouse=a
 
-
+" set textwidth for modern screens
+autocmd FileType * setlocal textwidth=119 formatoptions+=t
 
 " syntastic settings
 set statusline+=%#warningmsg#
