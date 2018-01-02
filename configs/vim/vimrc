@@ -29,6 +29,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'tpope/vim-speeddating'
+Plugin 'jceb/vim-orgmode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -57,6 +59,9 @@ set encoding=utf-8
 
 " use , as the leader
 let mapleader = ","
+
+" Write backup files to backup dir
+set backupdir=~/.vim/backups//
 
 " folding
 set foldmethod=indent
@@ -186,6 +191,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_pylint_post_args='--disable=import-error'
 let g:syntastic_mode_map = {'passive_filetypes': ['perl']}
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['python3 -m flake8.run']
