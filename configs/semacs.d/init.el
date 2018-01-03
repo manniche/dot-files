@@ -1,5 +1,4 @@
 (add-to-list 'load-path "~/.semacs.d/elisp/")
-(add-to-list 'load-path "~/.semacs.d/elisp/jabber/")
 (add-to-list 'load-path "~/.semacs.d/elisp/fsm")
 
 (require 'ido)

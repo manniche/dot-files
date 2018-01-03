@@ -93,7 +93,7 @@
     editor = vim
     excludesfile = ~/.gitignore
 [user]
-    email = sme@novozymes.com
+    email = steen@manniche.net
     name = Steen Manniche
 [diff]
     algorithm = patience
