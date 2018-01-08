@@ -9,11 +9,6 @@
 
 (require 'vline)
 
-;;; Mutt/email (post-mode)
-(require 'mutt)
-
-(require 'jabber)
-
 (defadvice server-process-filter (after post-mode-message first activate)
    "If the buffer is in post mode, overwrite the server-edit
    message with a post-save-current-buffer-and-exit message."
