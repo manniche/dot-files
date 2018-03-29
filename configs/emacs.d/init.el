@@ -12,8 +12,7 @@
 ;(require 'package)
 (setq package-list '(yasnippet evil projectile highlight highlight-parentheses powerline evil-leader markdown-mode linum-relative js2-mode web-mode))
 
-(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
-                         ("elpy" . "http://jorgenschaefer.github.io/packages/")
+(setq package-archives '(("elpy" . "http://jorgenschaefer.github.io/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")
                          ))
