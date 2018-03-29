@@ -1,15 +1,12 @@
 
 #!/usr/bin/env bash
-
+export NO_AT_BRIDGE=1
 /usr/bin/wmname LG3D &
-#spacefm -d &
-#nm-applet &
-#cbatticon &
-#volumeicon &
-#/usr/bin/owncloud &
-/usr/bin/SpiderOak &
-#/sbin/wicd-gtk &
+nm-applet 2>/dev/null &
+mate-power-manager &
+volti &
+/usr/bin/SpiderOakONE &
 xmodmap ~/.Xmodmap
 setxkbmap -option ctrl:nocaps
+synclient MaxTapTime=0
 feh --bg-fill .i3/deep-dark-space.png
-#exec i3
