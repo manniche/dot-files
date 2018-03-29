@@ -32,4 +32,5 @@ django-mode
 *.swp
 opt/bin/gource
 opt/bin/pycharm
+opt/bin/grv
 opt/share/
