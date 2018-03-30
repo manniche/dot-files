@@ -41,7 +41,7 @@ bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 # bindsym $mod+Left focus left
- bindsym $mod+Down focus down
+bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 #bindsym $mod+Right focus right
 
@@ -154,6 +154,7 @@ assign [class="^Firefox$"] → 1
 assign [class="^Emacs$"] → 10
 
 bindsym Scroll_Lock exec i3lock -i ~/.i3/deep-dark-space.png
+bindsym $mod+F12 exec i3lock -i ~/.i3/deep-dark-space.png
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
