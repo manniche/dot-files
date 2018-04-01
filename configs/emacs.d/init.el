@@ -10,7 +10,7 @@
 ;; elpa setup
 ;;;;;;;;;;;;;
 ;(require 'package)
-(setq package-list '(yasnippet evil projectile highlight highlight-parentheses powerline evil-leader markdown-mode linum-relative js2-mode web-mode))
+(setq package-list '(pandoc-mode yasnippet evil projectile highlight highlight-parentheses powerline evil-leader markdown-mode linum-relative js2-mode web-mode))
 
 (setq package-archives '(("elpy" . "http://jorgenschaefer.github.io/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
@@ -51,7 +51,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (elpy yasnippet yaml-mode projectile powerline markdown-mode magit linum-relative js2-mode highlight-parentheses highlight folding evil-nerd-commenter evil-leader evil-commentary dockerfile-mode csv-mode clojure-mode auctex))))
+    (pandoc-mode elpy yasnippet yaml-mode projectile powerline markdown-mode magit linum-relative js2-mode highlight-parentheses highlight folding evil-nerd-commenter evil-leader evil-commentary dockerfile-mode csv-mode clojure-mode auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
