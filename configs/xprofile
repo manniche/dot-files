@@ -1,6 +1,6 @@
-
 #!/usr/bin/env bash
 export NO_AT_BRIDGE=1
+mate-settings-daemon &
 /usr/bin/wmname LG3D &
 nm-applet 2>/dev/null &
 mate-power-manager &
