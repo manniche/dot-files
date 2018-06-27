@@ -15,7 +15,7 @@ export LESSOPEN="| /usr/bin/lesspipe %s"
 export LESSCLOSE="/usr/bin/lesspipe %s %s"
 
 export EMAIL="steen@manniche.net"
-export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'ec'; else echo 'emacs -nw -Q'; fi)"
+export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'vim'; else echo 'emacs -nw -Q'; fi)"
 export VISUAL=$EDITOR
 export SVN_EDITOR=$EDITOR
 export GIT_EDITOR='emacs -nw -Q'
