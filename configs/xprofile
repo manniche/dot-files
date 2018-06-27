@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 export NO_AT_BRIDGE=1
 /usr/bin/wmname LG3D &
-nm-applet 2>/dev/null &
-mate-power-manager &
+#nm-applet 2>/dev/null &
+#mate-power-manager &
 volti &
-/usr/bin/SpiderOakONE &
+#/usr/bin/SpiderOakONE &
 xmodmap ~/.Xmodmap
 xset r rate 250 100 &
 setxkbmap -option ctrl:nocaps
 synclient MaxTapTime=0
 feh --bg-fill .i3/deep-dark-space.png
+syndaemon -i 0.2 -K -R &
