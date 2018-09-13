@@ -10,7 +10,19 @@
 ;; elpa setup
 ;;;;;;;;;;;;;
 ;(require 'package)
-(setq package-list '(pandoc-mode yasnippet evil projectile highlight highlight-parentheses powerline evil-leader markdown-mode linum-relative js2-mode web-mode))
+(setq package-list
+      '(pandoc-mode
+	yasnippet
+	evil
+	projectile
+	highlight
+	highlight-parentheses
+	powerline
+	evil-leader
+	markdown-mode
+	linum-relative
+	js2-mode
+	web-mode))
 
 (setq package-archives '(("elpy" . "http://jorgenschaefer.github.io/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
