@@ -4,7 +4,6 @@
 # Should you change your keyboard layout somewhen, delete
 # this file and re-run i3-config-wizard(1).
 #
-
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
@@ -19,7 +18,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym F1 exec i3-sensible-terminal
+#bindsym F1 exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+Q kill
 
@@ -30,8 +29,7 @@ bindsym $mod+x exec dmenu_run
 # Make the currently focused window a scratchpad
 bindsym $mod+Pause move scratchpad 
 # Show the first scratchpad window
-bindsym $mod+F5 scratchpad show 
-
+bindsym $mod+F5 scratchpad show
 
 # change focus
 bindsym $mod+j focus left
@@ -50,7 +48,7 @@ bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
-# Sreen brightness controls
+# Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
@@ -106,17 +104,6 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-# workspaces from 11-20
-bindsym $mod+Control+1 workspace 11
-bindsym $mod+Control+2 workspace 12
-bindsym $mod+Control+3 workspace 13
-bindsym $mod+Control+4 workspace 14
-bindsym $mod+Control+5 workspace 15
-bindsym $mod+Control+6 workspace 16
-bindsym $mod+Control+7 workspace 17
-bindsym $mod+Control+8 workspace 18
-bindsym $mod+Control+9 workspace 19
-bindsym $mod+Control+0 workspace 20
 
 # switch between the current and the previously focused one
 bindsym $mod+Escape workspace back_and_forth
@@ -151,6 +138,7 @@ for_window [title="Meld$"] fullscreen enable
 
 assign [instance="^Devtools$"] → 2
 assign [class="^Firefox$"] → 1
+assign [class="^Chrome$"] → 1
 assign [class="^Emacs$"] → 10
 
 bindsym Scroll_Lock exec i3lock -i ~/.i3/deep-dark-space.png
@@ -184,6 +172,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status -c ~/.i3/status.conf
+    #status_command i3status -c ~/.i3/status.conf
+    status_command i3blocks -c ~/.i3/i3blocks.conf
+    font pango: DejaVu Sans Mono 10
 }
 
