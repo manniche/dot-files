@@ -1,0 +1,3 @@
+#!/bin/env bash
+sudo archlinux-java set java-8-jdk
+java -jar $HOME/.minecraft/launcher.jar
