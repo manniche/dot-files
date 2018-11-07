@@ -1,6 +1,6 @@
 #!/bin/bash
 
-new_dir="$HOME/Maildir/work/INBOX/new"
+new_dir=$1
 num_mail=$(ls $new_dir|wc -l)
 message=""
 
