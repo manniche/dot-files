@@ -116,8 +116,8 @@ map Y y$
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
 " set cursorcolumn
-nnoremap ; :
-nnoremap : ;
+"nnoremap ; :
+"nnoremap : ;
 
 " remap j and k to scroll by visual lines
 nnoremap j gj
