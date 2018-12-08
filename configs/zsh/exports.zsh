@@ -21,7 +21,6 @@ export SVN_EDITOR=$EDITOR
 export GIT_EDITOR='emacs -nw -Q'
 export BROWSER=firefox
 export TERMINAL=lxterminal
-#export TERM=xterm-256color
 
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 export PATH=$PATH:$LD_LIBRARY_PATH
