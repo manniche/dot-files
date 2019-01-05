@@ -1,5 +1,5 @@
 #!/bin/bash
-MBOXES=(manniche boxunbox leapbeyond)
+MBOXES=(manniche boxunbox adamatics)
 
 STATUS=""
 for m in "${MBOXES[@]}"; do
