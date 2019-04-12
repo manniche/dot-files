@@ -28,3 +28,6 @@ export LANG="EN_us.UTF-8"
 
 #virtualenv
 export WORKON_HOME=~/.virtualenvs
+
+# go
+export GOPATH=$HOME/.go
