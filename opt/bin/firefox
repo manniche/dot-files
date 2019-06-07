@@ -1,1 +1,0 @@
-firefox-developer-edition "$1" &> /dev/null &
