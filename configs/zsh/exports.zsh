@@ -28,3 +28,7 @@ export LANG="EN_us.UTF-8"
 
 #virtualenv
 export WORKON_HOME=~/.virtualenvs
+
+# for nnn
+export NNN_FALLBACK_OPENER=xdg-open
+export NNN_RESTRICT_NAV_OPEN=1
