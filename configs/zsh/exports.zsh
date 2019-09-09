@@ -32,3 +32,5 @@ export WORKON_HOME=~/.virtualenvs
 # for nnn
 export NNN_FALLBACK_OPENER=xdg-open
 export NNN_RESTRICT_NAV_OPEN=1
+# go
+export GOPATH=$HOME/.go
