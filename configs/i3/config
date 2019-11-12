@@ -140,6 +140,7 @@ assign [instance="^Devtools$"] → 2
 assign [class="^Firefox$"] → 1
 assign [class="^Chrome$"] → 1
 assign [class="^Emacs$"] → 10
+assign [class="^code-oss$"] → 10
 
 bindsym Scroll_Lock exec i3lock -i ~/.i3/deep-dark-space.png
 bindsym $mod+F12 exec i3lock -i ~/.i3/deep-dark-space.png
