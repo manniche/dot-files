@@ -27,3 +27,6 @@ if ! ps aux |grep $(whoami) |grep ssh-agent |grep -v grep >/dev/null; then ssh-a
 ln -sf $(find /tmp -maxdepth 2 -type s -name "agent*" -user $USER -printf '%T@ %p\n' 2>/dev/null |sort -n|tail -1|cut -d' ' -f2) ~/.ssh/ssh_auth_sock
 
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+
+# Created by `userpath` on 2019-12-18 10:21:42
+export PATH="$PATH:/home/manniche/.local/bin"
