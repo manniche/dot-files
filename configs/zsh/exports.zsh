@@ -14,7 +14,7 @@ export EMAIL="steen@manniche.net"
 export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'vim'; else echo 'emacs -nw -Q'; fi)"
 export VISUAL=$EDITOR
 export SVN_EDITOR=$EDITOR
-export GIT_EDITOR='emacs -nw -Q'
+export GIT_EDITOR='vim'
 export BROWSER=firefox
 export TERMINAL=lxterminal
 
