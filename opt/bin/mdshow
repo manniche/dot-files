@@ -1,6 +1,4 @@
 #!/bin/bash
 
 MDFILE=$1
-
-x-www-browser $(markdown "$MDFILE" | base64 -w0 | \
-                cat <(echo -n "data:text/html;charset=UTF-8;base64,") -)
+markdown $MDFILE | w3m -dump -T text/html
