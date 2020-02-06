@@ -20,3 +20,4 @@ keycode 38 = a A Adiaeresis
 keycode 39 = s S ssharp
 keycode 31 = i I Idiaeresis
 keycode 26 = e E Eacute
+keycode 11 = 2 at EuroSign

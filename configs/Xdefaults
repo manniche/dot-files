@@ -15,4 +15,11 @@ URxvt.background: black
 URxvt.foreground: white
 URxvt*urgentOnBell: true
 
-URxvt.font xft:Monospace-10:antialias=true
+#URxvt.font xft:Monospace-10:antialias=true
+
+! Fonts
+URxvt.font:           xft:Consolas:pixelsize=12
+URxvt.boldFont:       xft:Consolas:bold:pixelsize=12
+URxvt.italicFont:     xft:Consolas:italic:pixelsize=12
+URxvt.boldItalicFont: xft:Consolas:bold:italic:pixelsize=12
+

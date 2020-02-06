@@ -83,6 +83,10 @@
     team =  log --graph --color=always --abbrev-commit --date=relative --pretty=format:\"%h %ad | [%aE]: %s%d\" --all --since='1 weeks'  --no-merges
     recap = log --all --no-merges --pretty=format:\"%h %ad | [%aE]: %s%d\" --graph --date=short --author='Steen Manniche'
     log-branch = !git cherry -v develop `git rev-parse --abbrev-ref HEAD`
+    #check = "!f() {[ $(git rev-parse HEAD) = $(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's/\// /g') | cut -f1) ] && echo up to date || echo not up to date}"
+    # https://blog.filippo.io/git-fixup-amending-an-older-commit/
+    fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+
 [giggle]
     main-window-maximized = false
     main-window-geometry = 718x879+716+19

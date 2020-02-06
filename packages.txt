@@ -1,2 +1,4 @@
 https://github.com/rgburke/grv/
 
+https://github.com/wee-slack/wee-slack
+https://github.com/Rican7/define

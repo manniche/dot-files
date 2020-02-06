@@ -24,12 +24,12 @@ parser.add_option('', '--main-display',
 options, args = parser.parse_args()
 
 if int(options.connect) + int(options.disconnect) > 1:
-    print "ERROR: only one option -c or -d at a time"
+    print("ERROR: only one option -c or -d at a time")
     parser.print_help()
     sys.exit(1)
 
 
-xrandr = Popen("xrandr", shell=True, bufsize=0, stdout=PIPE).stdout.read()
+xrandr = Popen("xrandr", shell=True, bufsize=0, stdout=PIPE).stdout.read().decode('utf-8')
 
 connected = re.findall(r'([a-zA-Z0-9-]*) connected', xrandr)
 connected = [c for c in connected if c != options.maindisplay]
@@ -43,5 +43,6 @@ if options.connect or options.disconnect:
         elif options.disconnect:
             action = "--off"
 
-        p = Popen(cmd % (c, action), shell=True)
-        sts = os.waitpid(p.pid, 0)
+        print(cmd%(c, action))
+        #p = Popen(cmd % (c, action), shell=True)
+        #sts = os.waitpid(p.pid, 0)

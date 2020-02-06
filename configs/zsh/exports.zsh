@@ -10,10 +10,6 @@ export ARCHFLAGS='-arch x86_64'
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 
-#make less read archive files:
-export LESSOPEN="| /usr/bin/lesspipe %s"
-export LESSCLOSE="/usr/bin/lesspipe %s %s"
-
 export EMAIL="steen@manniche.net"
 export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'ec'; else echo 'vim'; fi)"
 export VISUAL=$EDITOR
@@ -21,7 +17,6 @@ export SVN_EDITOR=$EDITOR
 export GIT_EDITOR='vim'
 export BROWSER=firefox
 export TERMINAL=lxterminal
-#export TERM=xterm-256color
 
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 export PATH=$PATH:$LD_LIBRARY_PATH
@@ -33,3 +28,9 @@ export LANG="EN_us.UTF-8"
 
 #virtualenv
 export WORKON_HOME=~/.virtualenvs
+
+# for nnn
+export NNN_FALLBACK_OPENER=xdg-open
+export NNN_RESTRICT_NAV_OPEN=1
+# go
+export GOPATH=$HOME/.go

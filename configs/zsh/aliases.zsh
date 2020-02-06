@@ -10,6 +10,7 @@ alias urldecode='python3 -c "import sys, urllib.parse; print( urllib.parse.unquo
 
 alias semacs='emacs -q -nw -load ~/.semacs.d/init.el'
 alias pymacs='emacs -q -load ~/.pymacs.d/init.el'
+alias dmesg='dmesg -T'
 bindkey -s "^x^f" $'semacs '
 
 bindkey -s ",e" $'vim'

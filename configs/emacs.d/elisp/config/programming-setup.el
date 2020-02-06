@@ -6,10 +6,10 @@
 (yas-global-mode 1)
 
 ;;; clojure mode setup
-(add-to-list 'auto-mode-alist
- (cons (concat "\\." (regexp-opt '("clj" "cljs") t) "\\'")
- 'clojure-mode))
-(add-hook 'clojure-mode-hook (load-file "~/.emacs.d/elisp/config/emacs-clojure.el"))
+;(add-to-list 'auto-mode-alist
+; (cons (concat "\\." (regexp-opt '("clj" "cljs") t) "\\'")
+; 'clojure-mode))
+;(add-hook 'clojure-mode-hook (load-file "~/.emacs.d/elisp/config/emacs-clojure.el"))
 ;;; end clojure mode setup
 
 ;;; java mode setup
