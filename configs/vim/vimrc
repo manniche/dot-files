@@ -23,7 +23,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -114,10 +114,6 @@ map Y y$
 
 "ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$']
-
-" set cursorcolumn
-nnoremap ; :
-nnoremap : ;
 
 " remap j and k to scroll by visual lines
 nnoremap j gj
