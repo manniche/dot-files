@@ -29,7 +29,7 @@ bindsym $mod+x exec dmenu_run
 # Make the currently focused window a scratchpad
 bindsym $mod+Pause move scratchpad 
 # Show the first scratchpad window
-bindsym $mod+F5 scratchpad show
+#bindsym $mod+Backspace scratchpad show
 
 # change focus
 bindsym $mod+j focus left
@@ -136,7 +136,7 @@ bindsym $mod+Shift+l resize grow width 1 px or 1 ppt
 # special rules for applications
 for_window [title="Meld$"] fullscreen enable
 
-assign [instance="^Devtools$"] → 2
+assign [instance="^Slack"] → 2
 assign [class="^Firefox$"] → 1
 assign [class="^Chrome$"] → 1
 assign [class="^Emacs$"] → 10
