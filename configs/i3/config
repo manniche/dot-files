@@ -18,6 +18,13 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+
+## quick terminal
+exec lxterminal -t metask
+for_window [title="metask"] floating enable;
+for_window [title="metask"] move scratchpad; [title="metask"] scratchpad show; move position 300px 300px; resize set height 600px; resize set width 683px; move scratchpad
+bindsym $mod+t [title="metask"] scratchpad show
+
 #bindsym F1 exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+Q kill
