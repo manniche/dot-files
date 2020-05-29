@@ -11,7 +11,7 @@ export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 
 export EMAIL="steen@manniche.net"
-export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'ec'; else echo 'vim'; fi)"
+export EDITOR=vim #"$(if [[ -n $DISPLAY ]]; then echo 'ec'; else echo 'vim'; fi)"
 export VISUAL=$EDITOR
 export SVN_EDITOR=$EDITOR
 export GIT_EDITOR='vim'

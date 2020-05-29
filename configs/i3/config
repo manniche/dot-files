@@ -18,6 +18,13 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+
+## quick terminal
+exec lxterminal -t metask
+for_window [title="metask"] floating enable;
+for_window [title="metask"] move scratchpad; [title="metask"] scratchpad show; move position 300px 300px; resize set height 600px; resize set width 683px; move scratchpad
+bindsym $mod+t [title="metask"] scratchpad show
+
 #bindsym F1 exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -29,7 +36,7 @@ bindsym $mod+x exec dmenu_run
 # Make the currently focused window a scratchpad
 bindsym $mod+Pause move scratchpad 
 # Show the first scratchpad window
-bindsym $mod+F5 scratchpad show
+#bindsym $mod+Backspace scratchpad show
 
 # change focus
 bindsym $mod+j focus left
@@ -132,12 +139,13 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+Shift+h resize shrink width 1 px or 1 ppt
 bindsym $mod+Shift+l resize grow width 1 px or 1 ppt
-
+bindsym $mod+Print exec "/sbin/deepin-screenshot"
 # special rules for applications
 for_window [title="Meld$"] fullscreen enable
 
-assign [instance="^Devtools$"] → 2
-assign [class="^Firefox$"] → 1
+assign [class="^Slack"] → 2
+assign [class="^Microsoft Teams"] → 2
+assign [class="^firefox"] → 1
 assign [class="^Chrome$"] → 1
 assign [class="^Emacs$"] → 10
 assign [class="^code-oss$"] → 10
