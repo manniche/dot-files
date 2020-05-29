@@ -31,4 +31,5 @@ export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 # Created by `userpath` on 2019-12-18 10:21:42
 export PATH="$PATH:/home/manniche/.local/bin"
 POWERLEVEL9K_MODE='awesome-fontconfig'
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+#source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+source  ~/powerlevel9k/powerlevel9k.zsh-theme
