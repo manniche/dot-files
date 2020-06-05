@@ -2,9 +2,8 @@
 export NO_AT_BRIDGE=1
 /usr/bin/wmname LG3D &
 #nm-applet 2>/dev/null &
-#mate-power-manager &
 volti &
-#/usr/bin/SpiderOakONE &
+udiskie --tray &
 xmodmap ~/.Xmodmap
 xset r rate 250 100 &
 setxkbmap -option ctrl:nocaps
