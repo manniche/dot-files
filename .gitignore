@@ -33,3 +33,4 @@ places
 request
 tmp
 tramp
+ssh_auth_sock
