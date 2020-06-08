@@ -178,6 +178,7 @@ custom_action() {
 	signal_unit=
 	noise=
 
+    iface="wlp0s20f3"
 	if [ ! -d "/sys/class/net/${iface}/" ] || [ ! -f "/sys/class/net/${iface}/operstate" ]; then
 
 		status="absent"
