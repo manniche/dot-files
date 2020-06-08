@@ -1,2 +1,2 @@
-echo -n ' '
+echo -n ''
 python --version | cut -d' ' -f2
