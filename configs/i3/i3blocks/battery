@@ -143,7 +143,7 @@ custom_action() {
 ###
 ### General default values
 ###
-color_def="#666666"		# gray
+color_def="#ffffff"		# white
 color_good="#88b090"	# green
 color_warn="#ccdc90"	# yellow
 color_crit="#e89393"	# red
