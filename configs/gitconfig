@@ -106,3 +106,5 @@
     default = current
 [url "https://"]
     insteadOf = git://
+[pull]
+	rebase = false
