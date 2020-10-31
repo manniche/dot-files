@@ -27,3 +27,4 @@ alias -g S='|sort'
 
 alias -g has='ps aux | grep -v grep | grep'
 
+alias -g pacman-autoremove='sudo pacman -Rcns $(pacman -Qdtq)'

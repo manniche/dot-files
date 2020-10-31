@@ -1,4 +1,4 @@
 #!/bin/bash
 
 MDFILE=$1
-markdown $MDFILE | w3m -dump -T text/html
+markdown_py $MDFILE | w3m -dump -T text/html
