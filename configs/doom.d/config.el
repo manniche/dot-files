@@ -47,7 +47,17 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-
+(defun auto-virtualenv-find-virtualenv-path--more-paths (original-venv-dir)
+  "Check additional paths for virtualenv."
+  (let* ((project-root (auto-virtualenv--project-root))
+         (venv-dir (expand-file-name "venv/" project-root)))
+    (cond
+     (original-venv-dir original-venv-dir)
+     ((file-exists-p venv-dir) venv-dir))))
+(advice-add
+ 'auto-virtualenv-find-virtualenv-path
+ :filter-return
+ #'auto-virtualenv-find-virtualenv-path--more-paths)
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
