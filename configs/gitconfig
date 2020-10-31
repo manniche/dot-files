@@ -98,10 +98,12 @@
     excludesfile = ~/.gitignore
 [user]
     name = Steen Manniche
+	email = steen@manniche.net
 [diff]
     algorithm = patience
 [github]
     user = manniche
+    email = steen@manniche.net
 [push]
     default = current
 [url "https://"]
