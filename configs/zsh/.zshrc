@@ -15,10 +15,9 @@ source ~/.zsh/aliases.zsh
 source ~/.zsh/bindkeys.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/history.zsh
-source ~/.zsh/zsh_hooks.zsh
-fpath=(/home/semn/.zsh/zsh_completions $fpath)
 
-# /etc/novoenv.d
+autoload -U promptinit; promptinit
+prompt spaceship
 
 # Launch SSH agent if not running
 if ! ps aux |grep $(whoami) |grep ssh-agent |grep -v grep >/dev/null; then ssh-agent ; fi
