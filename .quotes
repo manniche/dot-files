@@ -296,3 +296,8 @@ present is so everywhere and loud and interruptive.
 
 There is a time and place for review, but code on the ground deserves respect.
  - christopher@baus.net
+
+The code people write is first a question to the compiler, and later a story
+for people changing that code.
+ - Esteban Kuber on /r/rust
+
