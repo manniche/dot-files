@@ -23,7 +23,7 @@ bindsym $mod+Return exec lxterminal
 exec lxterminal -t metask
 exec --no-startup-id alternating_layouts.py
 for_window [title="metask"] floating enable;
-for_window [title="metask"] move scratchpad; [title="metask"] scratchpad show; move position 300px 300px; resize set height 600px; resize set width 683px; move scratchpad
+for_window [title="metask"] move scratchpad; [title="metask"] scratchpad show; move position 300px 1400px; resize set height 600px; resize set width 683px; move scratchpad
 bindsym $mod+t [title="metask"] scratchpad show
 
 #bindsym F1 exec i3-sensible-terminal
