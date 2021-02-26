@@ -301,6 +301,13 @@ The code people write is first a question to the compiler, and later a story
 for people changing that code.
  - Esteban Kuber on /r/rust
 
-Those that have a clear direction are replaying a broken strategy that didn't 
+Those that have a clear direction are replaying a broken strategy that didn't
 work at a previous establishment, yet they believe it will.
  - go_guppy on twitch.chat
+
+Some people said, after reading this: "He thinks that computers ought to be
+costly and difficult to use." Sorry, idiots. The message here is that a
+computer system should maximally reward learning. (The way Emacs does.) And
+that this should certainly be true of a computer one uses for 8-14 hours a day,
+for decades.
+ - Stanislav, loper-os.org
