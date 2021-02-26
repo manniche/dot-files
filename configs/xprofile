@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 export NO_AT_BRIDGE=1
 /usr/bin/wmname LG3D &
-#nm-applet 2>/dev/null &
-volti &
 udiskie --tray &
 xmodmap ~/.Xmodmap
 xset r rate 250 100 &
@@ -11,6 +9,6 @@ synclient MaxTapTime=0
 feh --bg-fill .i3/deep-dark-space.png
 syndaemon -i 0.2 -K -R &
 xss-lock -- i3lock -n -i ~/.i3/galaxy.png &
-dunst &
 flameshot &
+mattermost-desktop &
 xrandr --output eDP-1 --mode "2048x1152" &
