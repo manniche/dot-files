@@ -37,6 +37,53 @@ function extract {
   fi
 }
 
+function http_what() {
+    case $1 in
+      100) echo "Continue                      " ;;
+      101) echo "Switching Protocols           " ;;
+      200) echo "OK                            " ;;
+      201) echo "Created                       " ;;
+      202) echo "Accepted                      " ;;
+      203) echo "Non-Authoritative Information " ;;
+      204) echo "No Content                    " ;;
+      205) echo "Reset Content                 " ;;
+      206) echo "Partial Content               " ;;
+      300) echo "Multiple Choices              " ;;
+      301) echo "Moved Permanently             " ;;
+      302) echo "Found                         " ;;
+      303) echo "See Other                     " ;;
+      304) echo "Not Modified                  " ;;
+      305) echo "Use Proxy                     " ;;
+      307) echo "Temporary Redirect            " ;;
+      400) echo "Bad Request                   " ;;
+      401) echo "Unauthorized                  " ;;
+      402) echo "Payment Required              " ;;
+      403) echo "Forbidden                     " ;;
+      404) echo "Not Found                     " ;;
+      405) echo "Method Not Allowed            " ;;
+      406) echo "Not Acceptable                " ;;
+      407) echo "Proxy Authentication Required " ;;
+      408) echo "Request Timeout               " ;;
+      409) echo "Conflict                      " ;;
+      410) echo "Gone                          " ;;
+      411) echo "Length Required               " ;;
+      412) echo "Precondition Failed           " ;;
+      413) echo "Payload Too Large             " ;;
+      414) echo "URI Too Long                  " ;;
+      415) echo "Unsupported Media Type        " ;;
+      416) echo "Range Not Satisfiable         " ;;
+      417) echo "Expectation Failed            " ;;
+      426) echo "Upgrade Required              " ;;
+      500) echo "Internal Server Error         " ;;
+      501) echo "Not Implemented               " ;;
+      502) echo "Bad Gateway                   " ;;
+      503) echo "Service Unavailable           " ;;
+      504) echo "Gateway Timeout               " ;;
+      505) echo "HTTP Version Not Supported    " ;;
+    esac
+}
+
+
 calendar() {
    if [[ ! -f /usr/bin/cal ]] ; then
       echo "Please install cal before trying to use it!"
@@ -128,3 +175,18 @@ function lb() {
     # from https://routley.io/tech/2017/11/23/logbook.html
     vim ~/logbook/$(date '+%Y-%m-%d').md
 }
+
+export MARKPATH=$HOME/.marks
+function jump {
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+    rm -i "$MARKPATH/$1"
+}
+function marks {
+    ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
