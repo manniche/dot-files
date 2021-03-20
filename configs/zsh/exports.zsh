@@ -1,5 +1,17 @@
 # Currently this path is appendend to dynamically when picking a ruby version
-export PATH=/opt/bin/:/usr/local/sbin:/usr/local/bin:/usr/local/share/python/:/sbin:$HOME/local/bin:$HOME/opt/bin:~/bin/:/snap/bin/:$HOME/.emacs.d/bin/:$PATH
+export PATH=$PATH:/opt/bin/
+export PATH=$PATH:/snap/bin/
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/share/python/
+export PATH=$PATH:/sbin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/local/bin
+export PATH=$PATH:$HOME/bin/
+export PATH=$PATH:$HOME/.emacs.d/bin/
+export PATH=$PATH:$HOME/opt/bin
+
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
 # Setup terminal, and turn on colors
 export CLICOLOR=1
