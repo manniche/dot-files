@@ -46,3 +46,6 @@ export NNN_FALLBACK_OPENER=xdg-open
 export NNN_RESTRICT_NAV_OPEN=1
 # go
 export GOPATH=$HOME/.go
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/entwicklung
