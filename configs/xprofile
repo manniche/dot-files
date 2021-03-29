@@ -12,3 +12,4 @@ xss-lock -- i3lock -n -i ~/.i3/galaxy.png &
 flameshot &
 mattermost-desktop &
 xrandr --output eDP-1 --mode "2048x1152" &
+promnesia server &
