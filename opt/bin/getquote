@@ -11,7 +11,7 @@ def parse_quote_file(filepath):
     with open(filepath) as q:
         a = ''
         for l in q.readlines():
-            if len(l.strip()) is 0:
+            if len(l.strip()) == 0:
                 quote_list.append(a)
                 a = ''
             else:
