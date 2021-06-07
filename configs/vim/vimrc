@@ -14,7 +14,6 @@ call dein#add('/home/manniche/.vim/bundle/repos/github.com/Shougo/dein.vim')
 " Add or remove your plugins here like this:
 "call dein#add('Shougo/neosnippet.vim')
 "call dein#add('Shougo/neosnippet-snippets')
-call dein#add('agude/vim-eldar')
 " " plugins
 call dein#add('tpope/vim-fugitive')
 call dein#add('ctrlpvim/ctrlp.vim')
