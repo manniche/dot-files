@@ -144,10 +144,12 @@ bindsym $mod+Print exec "/sbin/deepin-screenshot"
 # special rules for applications
 for_window [title="Meld$"] fullscreen enable
 
-assign [class="^Slack"] → 2
-assign [class="^Microsoft Teams"] → 2
 assign [class="^firefox"] → 1
 assign [class="^Chrome$"] → 1
+assign [class="^Slack"] → 2
+assign [class="^Mattermost"] → 2
+assign [class="^Microsoft Teams"] → 2
+assign [class="^Solaar$"] → 9
 assign [class="^Emacs$"] → 10
 assign [class="^code-oss$"] → 10
 
