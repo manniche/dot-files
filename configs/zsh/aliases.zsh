@@ -27,4 +27,8 @@ alias -g S='|sort'
 
 alias -g has='ps aux | grep -v grep | grep'
 
+alias cp='rsync -ae ssh'
+alias cpv='rsync -vhae ssh --progress'
+alias cpa='rsync -vhae ssh --progress --append'
+
 alias -g pacman-autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
