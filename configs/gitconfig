@@ -84,8 +84,17 @@
     recap = log --all --no-merges --pretty=format:\"%h %ad | [%aE]: %s%d\" --graph --date=short --author='Steen Manniche'
     log-branch = !git cherry -v develop `git rev-parse --abbrev-ref HEAD`
     #check = "!f() {[ $(git rev-parse HEAD) = $(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's/\// /g') | cut -f1) ] && echo up to date || echo not up to date}"
+
     # https://blog.filippo.io/git-fixup-amending-an-older-commit/
     fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
+
+    # https://blog.jez.io/cli-code-review/
+    # list files which have changed since REVIEW_BASE
+    # (REVIEW_BASE defaults to 'master' in my zshrc)
+    files = !git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")
+    # Same as above, but with a diff stat instead of just names
+    # (better for interactive use)
+    stat = !git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")
 
 [giggle]
     main-window-maximized = false
