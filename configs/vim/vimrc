@@ -12,32 +12,29 @@ call dein#begin('/home/manniche/.vim/bundle')
 call dein#add('/home/manniche/.vim/bundle/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here like this:
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
 " " plugins
-call dein#add('tpope/vim-fugitive')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('scrooloose/nerdtree')
-call dein#add('altercation/vim-colors-solarized')
 call dein#add('agude/vim-eldar')
-call dein#add('viis/vim-bclose')
 call dein#add('airblade/vim-gitgutter')
-call dein#add('tpope/vim-surround')
-call dein#add('fholgado/minibufexpl.vim')
-call dein#add('scrooloose/nerdcommenter')
-call dein#add('scrooloose/syntastic')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('Chiel92/vim-autoformat')
+call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('editorconfig/editorconfig-vim')
-call dein#add('tmhedberg/SimpylFold')
-call dein#add('vim-scripts/indentpython.vim')
-call dein#add('Valloric/YouCompleteMe')
+call dein#add('fholgado/minibufexpl.vim')
+call dein#add('jceb/vim-orgmode')
+call dein#add('MattesGroeger/vim-bookmarks')
 call dein#add('nvie/vim-flake8')
+call dein#add('scrooloose/nerdcommenter')
+call dein#add('scrooloose/nerdtree')
+call dein#add('scrooloose/syntastic')
+call dein#add('tmhedberg/SimpylFold')
+call dein#add('tpope/vim-fugitive')
+call dein#add('tpope/vim-speeddating')
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-unimpaired')
+call dein#add('viis/vim-bclose')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
-call dein#add('tpope/vim-unimpaired')
-call dein#add('MattesGroeger/vim-bookmarks')
-call dein#add('tpope/vim-speeddating')
-call dein#add('jceb/vim-orgmode')
-call dein#add('Chiel92/vim-autoformat')
+call dein#add('vim-scripts/indentpython.vim')
 
 " Required:
 call dein#end()
@@ -66,7 +63,7 @@ set t_Co=256
 "set background=light
 set background=dark
 "colorscheme solarized
-colorscheme eldar
+"colorscheme eldar
 
 " use UTF-8
 set encoding=utf-8
@@ -197,7 +194,6 @@ autocmd FileType * setlocal textwidth=119 formatoptions+=t
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:ycm_server_python_interpreter = 'python3'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -206,11 +202,6 @@ let g:syntastic_python_pylint_post_args='--disable=import-error'
 let g:syntastic_mode_map = {'passive_filetypes': ['perl']}
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['python3 -m flake8.run']
-
-" YouCompleteMe settings - Requires python support
-let g:ycm_autoclose_preview_window_after_completion=1
-noremap <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 
 " split windows
 noremap <Tab> <C-W>w
