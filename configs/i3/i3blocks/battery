@@ -14,7 +14,7 @@
 ### Custom Defines
 ###
 appname="battery"
-battery="${BLOCK_INSTANCE:-Battery 1}"
+battery="${BLOCK_INSTANCE:-Battery 0}"
 format=" {percent}% ({time})"
 
 
