@@ -170,11 +170,11 @@ sanitize() {
   done
 }
 
-# shadows system ssh to start tmux sessions. Will be revised when I
-# eventually hit a server without tmux installed
-ssht() {
-    /usr/bin/ssh -t $@ "tmux attach || tmux new";
-}
+## shadows system ssh to start tmux sessions. Will be revised when I
+## eventually hit a server without tmux installed
+#ssht() {
+#    /usr/bin/ssh -t $@ "tmux attach || tmux new";
+#}
 
 man(){
         env \
