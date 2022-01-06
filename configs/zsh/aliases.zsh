@@ -31,3 +31,5 @@ alias cp='rsync -ae ssh'
 alias cpa='rsync -vhae ssh --progress --append'
 
 alias -g pacman-autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
+
+alias feh='feh --conversion-timeout 1'
