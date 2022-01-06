@@ -119,3 +119,5 @@
     insteadOf = git://
 [pull]
 	rebase = false
+[submodule]
+	recurse = true
