@@ -42,6 +42,13 @@
         :desc "org-roam-insert" "i" #'org-roam-insert
         :desc "org-roam-capture" "c" #'org-roam-capture))
 
+(load-library "find-lisp")
+
+(add-hook 'org-agenda-mode-hook (lambda ()
+(setq org-agenda-files
+      (find-lisp-find-files "~/org" "\.org$"))
+))
+
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
