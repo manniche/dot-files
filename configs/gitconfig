@@ -108,6 +108,7 @@
 [user]
     name = Steen Manniche
 	email = steen@manniche.net
+	signingkey = 882BFA8F712BBEAD
 [diff]
     algorithm = patience
 [github]
@@ -121,3 +122,5 @@
 	rebase = false
 [submodule]
 	recurse = true
+[commit]
+	gpgsign = true
