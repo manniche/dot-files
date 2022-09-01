@@ -91,11 +91,11 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
-       ;;lsp
+       lsp
        ;;macos             ; MacOS-specific commands
        ;;magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
-       ;;pass              ; password manager for nerds
+       pass              ; password manager for nerds
        ;;pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
        ;;rgb               ; creating color strings
@@ -150,7 +150,7 @@
        (python
         +pyenv
         ;+pyright
-        +conda
+        ;+conda
         +lsp)              ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
@@ -182,3 +182,13 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+;; Emacs Application Framework
+;; https://github.com/emacs-eaf/emacs-application-framework
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
+(require 'eaf)
+(require 'eaf-browser)
+(require 'eaf-git)
+(require 'eaf-terminal)
+(require 'eaf-file-manager)
+(require 'eaf-org-previewer)
