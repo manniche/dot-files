@@ -5,7 +5,7 @@ xmodmap ~/.Xmodmap
 xset r rate 250 100 &
 setxkbmap -option ctrl:nocaps
 synclient MaxTapTime=0
-feh --bg-fill .i3/deep-dark-space.png
+feh --bg-fill .i3/star_forming.jpg
 syndaemon -i 0.2 -K -R &
 xrandr --output eDP-1 --mode "2048x1152" &
 # xss-lock -- i3lock -n -i ~/.i3/galaxy.png &
