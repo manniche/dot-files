@@ -27,4 +27,4 @@ ln -sf $(find /tmp -maxdepth 2 -type s -name "agent*" -user $USER -printf '%T@ %
 #source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 #source  ~/powerlevel9k/powerlevel9k.zsh-theme
 
-source /sbin/virtualenvwrapper.sh
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
