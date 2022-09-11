@@ -186,9 +186,12 @@
 ;; Emacs Application Framework
 ;; https://github.com/emacs-eaf/emacs-application-framework
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emacs-application-framework/")
-(require 'eaf)
-(require 'eaf-browser)
-(require 'eaf-git)
-(require 'eaf-terminal)
-(require 'eaf-file-manager)
-(require 'eaf-org-previewer)
+;(require 'eaf-pdf-viewer)
+;(require 'eaf-git)
+;(require 'eaf-browser)
+;(require 'eaf-file-manager)
+;(require 'eaf-markdown-previewer)
+;(require 'eaf-terminal)
+;(require 'eaf-org-previewer)
+;(require 'eaf-file-browser)
+;(require 'eaf-image-viewer)
