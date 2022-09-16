@@ -36,7 +36,7 @@ export PATH=$PATH:$LD_LIBRARY_PATH
 # experiments
 export LANGUAGE=EN_us
 export LC_ALL="en_US.utf8"
-export LANG="EN_us.UTF-8"
+export LANG="en_US.UTF-8"
 
 #virtualenv
 export WORKON_HOME=~/.virtualenvs
