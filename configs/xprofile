@@ -7,7 +7,7 @@ xset r rate 250 100 &
 setxkbmap -option ctrl:nocaps
 synclient MaxTapTime=0
 feh --bg-fill .i3/star_forming.jpg
-syndaemon -i 0.2 -K -R &
+syndaemon -d -i 0.2 -K 
 xrandr --output eDP-1 --mode "2560x1600" &
 # xss-lock -- i3lock -n -i ~/.i3/galaxy.png &
 udiskie --tray &
