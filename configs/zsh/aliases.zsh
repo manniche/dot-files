@@ -33,3 +33,9 @@ alias cpa='rsync -vhae ssh --progress --append'
 alias -g pacman-autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
 
 alias feh='feh --conversion-timeout 1'
+
+if [[ -x `which batcat` ]];then
+    alias bat=batcat
+else
+    alias bat=cat
+fi
