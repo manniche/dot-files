@@ -27,4 +27,11 @@ ln -sf $(find /tmp -maxdepth 2 -type s -name "agent*" -user $USER -printf '%T@ %
 #source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 #source  ~/powerlevel9k/powerlevel9k.zsh-theme
 
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+source /home/manniche/.local/bin/virtualenvwrapper.sh
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
