@@ -4,7 +4,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(neotree typescript-mode nginx-mode pyenv-mode virtualenv auto-virtualenv)))
+   '(lsp-pyre lsp-pyright docker-tramp ivy-avy ivy-xref ivy-rich counsel dockerfile-mode doom-modeline neotree typescript-mode nginx-mode pyenv-mode virtualenv auto-virtualenv))
+ '(warning-suppress-types
+   '((doom-after-init-hook)
+     (doom-after-init-hook)
+     (doom-after-init-hook)
+     (doom-after-init-hook)
+     (doom-after-init-hook)
+     (doom-after-init-hook)
+     (doom-after-init-hook)
+     (defvaralias))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
