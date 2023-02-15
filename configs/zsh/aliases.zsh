@@ -40,4 +40,4 @@ else
     alias bat=cat
 fi
 
-alias dotfiles='git --git-dir=/home/manniche/.dotfiles --work-tree=/'
+alias dotfiles='git --git-dir=/home/manniche/.dotfiles/.git --work-tree=/'
