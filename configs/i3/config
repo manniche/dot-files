@@ -17,14 +17,22 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec lxterminal
 
 ## quick terminal
 exec lxterminal -t metask
 exec --no-startup-id alternating_layouts.py
 for_window [title="metask"] floating enable;
-for_window [title="metask"] move scratchpad; [title="metask"] scratchpad show; move position 300px 1400px; resize set height 600px; resize set width 683px; move scratchpad
+for_window [title="metask"] move scratchpad; [title="metask"] scratchpad show; move position 300px 400px; resize set height 50 ppt; resize set width 70 ppt; move scratchpad
 bindsym $mod+t [title="metask"] scratchpad show
+
+# Keyboard layout for Sway
+#input "type:keyboard" {
+#    xkb_layout us,dk
+#    xkb_variant ,nodeadkeys
+#    xkb_options grp:alt_shift_toggle
+#}
+
 
 #bindsym F1 exec i3-sensible-terminal
 # kill focused window
@@ -140,7 +148,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym $mod+Shift+h resize shrink width 1 px or 1 ppt
 bindsym $mod+Shift+l resize grow width 1 px or 1 ppt
-bindsym $mod+Print exec "/usr/bin/flameshot gui"
+bindsym $mod+Print exec grimshot save area - | ~/.local/bin/swappy -f -
+bindsym XF86Launch8 exec grimshot save area - | ~/.local/bin/swappy -f -
 # special rules for applications
 for_window [title="Meld$"] fullscreen enable
 
@@ -171,7 +180,6 @@ mode "resize" {
         # same bindings, but for the arrow keys
         bindsym ctrl+minus resize shrink width 1 px or 1 ppt
         bindsym ctrl+plus resize grow height 1 px or 1 ppt
-        bindsym 111 resize shrink height 10 px or 10 ppt
         bindsym ctrl+slash resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
