@@ -13,3 +13,4 @@ xrandr --output eDP-1 --mode "2560x1600" &
 udiskie --tray &
 solaar &
 flameshot &
+mattermost-desktop &

@@ -41,3 +41,4 @@ else
 fi
 
 alias pdfviewer='apvlv'
+alias dotfiles='git --git-dir=/home/manniche/.configuration-files/.git --work-tree=/'

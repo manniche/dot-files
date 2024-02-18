@@ -21,7 +21,6 @@ bindsym $mod+Return exec lxterminal
 
 ## quick terminal
 exec lxterminal -t metask
-exec --no-startup-id alternating_layouts.py
 for_window [title="metask"] floating enable;
 for_window [title="metask"] move scratchpad; [title="metask"] scratchpad show; move position 300px 400px; resize set height 50 ppt; resize set width 70 ppt; move scratchpad
 bindsym $mod+t [title="metask"] scratchpad show
