@@ -11,6 +11,7 @@ export PATH=$PATH:$HOME/bin/
 export PATH=$PATH:$HOME/.emacs.d/bin/
 export PATH=$PATH:$HOME/opt/bin
 
+export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
 # Setup terminal, and turn on colors

@@ -39,3 +39,5 @@ if [[ -x `which batcat` ]];then
 else
     alias bat=cat
 fi
+
+alias pdfviewer='apvlv'
