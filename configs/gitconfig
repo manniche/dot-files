@@ -73,7 +73,8 @@
 
     tags = "!git for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/tags"
     latest = "!git tags | cut -f 3 -d '/' | cut -f 1 -d ' ' | tail -1"
-    delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*\\|master||develop' | xargs -n 1 git branch -d"
+    delete-merged-branches = "!primary_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo master); git checkout $primary_branch && git branch --merged | grep -v \"\\*\\|$primary_branch\\|develop\" | xargs -n 1 git branch -d"
+    # delete-merged-branches = "!git co master && git branch --merged | grep -v '\\*\\|master||develop' | xargs -n 1 git branch -d"
     hotfix = "!git co -b `git tags | cut -f 3 -d '/' | cut -f 1 -d ' ' | tail -1 | awk 'BEGIN { FS = \".\"};{printf \"hotfix/\" $1 \".\" $2 \".\" $3+1 }'`"
     who = shortlog -s -n --no-merges
     standup = shortlog --since=yesterday
@@ -110,12 +111,14 @@
 	email = steen@manniche.net
 	signingkey = 882BFA8F712BBEAD
 [diff]
-    algorithm = patience
+	algorithm = histogram
+	submodule = log
 [github]
     user = manniche
     email = steen@manniche.net
 [push]
     default = current
+	followtags = true
 [url "https://"]
     insteadOf = git://
 [pull]
@@ -131,3 +134,19 @@
 	required = true
 [merge]
 	tool = vimdiff
+	conflictstyle = diff3
+	keepbackup = false
+[status]
+	submoduleSummary = true
+[fetch]
+	prune = true
+[log]
+	date = iso
+[init]
+	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
