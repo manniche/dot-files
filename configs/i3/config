@@ -25,6 +25,8 @@ for_window [title="metask"] floating enable;
 for_window [title="metask"] move scratchpad; [title="metask"] scratchpad show; move position 300px 400px; resize set height 50 ppt; resize set width 70 ppt; move scratchpad
 bindsym $mod+t [title="metask"] scratchpad show
 
+exec register
+
 # Keyboard layout for Sway
 #input "type:keyboard" {
 #    xkb_layout us,dk
