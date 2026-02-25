@@ -9,8 +9,10 @@ alias mysqladmin='mysqladmin -u root'
 alias urldecode='python3 -c "import sys, urllib.parse; print( urllib.parse.unquote_plus(sys.argv[1]) )"'
 
 alias semacs='emacs -q -nw -load ~/.semacs.d/init.el'
+alias vim='nvim'
 alias pymacs='emacs -q -load ~/.pymacs.d/init.el'
 alias dmesg='dmesg -T'
+alias diff='difft'
 bindkey -s "^x^f" $'semacs '
 
 bindkey -s ",e" $'vim'
@@ -42,3 +44,5 @@ fi
 
 alias pdfviewer='apvlv'
 alias dotfiles='git --git-dir=/home/manniche/.configuration-files/.git --work-tree=/'
+
+alias upgrade_anythingllm='curl -fsSL https://cdn.anythingllm.com/latest/installer.sh | sh && sudo chmod 4755 /home/steen/AnythingLLMDesktop/anythingllm-desktop/chrome-sandbox && sudo chown root:root /home/steen/AnythingLLMDesktop/anythingllm-desktop/chrome-sandbox'

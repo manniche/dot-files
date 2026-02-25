@@ -193,3 +193,4 @@ function lb() {
     vim ~/logbook/$(date '+%Y-%m-%d').md
 }
 
+archivebox() { docker exec -it --user=archivebox archivebox-archivebox-1 archivebox "$@"; }
