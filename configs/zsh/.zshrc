@@ -2,6 +2,9 @@
 # autoload -Uz vcs_info
 [ $TERM = "dumb" ] && unsetopt zle && PS1='$ ' # Hi Tramp!
 
+# Always start tmux when opening a new terminal, but only if not already inside tmux
+[ -z "$TMUX" ] && exec tmux
+
 source ~/.zsh/colors.zsh
 source ~/.zsh/setopt.zsh
 source ~/.zsh/exports.zsh
@@ -12,6 +15,7 @@ source ~/.zsh/bindkeys.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/sgpt.zsh
+source ~/.zsh/tmux-notify.zsh
 
 # Launch SSH agent if not running
 if ! ps aux |grep $(whoami) |grep ssh-agent |grep -v grep >/dev/null; then ssh-agent ; fi
