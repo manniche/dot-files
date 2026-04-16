@@ -47,8 +47,13 @@ export NNN_FALLBACK_OPENER=xdg-open
 export NNN_RESTRICT_NAV_OPEN=1
 # go
 export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/entwicklung
 
 export REVIEW_BASE=master
+
+# GitLab search indexing
+export GITLAB_INDEX_DIR="$HOME/opt/gitlab_index"
+export GITLAB_CACHE_DIR="$HOME/opt/gitlab_cache"

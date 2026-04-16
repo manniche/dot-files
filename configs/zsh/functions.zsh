@@ -194,3 +194,14 @@ function lb() {
 }
 
 archivebox() { docker exec -it --user=archivebox archivebox-archivebox-1 archivebox "$@"; }
+# Wrapper for gitlab-search to always use ~/opt as index location
+#gitlab-search() {
+#    # Check if index directory has been explicitly provided in arguments
+#    if [[ "$@" == *"--index-dir"* ]]; then
+#        # User provided explicit index directory, pass through as-is
+#        command gitlab-search "$@"
+#    else
+#        # Inject default index and cache directories
+#        command gitlab-search --index-dir "$GITLAB_INDEX_DIR" --cache-dir "$GITLAB_CACHE_DIR" "$@"
+#    fi
+#}
