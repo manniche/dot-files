@@ -190,7 +190,7 @@ man(){
 
 function lb() {
     # from https://routley.io/tech/2017/11/23/logbook.html
-    vim ~/logbook/$(date '+%Y-%m-%d').md
+    vim ~/dendron/notes/$(date '+%Y-%m-%d').md
 }
 
 archivebox() { docker exec -it --user=archivebox archivebox-archivebox-1 archivebox "$@"; }

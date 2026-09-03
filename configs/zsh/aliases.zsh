@@ -46,3 +46,6 @@ alias pdfviewer='apvlv'
 alias dotfiles='git --git-dir=/home/manniche/.configuration-files/.git --work-tree=/'
 
 alias upgrade_anythingllm='curl -fsSL https://cdn.anythingllm.com/latest/installer.sh | sh && sudo chmod 4755 /home/steen/AnythingLLMDesktop/anythingllm-desktop/chrome-sandbox && sudo chown root:root /home/steen/AnythingLLMDesktop/anythingllm-desktop/chrome-sandbox'
+alias bta='brain task add'
+alias btl='brain task list'
+alias btd='brain task dashboard'
