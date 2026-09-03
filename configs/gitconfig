@@ -150,3 +150,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
