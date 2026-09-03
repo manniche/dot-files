@@ -41,3 +41,8 @@ eval "$(uv generate-shell-completion zsh)"
 
 # Scaleway CLI autocomplete initialization.
 eval "$(scw autocomplete script shell=zsh)"
+
+# opencode
+export PATH=/home/steen/.opencode/bin:$PATH
+
+. "$HOME/.moon/bin/env"
