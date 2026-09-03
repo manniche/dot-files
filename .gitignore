@@ -34,3 +34,7 @@ request
 tmp
 tramp
 ssh_auth_sock
+
+# Claude Code personal settings
+.claude/settings.local.json
+.claude/logs/
