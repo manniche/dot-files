@@ -2,8 +2,8 @@
 # autoload -Uz vcs_info
 [ $TERM = "dumb" ] && unsetopt zle && PS1='$ ' # Hi Tramp!
 
-# Always start tmux when opening a new terminal, but only if not already inside tmux
-[ -z "$TMUX" ] && exec tmux
+# Attach to existing tmux session if one exists, otherwise create a new one
+#[ -z "$TMUX" ] && exec tmux attach || exec tmux
 
 source ~/.zsh/colors.zsh
 source ~/.zsh/setopt.zsh

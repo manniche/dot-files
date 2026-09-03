@@ -1,7 +1,18 @@
 # tmux-notify.zsh — red dot in session bar + desktop notification when a
 # long-running command finishes. Clears on the next command (preexec).
 
+zmodload -i zsh/datetime   # provides $EPOCHSECONDS
+
 _PROCESS_NOTIFY_THRESHOLD=10   # seconds; commands shorter than this are ignored
+_PROCESS_DONE_DIR=/tmp/process-done
+
+# refresh-client has no -a; the status line is per-client, so walk them
+_process_refresh_status() {
+  local c
+  for c in ${(f)"$(tmux list-clients -F '#{client_name}' 2>/dev/null)"}; do
+    tmux refresh-client -S -t "$c" 2>/dev/null
+  done
+}
 
 _process_preexec() {
   _cmd_start_time=$EPOCHSECONDS
@@ -12,10 +23,10 @@ _process_preexec() {
   local session window
   session=$(tmux display-message -p -t "$TMUX_PANE" '#{session_name}' 2>/dev/null) || return
   window=$(tmux display-message -p  -t "$TMUX_PANE" '#{window_index}'  2>/dev/null) || return
-  local flag="/tmp/process-done/${session}_${window}"
+  local flag="${_PROCESS_DONE_DIR}/${session}_${window}"
   if [[ -f "$flag" ]]; then
     rm -f "$flag"
-    tmux refresh-client -a -S 2>/dev/null || true
+    _process_refresh_status
   fi
 }
 
@@ -30,9 +41,9 @@ _process_precmd() {
     notify-send "Done: $_cmd_name" "Finished in ${elapsed}s" 2>/dev/null || true
 
     # Flag for status bar red dot — cleared on next command (preexec above)
-    mkdir -p /tmp/process-done
-    touch "/tmp/process-done/${session}_${window}"
-    tmux refresh-client -a -S 2>/dev/null || true
+    mkdir -p "$_PROCESS_DONE_DIR"
+    touch "${_PROCESS_DONE_DIR}/${session}_${window}"
+    _process_refresh_status
   fi
   _cmd_start_time=0
   _cmd_name=""
